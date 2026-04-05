@@ -54,19 +54,57 @@ reveals.forEach(el => observer.observe(el));
 /* ─── CONTACT FORM ─── */
 const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    const original = btn.textContent;
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#2d7d62';
+    const note = form.querySelector('.form__note');
+    const originalBtnText = btn.textContent;
+    const originalNote = note ? note.textContent : '';
+
+    // Loading state
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = original;
-      btn.style.background = '';
-      btn.disabled = false;
-      form.reset();
-    }, 4000);
+    btn.style.opacity = '0.8';
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // Success state
+        btn.textContent = 'Message Sent ✓';
+        btn.style.opacity = '1';
+        btn.style.background = 'var(--teal-dark)';
+        if (note) note.textContent = "We'll be in touch within a few hours. Thank you!";
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = originalBtnText;
+          btn.style.background = '';
+          btn.disabled = false;
+          if (note) note.textContent = originalNote;
+        }, 5000);
+      } else {
+        // Server error
+        const json = await response.json().catch(() => ({}));
+        throw new Error(json.error || 'Server error');
+      }
+    } catch (err) {
+      // Error state
+      btn.textContent = 'Something went wrong — try again';
+      btn.style.opacity = '1';
+      btn.style.background = '#c0392b';
+      if (note) note.textContent = 'Please try again or call us directly at (610) 555-0100.';
+      setTimeout(() => {
+        btn.textContent = originalBtnText;
+        btn.style.background = '';
+        btn.disabled = false;
+        if (note) note.textContent = originalNote;
+      }, 5000);
+    }
   });
 }
 

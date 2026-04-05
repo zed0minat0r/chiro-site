@@ -74,7 +74,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(45,125,98,0.4);
 }
-.btn--primary:active { transform: translateY(0); }
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(45,125,98,0.25);
+}
 
 .btn--outline {
   background: transparent;
@@ -84,6 +87,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .btn--outline:hover {
   background: var(--teal-pale);
   transform: translateY(-1px);
+}
+.btn--outline:active {
+  transform: translateY(0);
+  background: var(--warm-dark);
 }
 
 .btn--lg { padding: 15px 34px; font-size: 1rem; }
@@ -601,6 +608,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.4;
 }
 
+/* ─── TAPPABLE CONTACT LINKS ─── */
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.contact-link:hover {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+
 /* ─── FORM ─── */
 .contact__form {
   background: var(--white);
@@ -775,4 +794,61 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @media (max-width: 480px) {
   .hero__cta-group { flex-direction: column; }
   .hero__cta-group .btn { width: 100%; text-align: center; }
+}
+
+/* ─── EXTRA POLISH ─── */
+
+/* Smooth icon color transition on service cards */
+.service-card__icon svg {
+  transition: color var(--transition);
+}
+
+/* Service card active (tap) feedback on mobile */
+.service-card:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Testimonial card tap feedback */
+.testimonial-card:active {
+  transform: translateY(-1px);
+}
+
+/* Subtle warm focus ring on submit button */
+.btn--primary:focus-visible {
+  outline: 3px solid var(--teal-light);
+  outline-offset: 3px;
+}
+.btn--outline:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* Nav burger tap feedback */
+.nav__burger:active span {
+  background: var(--teal);
+}
+
+/* Mobile menu link active state */
+.mobile-menu__link:active {
+  color: var(--teal);
+}
+
+/* Footer link hover — warmer transition */
+.footer__links a {
+  transition: color 0.18s ease;
+}
+
+/* Form submit button transition during loading */
+.contact__form button[type="submit"] {
+  transition: all var(--transition);
+}
+
+/* Slightly warmer select arrow on webkit */
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d7d62' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
 }
