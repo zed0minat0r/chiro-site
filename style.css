@@ -781,6 +781,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin: 0 auto;
 }
 
+/* By default show horizontal arrow, hide vertical */
+.journey__connector-v { display: none; }
+
 .journey__connector {
   display: flex;
   align-items: center;
@@ -1173,10 +1176,29 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-color: rgba(45,125,98,0.2);
 }
 
+.testimonial-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .testimonial-card__stars {
   color: #f59e0b;
   font-size: 1rem;
   letter-spacing: 2px;
+}
+
+.testimonial-card__badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--teal);
+  background: rgba(45,125,98,0.1);
+  border: 1px solid rgba(45,125,98,0.2);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .testimonial-card blockquote {
@@ -1630,6 +1652,20 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .value-strip__item:nth-child(3)::after { display: none; }
 }
 
+/* ── Value strip: stack at mid-tablet to avoid cramped 3-col ── */
+@media (max-width: 900px) and (min-width: 769px) {
+  .value-strip__inner { grid-template-columns: 1fr; }
+  .value-strip__item::after { display: none !important; }
+  .value-strip__item {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+    text-align: center;
+    padding: 32px 48px;
+  }
+  .value-strip__item:first-child { border-top: none; }
+  .value-strip__item:nth-child(3) { border-left: none; }
+}
+
 @media (max-width: 768px) {
   .nav__links, .nav__cta { display: none; }
   .nav__call { display: flex; }
@@ -1667,8 +1703,37 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .hero__trust-divider { display: none; }
   .hero__trust-item { min-width: 80px; }
 
-  .hero__visual { display: none; }
-  .hero__scroll-hint { margin-top: 16px; }
+  /* Show hero visual cards as a compact horizontal scroll strip on mobile */
+  .hero__visual {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding: 4px 0 12px;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .hero__visual::-webkit-scrollbar { display: none; }
+  .hero__visual-card {
+    width: 160px;
+    min-width: 160px;
+    flex-shrink: 0;
+    padding: 16px;
+    gap: 10px;
+  }
+  .hero__visual-card--offset,
+  .hero__visual-card--bottom {
+    align-self: auto;
+    margin-left: 0;
+  }
+  .hero__scroll-hint { margin-top: 8px; }
 
   /* ── Services ── */
   .services__grid { grid-template-columns: 1fr; }
@@ -1760,19 +1825,20 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .journey__connector {
     transform: none;
     padding-top: 0;
-    margin: 2px 0;
-    opacity: 0.4;
+    margin: 4px 0;
+    opacity: 0.45;
     width: 40px;
-    height: 36px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  /* Show a vertical down-chevron instead of the rotated horizontal arrow */
-  .journey__connector svg {
-    width: 24px;
-    height: 24px;
-    transform: rotate(90deg);
+  /* Hide horizontal arrow, show vertical down arrow on mobile */
+  .journey__connector-h { display: none; }
+  .journey__connector-v {
+    display: block;
+    width: 22px;
+    height: 36px;
   }
 
   /* ── Wellness tips — compact on mobile ── */

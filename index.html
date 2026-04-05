@@ -212,8 +212,10 @@
         <div class="service-card reveal">
           <div class="service-card__icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 20h28M10 28h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <rect x="8" y="12" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+              <!-- Massage: two curved hands cradling a body outline -->
+              <path d="M10 30c0-4 2-8 6-10l4-2c2-1 4-1 6 0l4 2c4 2 6 6 6 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 34c1-2 3-4 6-4h20c3 0 5 2 6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <ellipse cx="24" cy="16" rx="5" ry="7" stroke="currentColor" stroke-width="2"/>
             </svg>
           </div>
           <h3>Massage Therapy</h3>
@@ -274,8 +276,11 @@
         </div>
 
         <div class="journey__connector" aria-hidden="true">
-          <svg viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="journey__connector-h" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 12h32M28 5l10 7-10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="journey__connector-v" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4v18M5 16l7 8 7-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -293,8 +298,11 @@
         </div>
 
         <div class="journey__connector" aria-hidden="true">
-          <svg viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="journey__connector-h" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 12h32M28 5l10 7-10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="journey__connector-v" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4v18M5 16l7 8 7-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -313,8 +321,11 @@
         </div>
 
         <div class="journey__connector" aria-hidden="true">
-          <svg viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="journey__connector-h" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 12h32M28 5l10 7-10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="journey__connector-v" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4v18M5 16l7 8 7-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
@@ -492,25 +503,34 @@
 
       <div class="testimonials__rating reveal">
         <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
-        <p class="testimonials__rating-text">Rated 5.0 · <a href="https://maps.google.com/?q=200+Lincoln+Ave+Suite+106+Phoenixville+PA" class="testimonials__rating-link" target="_blank" rel="noopener">See our reviews on Google →</a></p>
+        <p class="testimonials__rating-text">Rated 5.0 · <a href="https://www.google.com/search?q=Stellar+Chiropractic+Phoenixville+PA#lrd=0x0:0x0,1" class="testimonials__rating-link" target="_blank" rel="noopener">See our reviews on Google →</a></p>
       </div>
 
       <div class="testimonials__grid">
 
         <div class="testimonial-card reveal">
-          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <div class="testimonial-card__header">
+            <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <span class="testimonial-card__badge">Verified Patient</span>
+          </div>
           <blockquote>"I came in barely able to turn my neck. After three visits I was back to normal. The care here is genuinely different — they actually listen."</blockquote>
           <cite>— Sarah M., back pain patient</cite>
         </div>
 
         <div class="testimonial-card reveal">
-          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <div class="testimonial-card__header">
+            <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <span class="testimonial-card__badge">Verified Patient</span>
+          </div>
           <blockquote>"I'd been dealing with migraines for years. Two months in, they're almost completely gone. I wish I'd come sooner."</blockquote>
           <cite>— James R., migraine patient</cite>
         </div>
 
         <div class="testimonial-card reveal">
-          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <div class="testimonial-card__header">
+            <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <span class="testimonial-card__badge">Verified Patient</span>
+          </div>
           <blockquote>"Sports injury that was supposed to sideline me for months. Got me back on the field in four weeks. Incredible."</blockquote>
           <cite>— Kevin T., sports rehab patient</cite>
         </div>
