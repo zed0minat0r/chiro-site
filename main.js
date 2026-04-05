@@ -34,22 +34,41 @@ document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta').forEach(link 
   link.addEventListener('click', closeMenu);
 });
 
+/* ─── HERO TRUST BAR: trigger pop animation once ─── */
+const heroTrust = document.querySelector('.hero__trust');
+if (heroTrust) {
+  heroTrust.classList.add('animated');
+}
+
 /* ─── REVEAL ON SCROLL ─── */
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // Stagger cards in grids
-      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
-      let delay = 0;
-      siblings.forEach((el, idx) => { if (el === entry.target) delay = idx * 80; });
-      setTimeout(() => entry.target.classList.add('visible'), delay);
+      // Stagger cards in grids using computed sibling index
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+      const idx = siblings.indexOf(entry.target);
+      const baseDelay = idx * 85;
+      setTimeout(() => entry.target.classList.add('visible'), baseDelay);
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 reveals.forEach(el => observer.observe(el));
+
+/* ─── VALUE STRIP REVEAL ─── */
+const valueItems = document.querySelectorAll('.value-strip__item');
+const valueObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      valueObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+
+valueItems.forEach(el => valueObserver.observe(el));
 
 /* ─── CONTACT FORM ─── */
 const form = document.getElementById('contact-form');
@@ -75,7 +94,6 @@ if (form) {
       });
 
       if (response.ok) {
-        // Success state
         btn.textContent = 'Message Sent ✓';
         btn.style.opacity = '1';
         btn.style.background = 'var(--teal-dark)';
@@ -88,12 +106,10 @@ if (form) {
           if (note) note.textContent = originalNote;
         }, 5000);
       } else {
-        // Server error
         const json = await response.json().catch(() => ({}));
         throw new Error(json.error || 'Server error');
       }
     } catch (err) {
-      // Error state
       btn.textContent = 'Something went wrong — try again';
       btn.style.opacity = '1';
       btn.style.background = '#c0392b';
@@ -124,3 +140,18 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => sectionObserver.observe(s));
+
+/* ─── FAQ: smooth open/close micro-interaction ─── */
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('toggle', () => {
+    if (item.open) {
+      const answer = item.querySelector('.faq-item__a');
+      if (answer) {
+        answer.style.animation = 'none';
+        // Force reflow then fade in
+        answer.getBoundingClientRect();
+        answer.style.animation = 'faqReveal 0.3s ease forwards';
+      }
+    }
+  });
+});
