@@ -2,6 +2,24 @@
    STELLAR CHIROPRACTIC — CSS
    ============================================================ */
 
+/* ─── SKIP TO CONTENT ─── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--teal);
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 700;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  transition: top 0.2s;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
 /* ─── TOKENS ─── */
 :root {
   --teal:        #2d7d62;
@@ -587,7 +605,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .value-strip__desc {
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.92);
   line-height: 1.65;
   font-weight: 400;
 }
@@ -1603,10 +1621,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .hero__visual-card { width: 200px; }
   .hero__visual-card--offset { align-self: auto; margin-left: 0; }
   .hero__visual-card--bottom { align-self: auto; }
-  .value-strip__inner { grid-template-columns: 1fr 1fr; }
+  .value-strip__inner {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   .value-strip__item:nth-child(3) {
-    grid-column: 1 / -1;
-    border-top: 1px solid rgba(255,255,255,0.12);
+    border-left: 1px solid rgba(255,255,255,0.18);
   }
   .value-strip__item:nth-child(3)::after { display: none; }
 }
