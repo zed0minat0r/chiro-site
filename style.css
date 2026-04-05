@@ -836,21 +836,42 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   left: 50%;
   transform: translate(-50%, -55%);
 }
-.about__photo-placeholder svg {
-  width: 120px;
-  height: 120px;
+/* Initials avatar inside placeholder */
+.about__photo-initials {
   position: relative;
   z-index: 1;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(45,125,98,0.15);
+  border: 2px solid rgba(45,125,98,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  letter-spacing: -0.02em;
 }
-/* "Photo coming soon" label inside placeholder */
-.about__photo-coming {
+.about__photo-name {
   position: relative;
   z-index: 1;
-  font-size: 0.72rem;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  margin-top: 16px;
+}
+.about__photo-title {
+  position: relative;
+  z-index: 1;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: rgba(31,92,71,0.55);
+  color: rgba(31,92,71,0.6);
+  margin-top: 4px;
 }
 .about__photo-placeholder.has-photo {
   padding: 0;
@@ -953,17 +974,21 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .wellness-tips__avatar {
   width: 56px;
   height: 56px;
-  background: var(--teal-pale);
+  background: var(--teal);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--teal);
+  color: var(--white);
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(45,125,98,0.32);
 }
-.wellness-tips__avatar svg {
-  width: 30px;
-  height: 30px;
+.wellness-tips__avatar-initials {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--white);
 }
 
 .wellness-tips__from {
@@ -1081,6 +1106,33 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ─── TESTIMONIALS ─── */
 .testimonials { background: var(--white); }
 
+.testimonials__rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 36px;
+}
+.testimonials__stars {
+  font-size: 1.5rem;
+  color: #f5a623;
+  letter-spacing: 2px;
+}
+.testimonials__rating-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.testimonials__rating-link {
+  color: var(--teal);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+}
+.testimonials__rating-link:hover {
+  color: var(--teal-dark);
+  border-bottom-color: var(--teal-dark);
+}
+
 .testimonials__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1172,6 +1224,49 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-weight: 600;
   color: var(--text);
   line-height: 1.4;
+}
+
+/* ─── FIRST VISIT PREP BOX ─── */
+.contact__prep {
+  background: var(--teal-pale);
+  border: 1.5px solid rgba(45,125,98,0.2);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 4px;
+}
+.contact__prep-heading {
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 12px;
+}
+.contact__prep-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+.contact__prep-list li {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.55;
+  padding-left: 18px;
+  position: relative;
+}
+.contact__prep-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+.contact__prep-list li strong {
+  font-weight: 700;
+  color: var(--text);
 }
 
 /* ─── TAPPABLE CONTACT LINKS ─── */
@@ -1573,8 +1668,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .value-strip__inner { grid-template-columns: 1fr; }
   .value-strip__item::after { display: none !important; }
   .value-strip__item {
-    padding: 32px 24px;
+    padding: 28px 24px;
     border-top: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+    text-align: center;
   }
   .value-strip__item:first-child { border-top: none; }
   .value-strip__item:nth-child(3) { grid-column: auto; border-top: 1px solid rgba(255,255,255,0.1); }
