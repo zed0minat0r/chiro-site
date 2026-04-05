@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar Chiropractic — Feel Better, Live Better</title>
+  <meta name="description" content="Personalized chiropractic care focused on relieving pain, restoring movement, and improving your quality of life. Accepting new patients." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Stellar Chiropractic — Feel Better, Live Better" />
+  <meta property="og:description" content="Personalized chiropractic care focused on relieving pain, restoring movement, and improving your quality of life." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zed0minat0r.github.io/chiro-site/" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d7d62'/><text y='46' x='50%' text-anchor='middle' font-size='38' fill='white'>✦</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#" class="nav__logo">
+      <svg class="nav__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 8v16M10 12c0 0 2 2 6 2s6-2 6-2M10 20c0 0 2-2 6-2s6 2 6 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Stellar Chiropractic
+    </a>
+    <nav class="nav__links" aria-label="Main navigation">
+      <a href="#services" class="nav__link">Services</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#testimonials" class="nav__link">Reviews</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--primary nav__cta">Book Appointment</a>
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="#services" class="mobile-menu__link">Services</a>
+      <a href="#about" class="mobile-menu__link">About</a>
+      <a href="#testimonials" class="mobile-menu__link">Reviews</a>
+      <a href="#contact" class="mobile-menu__link">Contact</a>
+      <a href="#contact" class="btn btn--primary mobile-menu__cta">Book Appointment</a>
+    </nav>
+  </div>
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__content fade-in">
+      <p class="hero__badge">✦ Accepting New Patients</p>
+      <h1 class="hero__heading">You Deserve to Feel<br><em>Good Again</em></h1>
+      <p class="hero__sub">Personalized chiropractic care that listens first and treats second. We focus on the root cause — not just the symptom.</p>
+      <div class="hero__cta-group">
+        <a href="#contact" class="btn btn--primary btn--lg">Book Your First Visit</a>
+        <a href="#services" class="btn btn--outline btn--lg">Our Services</a>
+      </div>
+      <div class="hero__trust">
+        <div class="hero__trust-item">
+          <strong>500+</strong>
+          <span>Patients helped</span>
+        </div>
+        <div class="hero__trust-divider" aria-hidden="true"></div>
+        <div class="hero__trust-item">
+          <strong>10+ yrs</strong>
+          <span>Experience</span>
+        </div>
+        <div class="hero__trust-divider" aria-hidden="true"></div>
+        <div class="hero__trust-item">
+          <strong>Same-day</strong>
+          <span>Appointments</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <p class="section__label reveal">What We Offer</p>
+      <h2 class="section__heading reveal">Treatments Tailored to You</h2>
+      <p class="section__sub reveal">We don't believe in one-size-fits-all care. Every treatment plan is built around your body, your pain, and your goals.</p>
+
+      <div class="services__grid">
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 8v32M18 14l6-6 6 6M18 34l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <ellipse cx="24" cy="24" rx="8" ry="4" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Spinal Adjustment</h3>
+          <p>Gentle, precise adjustments to restore alignment, relieve nerve pressure, and reduce pain — often with immediate relief.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 36c0-8 6-14 12-14s12 6 12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="24" cy="16" r="6" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 30c2-2 4-3 8-3s6 1 8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Posture Correction</h3>
+          <p>We identify how your posture is contributing to your pain and build a correction plan that works with your daily life.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 24c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 24h6M24 8v6M40 24h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="3" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3>Sports & Injury Rehab</h3>
+          <p>Whether it's a gym injury, weekend warrior strain, or workplace repetitive stress — we get you back to doing what you love.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20h28M10 28h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <rect x="8" y="12" width="32" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Massage Therapy</h3>
+          <p>Therapeutic massage to loosen tight muscles, improve circulation, and prepare your body for chiropractic care.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 12c-6.6 0-12 5.4-12 12 0 4 2 7.5 5 9.7V38h14v-4.3c3-2.2 5-5.7 5-9.7 0-6.6-5.4-12-12-12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M20 38h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Headache & Migraine Relief</h3>
+          <p>Many chronic headaches originate in the neck and upper spine. We address the source, not just the symptoms.</p>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 20h16M16 28h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 14h28v20H10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M16 14V10M32 14V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Wellness Plans</h3>
+          <p>Preventive care designed to keep you moving well, sleeping better, and feeling your best — month after month.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container about__inner">
+      <div class="about__photo-wrap reveal">
+        <div class="about__photo-placeholder" aria-label="Dr. — Chiropractor">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="45" r="28" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+            <path d="M15 110c0-24.9 20.1-45 45-45s45 20.1 45 45" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="about__photo-badge">DC · Licensed Chiropractor</div>
+      </div>
+      <div class="about__text reveal">
+        <p class="section__label">Meet Your Doctor</p>
+        <h2 class="section__heading section__heading--left">Meet Dr. Jason</h2>
+        <p class="about__intro">With over a decade of experience, Dr. Jason has helped hundreds of patients move past pain and get back to living fully — without relying on medication.</p>
+        <p>The approach here is simple: take the time to understand what's actually going on, explain it clearly, and build a plan that fits your life. No pressure, no upsells — just honest, effective care.</p>
+        <ul class="about__credentials">
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Doctor of Chiropractic (DC)
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Sports & Rehabilitation Certified
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            10+ Years Clinical Experience
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Most Insurance Plans Accepted
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn--primary">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <p class="section__label reveal">What Patients Say</p>
+      <h2 class="section__heading reveal">Real Results, Real People</h2>
+
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"I came in barely able to turn my neck. After three visits I was back to normal. The care here is genuinely different — they actually listen."</blockquote>
+          <cite>— Sarah M., back pain patient</cite>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"I'd been dealing with migraines for years. Two months in, they're almost completely gone. I wish I'd come sooner."</blockquote>
+          <cite>— James R., migraine patient</cite>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>"Sports injury that was supposed to sideline me for months. Got me back on the field in four weeks. Incredible."</blockquote>
+          <cite>— Kevin T., sports rehab patient</cite>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <p class="section__label reveal">Ready to Feel Better?</p>
+      <h2 class="section__heading reveal">Book Your Appointment</h2>
+      <p class="section__sub reveal">New patients always welcome. Same-day appointments often available. Call us or fill out the form and we'll get back to you within a few hours.</p>
+
+      <div class="contact__inner">
+        <div class="contact__info reveal">
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div>
+              <strong>Location</strong>
+              <span>200 Lincoln Ave, Suite 106 · The Byrne Building, Phoenixville, PA</span>
+            </div>
+          </div>
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.5c0-.6.4-1 1-1H8c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div>
+              <strong>Phone</strong>
+              <span>(610) 555-0100</span>
+            </div>
+          </div>
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 8l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Email</strong>
+              <span>hello@stellarchiropractic.com</span>
+            </div>
+          </div>
+          <div class="contact__info-item">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.8"/><path d="M8 2v4M16 2v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Hours</strong>
+              <span>Mon–Fri 8am–6pm · Sat 9am–1pm</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact__form reveal" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(610) 555-0100" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="reason">What brings you in?</label>
+            <select id="reason" name="reason">
+              <option value="">Select a concern...</option>
+              <option>Back or neck pain</option>
+              <option>Headaches or migraines</option>
+              <option>Sports or workout injury</option>
+              <option>Posture issues</option>
+              <option>General wellness</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Anything else you'd like us to know?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about what you're experiencing..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+          <p class="form__note">We'll respond within a few hours during business hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <svg class="nav__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16 8v16M10 12c0 0 2 2 6 2s6-2 6-2M10 20c0 0 2-2 6-2s6 2 6 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Stellar Chiropractic
+        </a>
+        <p>Stellar care. Real results.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Stellar Chiropractic. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
