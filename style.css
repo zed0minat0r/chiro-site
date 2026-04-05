@@ -1758,10 +1758,21 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .journey__cta { margin-top: 8px; text-align: center; }
   .journey__cta .btn { min-width: 200px; }
   .journey__connector {
-    transform: rotate(90deg);
+    transform: none;
     padding-top: 0;
-    margin: 8px 0;
-    opacity: 0.3;
+    margin: 2px 0;
+    opacity: 0.4;
+    width: 40px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Show a vertical down-chevron instead of the rotated horizontal arrow */
+  .journey__connector svg {
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
   }
 
   /* ── Wellness tips — compact on mobile ── */

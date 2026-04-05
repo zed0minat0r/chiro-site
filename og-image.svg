@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eaf6f1"/>
+      <stop offset="55%" style="stop-color:#f7f3ee"/>
+      <stop offset="100%" style="stop-color:#f0faf5"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d7d62"/>
+      <stop offset="100%" style="stop-color:#1f5c47"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative circle accent -->
+  <circle cx="1050" cy="120" r="220" fill="none" stroke="#2d7d62" stroke-width="1" opacity="0.08"/>
+  <circle cx="1050" cy="120" r="150" fill="none" stroke="#2d7d62" stroke-width="1" opacity="0.06"/>
+  <!-- Left teal accent bar -->
+  <rect x="0" y="0" width="8" height="630" fill="#2d7d62"/>
+  <!-- Logo area -->
+  <circle cx="120" cy="315" r="38" fill="none" stroke="#2d7d62" stroke-width="3"/>
+  <line x1="120" y1="290" x2="120" y2="340" stroke="#2d7d62" stroke-width="3" stroke-linecap="round"/>
+  <path d="M106 298 Q120 306 134 298" fill="none" stroke="#2d7d62" stroke-width="3" stroke-linecap="round"/>
+  <path d="M106 332 Q120 324 134 332" fill="none" stroke="#2d7d62" stroke-width="3" stroke-linecap="round"/>
+  <!-- Brand name -->
+  <text x="180" y="308" font-family="Georgia, serif" font-size="52" font-weight="600" fill="#1f5c47" letter-spacing="-1">Stellar Chiropractic</text>
+  <!-- Tagline -->
+  <text x="180" y="352" font-family="Georgia, serif" font-style="italic" font-size="28" fill="#2d7d62" opacity="0.85">Feel Better. Live Better.</text>
+  <!-- Location pill -->
+  <rect x="180" y="378" width="300" height="40" rx="20" fill="#2d7d62" opacity="0.12"/>
+  <text x="330" y="403" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1f5c47" text-anchor="middle" letter-spacing="0.05em">PHOENIXVILLE, PA</text>
+  <!-- Bottom trust bar -->
+  <rect x="0" y="550" width="1200" height="80" fill="#2d7d62"/>
+  <text x="200" y="598" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Hundreds Helped</text>
+  <text x="200" y="618" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.75)" text-anchor="middle">Patients</text>
+  <line x1="320" y1="568" x2="320" y2="618" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="460" y="598" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">10+ Years</text>
+  <text x="460" y="618" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.75)" text-anchor="middle">Experience</text>
+  <line x1="580" y1="568" x2="580" y2="618" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="720" y="598" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Same-Day</text>
+  <text x="720" y="618" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.75)" text-anchor="middle">Appointments</text>
+  <line x1="840" y1="568" x2="840" y2="618" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="1000" y="598" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Most Insurance</text>
+  <text x="1000" y="618" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.75)" text-anchor="middle">Plans Accepted</text>
+</svg>
