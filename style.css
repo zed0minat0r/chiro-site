@@ -614,13 +614,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ─── VALUE STRIP CTA ─── */
 .value-strip-cta {
-  background: var(--teal);
-  padding: 0 0 52px;
+  background: var(--bg);
+  padding: 48px 0;
   text-align: center;
 }
 .value-strip-cta .btn {
   font-size: 1.05rem;
   padding: 16px 38px;
+  border-radius: var(--radius);
 }
 
 /* ─── SERVICES ─── */
@@ -851,46 +852,27 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   overflow: hidden;
   position: relative;
 }
-/* Decorative rings inside placeholder */
+/* Clean subtle background pattern */
 .about__photo-placeholder::before {
   content: '';
   position: absolute;
-  width: 260px;
-  height: 260px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 1px solid rgba(45,125,98,0.18);
-  top: 50%;
+  background: rgba(45,125,98,0.08);
+  top: 18%;
   left: 50%;
-  transform: translate(-50%, -55%);
+  transform: translateX(-50%);
 }
 .about__photo-placeholder::after {
-  content: '';
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 1px solid rgba(45,125,98,0.25);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -55%);
+  display: none;
 }
-/* Initials avatar inside placeholder */
-.about__photo-initials {
+/* Person silhouette SVG inside placeholder */
+.about__photo-silhouette {
   position: relative;
   z-index: 1;
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  background: rgba(45,125,98,0.15);
-  border: 2px solid rgba(45,125,98,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--teal-dark);
-  letter-spacing: -0.02em;
+  width: 110px;
+  height: 110px;
 }
 .about__photo-name {
   position: relative;
@@ -2172,17 +2154,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transition: transform 0.35s ease;
 }
 
-/* About photo placeholder gentle float */
-@keyframes gentleFloat {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-6px); }
-}
-.about__photo-placeholder {
-  animation: gentleFloat 5s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .about__photo-placeholder { animation: none; }
-}
+/* About photo placeholder — no float animation (looked janky on mobile) */
 
 /* FAQ item smooth open border transition */
 .faq-item[open] .faq-item__q {
