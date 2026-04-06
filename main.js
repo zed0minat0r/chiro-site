@@ -169,7 +169,7 @@ if (form) {
       btn.textContent = 'Something went wrong — try again';
       btn.style.opacity = '1';
       btn.style.background = '#c0392b';
-      if (note) note.textContent = 'Please try again in a moment, or use the contact info on the left to reach us directly.';
+      if (note) note.textContent = 'Please try again in a moment, or call us directly to book.';
       setTimeout(() => {
         btn.textContent = originalBtnText;
         btn.style.background = '';
@@ -208,6 +208,36 @@ if (scrollHint) {
     if (opacity === 0) scrollHint.style.pointerEvents = 'none';
     else scrollHint.style.pointerEvents = '';
   }, { passive: true });
+}
+
+/* ─── STICKY MOBILE CTA BAR ─── */
+const stickyCta = document.getElementById('sticky-cta');
+if (stickyCta) {
+  const heroCtas = document.querySelector('.hero__cta-group');
+  const contactSection = document.getElementById('contact');
+
+  // Show sticky bar once hero CTAs scroll out of view
+  const stickyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0 });
+
+  if (heroCtas) stickyObserver.observe(heroCtas);
+
+  // Hide sticky bar when contact section is in view
+  if (contactSection) {
+    const contactObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        stickyCta.classList.toggle('hidden-in-contact', entry.isIntersecting);
+      });
+    }, { threshold: 0.2 });
+    contactObserver.observe(contactSection);
+  }
 }
 
 /* ─── FAQ: smooth open/close micro-interaction ─── */
