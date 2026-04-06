@@ -34,11 +34,7 @@ document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta').forEach(link 
   link.addEventListener('click', closeMenu);
 });
 
-/* ─── HERO TRUST BAR: trigger pop animation once ─── */
-const heroTrust = document.querySelector('.hero__trust');
-if (heroTrust) {
-  heroTrust.classList.add('animated');
-}
+/* Hero trust pop animation removed — items show immediately */
 
 /* ─── REVEAL ON SCROLL ─── */
 const reveals = document.querySelectorAll('.reveal');
@@ -201,19 +197,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-/* ─── INSURANCE PILL STAGGER REVEAL ─── */
-const insurancePills = document.querySelectorAll('.insurance-pill');
-if (insurancePills.length) {
-  const pillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        pillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
-  insurancePills.forEach(el => pillObserver.observe(el));
-}
+/* Insurance pill stagger reveal removed — pills show immediately */
 
 /* ─── HERO SCROLL HINT FADE ON SCROLL ─── */
 const scrollHint = document.querySelector('.hero__scroll-hint');

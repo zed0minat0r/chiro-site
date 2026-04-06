@@ -90,11 +90,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .btn--primary:hover {
   background: var(--teal-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(45,125,98,0.42);
+  box-shadow: 0 6px 18px rgba(45,125,98,0.38);
 }
 .btn--primary:active {
-  transform: translateY(0);
   box-shadow: 0 2px 8px rgba(45,125,98,0.25);
 }
 
@@ -105,11 +103,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 .btn--outline:hover {
   background: var(--teal-pale);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(45,125,98,0.12);
 }
 .btn--outline:active {
-  transform: translateY(0);
   background: var(--warm-dark);
 }
 
@@ -166,17 +161,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transition: color var(--transition);
   position: relative;
 }
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 0; right: 0;
-  height: 2px;
-  background: var(--teal);
-  transform: scaleX(0);
-  transition: transform var(--transition);
-}
 .nav__link:hover { color: var(--teal); }
-.nav__link:hover::after { transform: scaleX(1); }
 
 .nav__cta { padding: 10px 22px; font-size: 0.88rem; }
 
@@ -192,8 +177,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   flex-shrink: 0;
   transition: background var(--transition), transform var(--transition);
 }
-.nav__call:hover { background: var(--teal-dark); transform: scale(1.08); }
-.nav__call:active { transform: scale(0.95); }
+.nav__call:hover { background: var(--teal-dark); }
+.nav__call:active { background: var(--teal); }
 
 .nav__burger {
   display: none;
@@ -336,11 +321,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   align-items: center;
   gap: 16px;
   width: 280px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-.hero__visual-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.13);
 }
 .hero__visual-card--offset {
   align-self: flex-start;
@@ -360,11 +340,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   justify-content: center;
   flex-shrink: 0;
   color: var(--teal);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-.hero__visual-card:hover .hero__visual-icon {
-  background: rgba(45,125,98,0.15);
-  transform: scale(1.05);
 }
 .hero__visual-icon svg {
   width: 36px;
@@ -406,22 +381,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border: 1.5px solid rgba(45,125,98,0.3);
   color: var(--teal);
   margin-top: 32px;
-  animation: bounceDown 2.2s ease-in-out infinite;
-  transition: border-color var(--transition), background var(--transition), transform var(--transition);
 }
 .hero__scroll-hint:hover {
   background: var(--teal-pale);
   border-color: var(--teal);
-  transform: translateY(2px);
 }
 .hero__scroll-hint svg {
   width: 20px;
   height: 20px;
-}
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  45%       { transform: translateY(7px); }
-  55%       { transform: translateY(5px); }
 }
 
 .hero__badge {
@@ -590,11 +557,9 @@ section[id] {
   justify-content: center;
   color: var(--white);
   flex-shrink: 0;
-  transition: background 0.25s ease, transform 0.25s ease;
 }
 .value-strip__item:hover .value-strip__icon {
   background: rgba(255,255,255,0.22);
-  transform: scale(1.07);
 }
 .value-strip__icon svg {
   width: 26px;
@@ -661,13 +626,11 @@ section[id] {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 36px 28px;
-  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
   display: flex;
   flex-direction: column;
 }
 .service-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
   border-color: rgba(45,125,98,0.28);
 }
 
@@ -681,17 +644,14 @@ section[id] {
   justify-content: center;
   margin-bottom: 20px;
   color: var(--teal);
-  transition: background var(--transition), transform var(--transition);
 }
 .service-card__icon svg {
   width: 28px;
   height: 28px;
-  transition: color var(--transition);
 }
 .service-card:hover .service-card__icon {
   background: var(--teal);
   color: var(--white);
-  transform: scale(1.06);
 }
 
 .service-card h3 {
@@ -718,11 +678,10 @@ section[id] {
   font-weight: 700;
   color: var(--teal);
   letter-spacing: 0.01em;
-  transition: color var(--transition), transform var(--transition);
+  transition: color var(--transition);
 }
 .service-card__cta:hover {
   color: var(--teal-dark);
-  transform: translateX(3px);
 }
 
 /* ─── PATIENT JOURNEY ─── */
@@ -788,16 +747,10 @@ section[id] {
   margin-bottom: 18px;
   color: var(--teal);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 .journey__step-icon svg {
   width: 32px;
   height: 32px;
-}
-.journey__step:hover .journey__step-icon {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(45,125,98,0.3);
 }
 
 .journey__step h3 {
@@ -1075,12 +1028,6 @@ section[id] {
   background: linear-gradient(135deg, #f5faf7 0%, #fdf9f4 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
-}
-.wellness-tips__item:hover {
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
-  border-color: rgba(45,125,98,0.22);
 }
 
 .wellness-tips__item-icon {
@@ -1093,12 +1040,7 @@ section[id] {
   justify-content: center;
   color: var(--teal);
   flex-shrink: 0;
-  transition: background var(--transition), transform var(--transition);
   position: relative;
-}
-.wellness-tips__item:hover .wellness-tips__item-icon {
-  background: rgba(45,125,98,0.18);
-  transform: scale(1.06);
 }
 .wellness-tips__item-icon svg {
   width: 22px;
@@ -1191,11 +1133,9 @@ section[id] {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
 }
 .testimonial-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
   border-color: rgba(45,125,98,0.2);
 }
 
@@ -2085,21 +2025,14 @@ section[id] {
 
 /* ─── EXTRA POLISH ─── */
 
-/* Smooth icon color transition on service cards */
-.service-card__icon svg {
-  transition: color var(--transition);
-}
+/* Service card icon transition removed */
 
-/* Service card active (tap) feedback on mobile */
+/* Service card tap feedback — subtle */
 .service-card:active {
-  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-/* Testimonial card tap feedback */
-.testimonial-card:active {
-  transform: translateY(-1px);
-}
+/* Testimonial card tap — no transform */
 
 /* Subtle warm focus ring on submit button */
 .btn--primary:focus-visible {
@@ -2153,49 +2086,15 @@ section[id] {
     scroll-behavior: auto !important;
   }
   html { scroll-behavior: auto; }
-  .hero__scroll-hint { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .fade-in { opacity: 1; transform: none; animation: none; }
-  .value-strip__item { opacity: 1; transform: none; transition: background 0.01ms; }
+  .value-strip__item { opacity: 1; transform: none; }
   .faq-item__a { animation: none; }
 }
 
-/* ─── 2. HERO CTA SUBTLE GLOW PULSE ─── */
-@keyframes ctaGlow {
-  0%, 100% { box-shadow: 0 4px 14px rgba(45,125,98,0.32); }
-  50%      { box-shadow: 0 4px 24px rgba(45,125,98,0.50), 0 0 40px rgba(45,125,98,0.12); }
-}
-.hero .btn--primary {
-  animation: ctaGlow 3.5s ease-in-out infinite;
-}
-.hero .btn--primary:hover {
-  animation: none;
-  box-shadow: 0 8px 24px rgba(45,125,98,0.42);
-}
+/* CTA glow removed — clean static buttons */
 
-/* ─── 3. TESTIMONIAL DECORATIVE QUOTE MARK ─── */
-.testimonial-card {
-  position: relative;
-  overflow: hidden;
-}
-.testimonial-card::before {
-  content: '\201C';
-  position: absolute;
-  top: -8px;
-  right: 16px;
-  font-family: var(--font-display);
-  font-size: 6rem;
-  line-height: 1;
-  color: rgba(45,125,98,0.06);
-  pointer-events: none;
-  z-index: 0;
-}
-.testimonial-card blockquote,
-.testimonial-card cite,
-.testimonial-card__header {
-  position: relative;
-  z-index: 1;
-}
+/* Testimonial decorative quote removed — clean cards */
 
 /* ─── 4. FOOTER TOP GRADIENT ACCENT ─── */
 .footer {
@@ -2203,14 +2102,7 @@ section[id] {
   border-image: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal)) 1;
 }
 
-/* ─── 5. ABOUT PHOTO PLACEHOLDER BREATHING GLOW ─── */
-@keyframes placeholderBreath {
-  0%, 100% { box-shadow: 0 12px 40px rgba(45,125,98,0.12); }
-  50%      { box-shadow: 0 16px 52px rgba(45,125,98,0.20), 0 0 0 6px rgba(45,125,98,0.04); }
-}
-.about__photo-placeholder {
-  animation: placeholderBreath 4.5s ease-in-out infinite;
-}
+/* About photo breathing glow removed */
 
 /* ─── 6. FORM INPUT LABEL TRANSITION ON FOCUS ─── */
 .form-group label {
@@ -2220,92 +2112,24 @@ section[id] {
   color: var(--teal);
 }
 
-/* ─── 7. SERVICE CARD BORDER TOP ACCENT ON HOVER ─── */
-.service-card {
-  position: relative;
-  overflow: hidden;
-}
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--teal), var(--teal-light));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.service-card:hover::before {
-  transform: scaleX(1);
-}
+/* Service card border animation removed */
 
-/* ─── 8. WELLNESS TIPS BOX HOVER LIFT ─── */
-.wellness-tips__box {
-  transition: box-shadow 0.35s ease, transform 0.35s ease;
-}
-.wellness-tips__box:hover {
-  box-shadow: 0 12px 44px rgba(45,125,98,0.14);
-  transform: translateY(-2px);
-}
+/* Wellness tips box hover lift removed */
 
-/* ─── 9. JOURNEY STEP NUMBER RING PULSE ─── */
-@keyframes ringPulse {
-  0%   { box-shadow: 0 4px 12px rgba(45,125,98,0.32); }
-  50%  { box-shadow: 0 4px 12px rgba(45,125,98,0.32), 0 0 0 8px rgba(45,125,98,0.08); }
-  100% { box-shadow: 0 4px 12px rgba(45,125,98,0.32), 0 0 0 12px rgba(45,125,98,0); }
-}
-.journey__step:hover .journey__step-num {
-  animation: ringPulse 1.2s ease-out;
-}
+/* Ring pulse removed */
 
-/* ─── 10. NAV CTA MICRO-BOUNCE ON HOVER ─── */
-.nav__cta:hover {
-  transform: translateY(-1px) scale(1.03);
-}
-.nav__cta:active {
-  transform: translateY(0) scale(0.98);
-}
+/* Nav CTA micro-bounce removed */
 
-/* ─── 11. INSURANCE PILL SUBTLE STAGGER ENTRANCE ─── */
-.insurance-pill {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease,
-              border-color var(--transition), color var(--transition), background var(--transition);
-}
-.insurance-pill.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.insurance-pill:nth-child(1) { transition-delay: 0ms; }
-.insurance-pill:nth-child(2) { transition-delay: 60ms; }
-.insurance-pill:nth-child(3) { transition-delay: 120ms; }
-.insurance-pill:nth-child(4) { transition-delay: 180ms; }
-.insurance-pill:nth-child(5) { transition-delay: 240ms; }
-.insurance-pill:nth-child(6) { transition-delay: 300ms; }
-.insurance-pill:nth-child(7) { transition-delay: 360ms; }
+/* Insurance pills — no stagger animation, show immediately */
 
 /* ─── 12. FAQ ITEM OPEN LEFT ACCENT ─── */
 .faq-item[open] {
   border-left: 3px solid var(--teal);
 }
 
-/* ─── 13. HERO TRUST BAR HOVER LIFT ─── */
-.hero__trust {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.hero__trust:hover {
-  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
-}
+/* Hero trust hover lift removed */
 
-/* ─── 14. CONTACT FORM CARD SUBTLE BORDER GLOW ON FOCUS-WITHIN ─── */
-.contact__form:focus-within {
-  border-color: rgba(45,125,98,0.3);
-  box-shadow: 0 4px 16px rgba(45,125,98,0.10), 0 0 0 3px rgba(45,125,98,0.06);
-}
+/* Contact form glow removed */
 
 /* ─── 15. SECTION LABEL DECORATIVE DASH ─── */
 .section__label::before {
@@ -2325,18 +2149,9 @@ section[id] {
   position: relative;
 }
 
-/* ─── 17. SMOOTH SCROLL-INDICATOR FADE ON SCROLL ─── */
-.hero__scroll-hint {
-  transition: opacity 0.4s ease, border-color var(--transition), background var(--transition), transform var(--transition);
-}
+/* Scroll hint — static, no bounce */
 
-/* ─── REDUCED-MOTION: disable Spark animations too ─── */
-@media (prefers-reduced-motion: reduce) {
-  .hero .btn--primary { animation: none; }
-  .about__photo-placeholder { animation: none; }
-  .journey__step:hover .journey__step-num { animation: none; }
-  .insurance-pill { opacity: 1; transform: none; }
-}
+/* Spark reduced-motion overrides removed (animations stripped) */
 
 /* Slightly warmer select arrow on webkit */
 .form-group select {
@@ -2353,150 +2168,29 @@ section[id] {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Micro-interaction: pulse on first-visible for hero trust items */
-@keyframes trustPop {
-  0%   { transform: scale(0.92); opacity: 0; }
-  60%  { transform: scale(1.04); }
-  100% { transform: scale(1);    opacity: 1; }
-}
-.hero__trust.animated .hero__trust-item:nth-child(1) { animation: trustPop 0.5s ease forwards 0.7s; opacity: 0; }
-.hero__trust.animated .hero__trust-item:nth-child(3) { animation: trustPop 0.5s ease forwards 0.85s; opacity: 0; }
-.hero__trust.animated .hero__trust-item:nth-child(5) { animation: trustPop 0.5s ease forwards 1s; opacity: 0; }
+/* Trust pop animation removed — items show immediately */
 
-/* Dividers don't animate */
-.hero__trust.animated .hero__trust-divider { opacity: 0; animation: trustPop 0.3s ease forwards 0.7s; }
-
-/* ─── REDUCED MOTION ─── */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  html { scroll-behavior: auto; }
-  .hero__scroll-hint { animation: none; }
-  .fade-in { opacity: 1; transform: none; animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .value-strip__item { opacity: 1; transform: none; transition: background 0.01ms; }
-  .hero__trust.animated .hero__trust-item,
-  .hero__trust.animated .hero__trust-divider { opacity: 1; animation: none; }
-  .faq-item__a { animation: none; }
-}
+/* Duplicate reduced-motion block removed (kept primary one above) */
 
 /* ─── CREATIVE POLISH (Spark) ─── */
 
-/* Decorative open-quote on testimonial cards */
-.testimonial-card blockquote::before {
-  content: '\201C';
-  display: block;
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  line-height: 1;
-  color: var(--teal);
-  opacity: 0.18;
-  margin-bottom: -8px;
-  pointer-events: none;
-}
+/* Decorative open-quote removed */
 
-/* Testimonial card left accent bar on hover */
-.testimonial-card {
-  border-left: 3px solid transparent;
-}
-.testimonial-card:hover {
-  border-left-color: var(--teal);
-}
+/* Testimonial hover accent bar removed */
 
-/* Hero badge shimmer */
-@keyframes badgeShimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-.hero__badge {
-  background: linear-gradient(
-    110deg,
-    rgba(45,125,98,0.1) 0%,
-    rgba(45,125,98,0.1) 40%,
-    rgba(45,125,98,0.2) 50%,
-    rgba(45,125,98,0.1) 60%,
-    rgba(45,125,98,0.1) 100%
-  );
-  background-size: 200% 100%;
-  animation: badgeShimmer 4s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero__badge { animation: none; background: rgba(45,125,98,0.1); }
-}
+/* Badge shimmer removed */
 
-/* Journey step number glow on hover */
-.journey__step:hover .journey__step-num {
-  box-shadow: 0 0 0 6px rgba(45,125,98,0.15), 0 4px 12px rgba(45,125,98,0.32);
-  transition: box-shadow 0.3s ease;
-}
+/* Journey step hover glow removed */
 
-/* Insurance pill scale on hover */
-.insurance-pill:hover {
-  transform: translateY(-1px) scale(1.03);
-}
+/* Insurance pill hover — color only, no scale */
 
-/* Footer link underline slide-in */
-.footer__links a {
-  position: relative;
-  padding-bottom: 2px;
-}
-.footer__links a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--teal-light);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.25s ease;
-}
-.footer__links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
+/* Footer link slide-in underline removed */
 
-/* Contact form top accent bar */
-.contact__form {
-  position: relative;
-  overflow: hidden;
-}
-.contact__form::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 50%, var(--teal) 100%);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
+/* Contact form accent bar removed */
 
-/* Hero CTA glow pulse on idle */
-@keyframes ctaGlow {
-  0%, 100% { box-shadow: 0 4px 14px rgba(45,125,98,0.32); }
-  50%      { box-shadow: 0 4px 24px rgba(45,125,98,0.48); }
-}
-.hero__cta-group .btn--primary {
-  animation: ctaGlow 3s ease-in-out infinite;
-}
-.hero__cta-group .btn--primary:hover {
-  animation: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero__cta-group .btn--primary { animation: none; }
-}
+/* Duplicate CTA glow removed */
 
-/* Service card icon gentle rotate on hover */
-.service-card:hover .service-card__icon svg {
-  transform: rotate(-6deg);
-  transition: transform 0.35s ease;
-}
+/* Service card icon rotate removed */
 
 /* About photo placeholder — no float animation (looked janky on mobile) */
 
@@ -2531,33 +2225,9 @@ section[id] {
   counter-reset: tip;
 }
 
-/* Section label decorative dash */
-.section__label::before {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 2px;
-  background: var(--teal);
-  vertical-align: middle;
-  margin-right: 8px;
-  border-radius: 1px;
-}
-.section__label::after {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 2px;
-  background: var(--teal);
-  vertical-align: middle;
-  margin-left: 8px;
-  border-radius: 1px;
-}
+/* Duplicate section label dash removed (kept item 15 above) */
 
-/* Value strip CTA button hover lift */
-.value-strip-cta .btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 28px rgba(255,255,255,0.25);
-}
+/* Value strip CTA hover lift removed */
 
 /* ─── FORM VALIDATION ─── */
 .form-group--error input,
