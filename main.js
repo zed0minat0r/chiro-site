@@ -201,6 +201,31 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
+/* ─── INSURANCE PILL STAGGER REVEAL ─── */
+const insurancePills = document.querySelectorAll('.insurance-pill');
+if (insurancePills.length) {
+  const pillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        pillObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+  insurancePills.forEach(el => pillObserver.observe(el));
+}
+
+/* ─── HERO SCROLL HINT FADE ON SCROLL ─── */
+const scrollHint = document.querySelector('.hero__scroll-hint');
+if (scrollHint) {
+  window.addEventListener('scroll', () => {
+    const opacity = Math.max(0, 1 - window.scrollY / 300);
+    scrollHint.style.opacity = opacity;
+    if (opacity === 0) scrollHint.style.pointerEvents = 'none';
+    else scrollHint.style.pointerEvents = '';
+  }, { passive: true });
+}
+
 /* ─── FAQ: smooth open/close micro-interaction ─── */
 document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('toggle', () => {

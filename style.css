@@ -614,7 +614,7 @@ section[id] {
   font-size: 0.9rem;
   color: #ffffff;
   line-height: 1.65;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /* ─── VALUE STRIP CTA ─── */
@@ -639,6 +639,21 @@ section[id] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+.services__note {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 32px;
+  font-weight: 600;
+}
+.services__note a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.services__note a:hover {
+  color: var(--teal-dark);
 }
 
 .service-card {
@@ -1455,6 +1470,15 @@ section[id] {
   max-width: 500px;
   line-height: 1.6;
 }
+.insurance-strip__link {
+  color: var(--teal);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.insurance-strip__link:hover {
+  color: var(--teal-dark);
+}
 
 /* ─── FAQ ─── */
 .faq {
@@ -1860,7 +1884,7 @@ section[id] {
     transform: none;
     padding-top: 0;
     margin: 4px 0;
-    opacity: 0.45;
+    opacity: 0.65;
     width: 40px;
     height: 44px;
     display: flex;
@@ -2096,6 +2120,204 @@ section[id] {
 /* Form submit button transition during loading */
 .contact__form button[type="submit"] {
   transition: all var(--transition);
+}
+
+/* ============================================================
+   SPARK POLISH — Premium Visual Enhancements
+   ============================================================ */
+
+/* ─── 1. PREFERS-REDUCED-MOTION (Accessibility Fix) ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto; }
+  .hero__scroll-hint { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .fade-in { opacity: 1; transform: none; animation: none; }
+  .value-strip__item { opacity: 1; transform: none; transition: background 0.01ms; }
+  .faq-item__a { animation: none; }
+}
+
+/* ─── 2. HERO CTA SUBTLE GLOW PULSE ─── */
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 4px 14px rgba(45,125,98,0.32); }
+  50%      { box-shadow: 0 4px 24px rgba(45,125,98,0.50), 0 0 40px rgba(45,125,98,0.12); }
+}
+.hero .btn--primary {
+  animation: ctaGlow 3.5s ease-in-out infinite;
+}
+.hero .btn--primary:hover {
+  animation: none;
+  box-shadow: 0 8px 24px rgba(45,125,98,0.42);
+}
+
+/* ─── 3. TESTIMONIAL DECORATIVE QUOTE MARK ─── */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  right: 16px;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 1;
+  color: rgba(45,125,98,0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+.testimonial-card blockquote,
+.testimonial-card cite,
+.testimonial-card__header {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── 4. FOOTER TOP GRADIENT ACCENT ─── */
+.footer {
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal)) 1;
+}
+
+/* ─── 5. ABOUT PHOTO PLACEHOLDER BREATHING GLOW ─── */
+@keyframes placeholderBreath {
+  0%, 100% { box-shadow: 0 12px 40px rgba(45,125,98,0.12); }
+  50%      { box-shadow: 0 16px 52px rgba(45,125,98,0.20), 0 0 0 6px rgba(45,125,98,0.04); }
+}
+.about__photo-placeholder {
+  animation: placeholderBreath 4.5s ease-in-out infinite;
+}
+
+/* ─── 6. FORM INPUT LABEL TRANSITION ON FOCUS ─── */
+.form-group label {
+  transition: color var(--transition);
+}
+.form-group:focus-within label {
+  color: var(--teal);
+}
+
+/* ─── 7. SERVICE CARD BORDER TOP ACCENT ON HOVER ─── */
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ─── 8. WELLNESS TIPS BOX HOVER LIFT ─── */
+.wellness-tips__box {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.wellness-tips__box:hover {
+  box-shadow: 0 12px 44px rgba(45,125,98,0.14);
+  transform: translateY(-2px);
+}
+
+/* ─── 9. JOURNEY STEP NUMBER RING PULSE ─── */
+@keyframes ringPulse {
+  0%   { box-shadow: 0 4px 12px rgba(45,125,98,0.32); }
+  50%  { box-shadow: 0 4px 12px rgba(45,125,98,0.32), 0 0 0 8px rgba(45,125,98,0.08); }
+  100% { box-shadow: 0 4px 12px rgba(45,125,98,0.32), 0 0 0 12px rgba(45,125,98,0); }
+}
+.journey__step:hover .journey__step-num {
+  animation: ringPulse 1.2s ease-out;
+}
+
+/* ─── 10. NAV CTA MICRO-BOUNCE ON HOVER ─── */
+.nav__cta:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+.nav__cta:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ─── 11. INSURANCE PILL SUBTLE STAGGER ENTRANCE ─── */
+.insurance-pill {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease,
+              border-color var(--transition), color var(--transition), background var(--transition);
+}
+.insurance-pill.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.insurance-pill:nth-child(1) { transition-delay: 0ms; }
+.insurance-pill:nth-child(2) { transition-delay: 60ms; }
+.insurance-pill:nth-child(3) { transition-delay: 120ms; }
+.insurance-pill:nth-child(4) { transition-delay: 180ms; }
+.insurance-pill:nth-child(5) { transition-delay: 240ms; }
+.insurance-pill:nth-child(6) { transition-delay: 300ms; }
+.insurance-pill:nth-child(7) { transition-delay: 360ms; }
+
+/* ─── 12. FAQ ITEM OPEN LEFT ACCENT ─── */
+.faq-item[open] {
+  border-left: 3px solid var(--teal);
+}
+
+/* ─── 13. HERO TRUST BAR HOVER LIFT ─── */
+.hero__trust {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hero__trust:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+/* ─── 14. CONTACT FORM CARD SUBTLE BORDER GLOW ON FOCUS-WITHIN ─── */
+.contact__form:focus-within {
+  border-color: rgba(45,125,98,0.3);
+  box-shadow: 0 4px 16px rgba(45,125,98,0.10), 0 0 0 3px rgba(45,125,98,0.06);
+}
+
+/* ─── 15. SECTION LABEL DECORATIVE DASH ─── */
+.section__label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* ─── 16. VALUE STRIP CTA SECTION WARM BACKGROUND ─── */
+.value-strip-cta {
+  background: linear-gradient(180deg, var(--teal-pale) 0%, var(--warm) 100%);
+  position: relative;
+}
+
+/* ─── 17. SMOOTH SCROLL-INDICATOR FADE ON SCROLL ─── */
+.hero__scroll-hint {
+  transition: opacity 0.4s ease, border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+/* ─── REDUCED-MOTION: disable Spark animations too ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hero .btn--primary { animation: none; }
+  .about__photo-placeholder { animation: none; }
+  .journey__step:hover .journey__step-num { animation: none; }
+  .insurance-pill { opacity: 1; transform: none; }
 }
 
 /* Slightly warmer select arrow on webkit */
