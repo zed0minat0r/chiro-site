@@ -1710,8 +1710,9 @@ section[id] {
   .hero__eyebrow { text-align: center; }
   .hero__heading { font-size: clamp(2.1rem, 8vw, 2.6rem); text-align: center; }
   .hero__sub { font-size: 1.05rem; text-align: center; max-width: 100%; }
+  .hero__reassurance { text-align: center; }
   .hero__cta-group {
-    margin-bottom: 32px;
+    margin-bottom: 12px;
     justify-content: center;
     width: 100%;
   }
@@ -1738,9 +1739,7 @@ section[id] {
     justify-content: flex-start;
     align-items: stretch;
     width: 100%;
-    margin: 0 -20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: 100%;
   }
   .hero__visual::-webkit-scrollbar { display: none; }
   .hero__visual-card {
@@ -1755,10 +1754,8 @@ section[id] {
     align-self: auto;
     margin-left: 0;
   }
-  /* Ensure last card has trailing scroll space (padding-right on flex scroll containers
-     can be ignored in some browsers — use margin on last child instead) */
   .hero__visual-card:last-child {
-    margin-right: 20px;
+    margin-right: 0;
   }
   .hero__scroll-hint { margin-top: 8px; }
 
@@ -1976,15 +1973,6 @@ section[id] {
   .testimonial-card cite { text-align: center; display: block; }
   .testimonials__rating { text-align: center; }
 
-  /* ── Fix hero visual overflow ── */
-  .hero__visual {
-    max-width: calc(100vw - 40px);
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 @media (max-width: 480px) {
