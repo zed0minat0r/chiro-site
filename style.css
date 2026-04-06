@@ -45,7 +45,7 @@
 
 /* ─── RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 body {
   font-family: var(--font-body);
   color: var(--text);
@@ -266,7 +266,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   align-items: center;
   justify-content: center;
   position: relative;
-  /* overflow: hidden removed — it clips the horizontal scroll strip for visual cards on mobile */
+  overflow: hidden;
 }
 
 .hero__bg {
@@ -508,6 +508,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ─── SECTION SHARED ─── */
 .section {
   padding: 96px 0;
+  scroll-margin-top: var(--nav-h);
+}
+/* Ensure all anchored sections clear the fixed nav */
+section[id] {
+  scroll-margin-top: var(--nav-h);
 }
 
 .section__label {
@@ -622,6 +627,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-size: 1.05rem;
   padding: 16px 38px;
   border-radius: var(--radius);
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
 }
 
 /* ─── SERVICES ─── */
@@ -1885,9 +1893,93 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .wellness-tips__footer { text-align: center; align-items: center; }
 
   /* ── Insurance strip — wrap naturally, already flex-wrap ── */
-  .insurance-strip__label { text-align: center; }
+  .insurance-strip__label { text-align: center; font-size: 0.75rem; }
   .insurance-strip__logos { gap: 8px; }
   .insurance-pill { font-size: 0.8rem; padding: 6px 14px; }
+
+  /* ── Fix #1: Value strip CTA button overflow ── */
+  .value-strip-cta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .value-strip-cta .btn {
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* ── Fix #3: Bump small text to 12px minimum ── */
+  .hero__trust-item span { font-size: 0.75rem; }  /* 12px at 16px base */
+  .section__label { font-size: 0.75rem; }          /* 12px */
+  .testimonial-card__badge { font-size: 0.75rem; } /* 12px */
+  .wellness-tips__from { font-size: 0.75rem; }     /* 12px */
+  .contact__prep-heading { font-size: 0.75rem; }   /* 12px */
+
+  /* ── Fix #4: Tap targets — minimum 44px height ── */
+  .service-card__cta {
+    min-height: 44px;
+    padding: 10px 0;
+    display: inline-flex;
+    align-items: center;
+  }
+  .testimonials__rating-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 4px;
+  }
+  .footer__address {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .nav__logo {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav__call {
+    width: 44px;
+    height: 44px;
+  }
+  .nav__burger {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ── Form inputs — 44px min tap target ── */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    min-height: 44px;
+  }
+
+  /* ── Fix #5: Center-alignment consistency ── */
+  .value-strip__desc { text-align: center; }
+  .value-strip__title { text-align: center; }
+  .testimonial-card { align-items: center; text-align: center; }
+  .testimonial-card__header { justify-content: center; }
+  .testimonial-card cite { text-align: center; display: block; }
+  .testimonials__rating { text-align: center; }
+
+  /* ── Fix hero visual overflow ── */
+  .hero__visual {
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1924,7 +2016,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     justify-content: space-evenly;
   }
   .hero__trust-item strong { font-size: 1rem; }
-  .hero__trust-item span { font-size: 0.68rem; }
+  .hero__trust-item span { font-size: 0.75rem; }  /* 12px minimum */
 
   /* Hero heading size on smallest screens */
   .hero__heading { font-size: 2rem; letter-spacing: -0.02em; }
@@ -1949,6 +2041,18 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
   /* Insurance at 375px */
   .insurance-pill { font-size: 0.76rem; padding: 5px 12px; }
+
+  /* Value strip CTA — constrain button on smallest screens */
+  .value-strip-cta .btn {
+    max-width: calc(100vw - 40px);
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Form select — ensure 44px min tap target */
+  .form-group select {
+    min-height: 44px;
+  }
 }
 
 /* ─── EXTRA POLISH ─── */
