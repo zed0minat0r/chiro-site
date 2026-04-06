@@ -110,6 +110,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <!-- Fallback: make content visible when JS is disabled -->
+  <noscript>
+    <style>
+      .reveal, .fade-in, .value-strip__item,
+      .hero__trust.animated .hero__trust-item,
+      .hero__trust.animated .hero__trust-divider {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
   <a href="#hero" class="skip-to-content">Skip to main content</a>
@@ -309,6 +322,7 @@
         </div>
 
       </div>
+      <p class="services__note reveal">Most insurance plans accepted · Self-pay rates available · <a href="#contact">Ask us about pricing</a></p>
     </div>
   </section>
 
@@ -620,7 +634,7 @@
         <span class="insurance-pill">Medicare</span>
         <span class="insurance-pill insurance-pill--highlight">Most PPO Plans</span>
       </div>
-      <p class="insurance-strip__note">Not sure if you're covered? Call us and we'll verify your benefits before your first visit — no surprises.</p>
+      <p class="insurance-strip__note">Not sure if you're covered? <a href="#contact" class="insurance-strip__link">Reach out</a> and we'll verify your benefits before your first visit — no surprises.</p>
     </div>
   </section>
 

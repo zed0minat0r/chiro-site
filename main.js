@@ -173,7 +173,7 @@ if (form) {
       btn.textContent = 'Something went wrong — try again';
       btn.style.opacity = '1';
       btn.style.background = '#c0392b';
-      if (note) note.textContent = 'Please try again or call us directly at (610) 555-0100.';
+      if (note) note.textContent = 'Please try again in a moment, or use the contact info on the left to reach us directly.';
       setTimeout(() => {
         btn.textContent = originalBtnText;
         btn.style.background = '';

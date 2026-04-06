@@ -619,7 +619,7 @@ section[id] {
 
 /* ─── VALUE STRIP CTA ─── */
 .value-strip-cta {
-  background: var(--bg);
+  background: var(--teal-pale);
   padding: 48px 0;
   text-align: center;
 }
@@ -1837,6 +1837,10 @@ section[id] {
   /* ── Section headings / labels ── */
   .section__heading { text-align: center; }
   .section__heading--left { text-align: center; }
+  /* Ensure minimum 12px text on mobile for readability */
+  .section__label { font-size: 0.75rem; }
+  .hero__trust-item span { font-size: 0.75rem; }
+  .testimonial-card__badge { font-size: 0.75rem; }
   .section__label { text-align: center; }
   .about__text .section__label { text-align: center; }
 
@@ -2105,6 +2109,20 @@ section[id] {
 .btn--outline:focus-visible {
   outline: 3px solid var(--teal);
   outline-offset: 3px;
+}
+
+/* Focus-visible for non-button interactive elements */
+.service-card__cta:focus-visible,
+.contact-link:focus-visible,
+.insurance-strip__link:focus-visible,
+.testimonials__rating-link:focus-visible,
+.footer__links a:focus-visible,
+.footer__address:focus-visible,
+.nav__link:focus-visible,
+.mobile-menu__link:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* Nav burger tap feedback */
