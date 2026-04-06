@@ -3,10 +3,10 @@
 ## Wave 1 (Builder + Spark)
 
 ### Builder Tasks
-- [ ] Add `prefers-reduced-motion` media query — disable all animations/transitions when user prefers reduced motion (bouncing scroll hint, staggered reveals, trust-pop, FAQ fade-in)
-- [ ] Add FAQPage JSON-LD structured data schema for Google rich results — extract Q&A from the existing FAQ section
-- [ ] Wire service card "Book for this" CTAs to pre-populate the contact form's "reason" dropdown when clicked
-- [ ] Add per-field form validation with inline error messages (email format, required fields) — replace the `novalidate` approach
+- [x] Add `prefers-reduced-motion` media query — disable all animations/transitions when user prefers reduced motion (bouncing scroll hint, staggered reveals, trust-pop, FAQ fade-in)
+- [x] Add FAQPage JSON-LD structured data schema for Google rich results — extract Q&A from the existing FAQ section
+- [x] Wire service card "Book for this" CTAs to pre-populate the contact form's "reason" dropdown when clicked
+- [x] Add per-field form validation with inline error messages (email format, required fields) — replace the `novalidate` approach
 
 ### Spark Tasks
 - [x] Fix value strip text contrast — change `rgba(255,255,255,0.92)` to full `#fff` or ensure AA contrast on teal background

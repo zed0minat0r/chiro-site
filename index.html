@@ -47,6 +47,63 @@
     "medicalSpecialty": "Chiropractic"
   }
   </script>
+  <!-- FAQPage JSON-LD for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Will the adjustment hurt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most patients feel immediate relief after an adjustment. You may experience minor soreness in the treated area for 24\u201348 hours afterward \u2014 similar to how muscles feel after a workout. We use gentle techniques and always explain exactly what to expect before we begin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many visits will I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every case is different. Many patients feel significant improvement within 3\u20136 visits for acute issues. Chronic conditions may take longer. After your first visit, Dr. Jason will give you an honest timeline \u2014 no open-ended treatment plans, no pressure to commit upfront."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is chiropractic care covered by insurance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most major insurance plans include chiropractic coverage. We accept most insurance and will verify your benefits before your first visit so there are no surprises. We also offer affordable self-pay rates for those without coverage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens during my first visit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your first visit starts with a thorough consultation \u2014 Dr. Jason will listen to your concerns, review your history, and perform an examination. If treatment is appropriate that day, he\u2019ll explain his findings clearly and discuss your options before proceeding. No surprise procedures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a referral from my doctor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No referral is needed in Pennsylvania. You can book directly. If you\u2019re already working with another healthcare provider, we\u2019re happy to coordinate care and communicate with your physician."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can I get an appointment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer same-day appointments when available \u2014 call us in the morning for the best chance of a same-day slot. New patients are always welcome. Fill out the form or call and we\u2019ll get you in as quickly as possible."
+        }
+      }
+    ]
+  }
+  </script>
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%232d7d62'/><text y='46' x='50%' text-anchor='middle' font-size='38' fill='white'>✦</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -181,7 +238,7 @@
           </div>
           <h3>Spinal Adjustment</h3>
           <p>Gentle, precise adjustments to restore alignment, relieve nerve pressure, and reduce pain — often with immediate relief.</p>
-          <a href="#contact" class="service-card__cta">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Back or neck pain">Book for this →</a>
         </div>
 
         <div class="service-card reveal">
@@ -194,7 +251,7 @@
           </div>
           <h3>Posture Correction</h3>
           <p>We identify how your posture is contributing to your pain and build a correction plan that works with your daily life.</p>
-          <a href="#contact" class="service-card__cta">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Posture issues">Book for this →</a>
         </div>
 
         <div class="service-card reveal">
@@ -207,7 +264,7 @@
           </div>
           <h3>Sports & Injury Rehab</h3>
           <p>Whether it's a gym injury, weekend warrior strain, or workplace repetitive stress — we get you back to doing what you love.</p>
-          <a href="#contact" class="service-card__cta">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Sports or workout injury">Book for this →</a>
         </div>
 
         <div class="service-card reveal">
@@ -221,7 +278,7 @@
           </div>
           <h3>Massage Therapy</h3>
           <p>Therapeutic massage to loosen tight muscles, improve circulation, and prepare your body for chiropractic care.</p>
-          <a href="#contact" class="service-card__cta">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="General wellness">Book for this →</a>
         </div>
 
         <div class="service-card reveal">
@@ -233,7 +290,7 @@
           </div>
           <h3>Headache & Migraine Relief</h3>
           <p>Many chronic headaches originate in the neck and upper spine. We address the source, not just the symptoms.</p>
-          <a href="#contact" class="service-card__cta">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Headaches or migraines">Book for this →</a>
         </div>
 
         <div class="service-card reveal">
@@ -246,7 +303,7 @@
           </div>
           <h3>Wellness Plans</h3>
           <p>Preventive care designed to keep you moving well, sleeping better, and feeling your best — month after month.</p>
-          <a href="#contact" class="service-card__cta">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="General wellness">Book for this →</a>
         </div>
 
       </div>
@@ -658,7 +715,8 @@
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" aria-describedby="name-error" />
+              <span class="form-error" id="name-error">Please enter your name.</span>
             </div>
             <div class="form-group">
               <label for="phone">Phone Number</label>
@@ -667,7 +725,8 @@
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" aria-describedby="email-error" />
+            <span class="form-error" id="email-error">Please enter a valid email address.</span>
           </div>
           <div class="form-group">
             <label for="reason">What brings you in?</label>

@@ -70,11 +70,71 @@ const valueObserver = new IntersectionObserver((entries) => {
 
 valueItems.forEach(el => valueObserver.observe(el));
 
+/* ─── SERVICE CARD CTAs → PRE-POPULATE REASON DROPDOWN ─── */
+document.querySelectorAll('.service-card__cta[data-reason]').forEach(cta => {
+  cta.addEventListener('click', () => {
+    const reason = cta.dataset.reason;
+    const select = document.getElementById('reason');
+    if (select) {
+      // Match the option text to the data-reason value
+      for (const opt of select.options) {
+        if (opt.textContent.trim() === reason) {
+          select.value = opt.value || opt.textContent;
+          break;
+        }
+      }
+    }
+  });
+});
+
+/* ─── PER-FIELD FORM VALIDATION ─── */
+function validateField(field) {
+  const group = field.closest('.form-group');
+  if (!group) return true;
+  const errorEl = group.querySelector('.form-error');
+  let valid = true;
+
+  if (field.hasAttribute('required') && !field.value.trim()) {
+    valid = false;
+  } else if (field.type === 'email' && field.value.trim()) {
+    // Basic email format check
+    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
+  }
+
+  if (!valid) {
+    group.classList.add('form-group--error');
+    field.setAttribute('aria-invalid', 'true');
+  } else {
+    group.classList.remove('form-group--error');
+    field.removeAttribute('aria-invalid');
+  }
+  return valid;
+}
+
+// Live validation: clear error on input, show on blur
+const formFields = document.querySelectorAll('#contact-form input[required], #contact-form input[type="email"]');
+formFields.forEach(field => {
+  field.addEventListener('blur', () => validateField(field));
+  field.addEventListener('input', () => {
+    const group = field.closest('.form-group');
+    if (group && group.classList.contains('form-group--error')) {
+      validateField(field);
+    }
+  });
+});
+
 /* ─── CONTACT FORM ─── */
 const form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Validate all required fields before submitting
+    let allValid = true;
+    form.querySelectorAll('input[required], input[type="email"]').forEach(field => {
+      if (!validateField(field)) allValid = false;
+    });
+    if (!allValid) return;
     const btn = form.querySelector('button[type="submit"]');
     const note = form.querySelector('.form__note');
     const originalBtnText = btn.textContent;
