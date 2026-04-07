@@ -270,7 +270,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(234,246,241,0.50) 0%, rgba(247,243,238,0.45) 55%, rgba(240,250,245,0.50) 100%);
+  background: linear-gradient(150deg, rgba(234,246,241,0.75) 0%, rgba(247,243,238,0.72) 55%, rgba(240,250,245,0.75) 100%);
 }
 
 /* Decorative geometric accent */
