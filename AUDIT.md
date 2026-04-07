@@ -174,5 +174,13 @@ Three Unsplash stock photos across the site (hero, why-us, about) undermine trus
 
 ---
 
+---
+
+## Hold Check — 2026-04-06
+
+No new commits since 7.4 audit. Score holds at **7.4/10**. Top 3 priorities remain unchanged: functional booking, real photos, real contact details. Nothing to re-score.
+
+---
+
 *Audited by Nigel — strict British auditor, decimal scoring.*
 *5.0 = average local business site, 6.0 = generic but functional, 7.0 = better than most competitors, 8.0 = patients would choose this over alternatives.*
