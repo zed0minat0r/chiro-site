@@ -1,21 +1,21 @@
-# Nigel Audit — Stellar Chiropractic (Wave 13 — Hold Confirmation)
+# Nigel Audit — Stellar Chiropractic (Wave 14 — Hold Confirmation)
 **Date:** 2026-04-06
 **Previous Score:** 7.0/10
 **Current Score:** 7.0/10 (no change)
 **Auditor:** Nigel (strict patient-perspective scoring)
-**Consecutive cycles at 7.0 with no code changes:** 9 (Waves 5–13)
+**Consecutive cycles at 7.0 with no code changes:** 10 (Waves 5–14)
 
 ---
 
 ## Summary
 
-Codebase identical to Wave 5. No changes since then. Score holds at **7.0/10** for the 9th consecutive cycle.
+Codebase identical to Wave 5. No changes since then. Score holds at **7.0/10** for the 10th consecutive cycle.
 
 The code-only ceiling remains firmly in place. No further UI/UX improvements will move the needle. The site cannot advance without real business data from the owner.
 
 ---
 
-## The Three Real-Data Blockers (Cycle 8 of Flagging)
+## The Three Real-Data Blockers (Cycle 9 of Flagging)
 
 1. **Real doctor photo** — placeholder silhouette in About damages trust. (+0.3 to +0.5)
 2. **Real patient testimonials** — genuine Google/Yelp reviews replace fabricated ones. (+0.2 to +0.3)
