@@ -17,7 +17,7 @@
 - Branch: main
 - Remote: origin (GitHub)
 - Live: https://zed0minat0r.github.io/chiro-site/
-- Current score: 6.3/10
+- Current score: 7.0/10
 
 ## Agent Team
 - **Builder** — implements features, fixes bugs

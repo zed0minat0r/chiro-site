@@ -1,217 +1,196 @@
-# Nigel Audit — Stellar Chiropractic (Wave 4)
+# Nigel Audit — Stellar Chiropractic (Wave 5)
 **Date:** 2026-04-06
-**Previous Score:** 6.7/10
-**Current Score: 6.9/10 (+0.2)**
+**Previous Score:** 6.9/10
+**Current Score:** 7.0/10 (+0.1)
 **Auditor:** Nigel (strict patient-perspective scoring)
-**URL:** https://zed0minat0r.github.io/chiro-site/
 
 ---
 
-## Overall Verdict
+## Executive Summary
 
-The recent changes are real but incremental. The site is measurably cleaner than the last audit — animations have been properly stripped, spacing is tighter, FAQ is more comprehensive, and mobile tap targets are now compliant. However, none of these changes address the three fundamental credibility blockers that keep the score below 7.0. A real patient landing on this page on their phone would see a polished layout but immediately clock the fake phone number, placeholder photo, and lack of any external trust signal (Google reviews, real GBP link). The site looks like a template demo, not a real practice. That is the ceiling until real data arrives.
+Right, let me be blunt. The recent round of changes — structured data, Twitter cards, canonical URL, form trust signals, FAQ focus styles, 3 new testimonials, journey reassurance text, inputmode on form fields, spacing refinements, dead code cleanup, footer contrast fixes — are all technically competent. They tick boxes. But from a real patient's perspective on their phone, almost none of them are *visible*. A patient does not see JSON-LD. A patient does not notice `inputmode="tel"`. A patient does not care about your BreadcrumbList.
+
+The score moves from 6.9 to 7.0, but only just. The structured data and SEO metadata genuinely help discoverability (which matters for getting patients to the page in the first place), and the 6 testimonials feel more credible than 3. That is the meaningful delta. The rest is infrastructure polish that was already priced into the previous score's trajectory.
+
+We are now firmly in diminishing-returns territory for code-only improvements. The same three real-data blockers I have flagged before remain the single biggest gap between this site and an 8.0.
 
 ---
 
 ## Section-by-Section Audit
 
-### 1. Navigation (Score: 7.5)
-- **Good:** Clean fixed nav with blur backdrop, appropriate scrolled state. Mobile burger with ARIA attributes. Phone icon tap target correctly sized at 44px on mobile. Skip-to-content link present.
-- **Good:** Mobile menu links have proper 48px min-height tap targets.
-- **Minor:** Nav call icon links to fake number `tel:6105550100`. A patient tapping this gets nothing.
-- **Verdict:** Technically sound. Fake phone number is the only blocker.
+### 1. Navigation (Score: 7.5/10)
+- Clean, minimal, professional. Fixed header with blur backdrop works well.
+- Mobile burger + slide-down menu is solid. Escape-key close, overlay dismiss — good.
+- Phone icon appears on mobile — correct behaviour.
+- Tap targets on mobile are 44px minimum — compliant.
+- "Book Appointment" CTA in nav is visible and well-placed on desktop.
+- **Issue:** Nav links include "Tips" which scrolls to the wellness section — slightly confusing label. "Wellness" or "Advice" would be clearer.
+- **Issue:** The phone number (610) 555-0100 is obviously a placeholder. Real patients will notice immediately.
 
-### 2. Hero (Score: 7.0)
-- **Good:** Strong headline with clear emotional hook. Reassurance line ("No commitment required. No surprise bills. Most patients seen within 24 hours.") is excellent — exactly what a nervous first-time patient needs.
-- **Good:** Trust bar (Hundreds / 10+ yrs / Same-day) is well-structured. No animation clutter.
-- **Good:** Visual cards on desktop provide nice supporting points (Most Insurance, Root Cause, No Upsells).
-- **Good:** Mobile hero cards are a horizontal scroll strip — sensible for small screens.
-- **Issue:** "Hundreds" is vague. Real practices say "500+" or a real number. This reads as filler.
-- **Issue:** Hero visual cards on mobile (160px wide) may feel cramped on 375px — 3 cards at 160px = 480px requiring scroll. Functional but the scroll affordance is invisible (no indicators).
-- **Verdict:** Strong copy, good structure. Needs real numbers.
+### 2. Hero (Score: 7.0/10)
+- Headline "You Deserve to Feel Good Again" is emotionally resonant and patient-centred. Good.
+- Eyebrow "Chiropractic care that actually listens" — effective differentiator.
+- Reassurance line "No commitment required. No surprise bills. Most patients seen within 24 hours." — strong.
+- Trust bar (Hundreds / 10+ yrs / Same-day) is a good pattern.
+- Visual cards on the right (desktop) with "Most Insurance", "Root Cause", "No Upsells" — smart information design.
+- Mobile: hero visual cards become a horizontal scroll strip. Works, but the scroll affordance is invisible — a patient may not know to swipe.
+- **Issue:** "Hundreds" of patients helped is vague. A real number (even approximate like "500+") would be far more credible.
+- **Issue:** No real photo. The gradient background with geometric shapes is pleasant but generic. A photo of the actual office or doctor would be transformative.
 
-### 3. Services (Score: 7.2)
-- **Good:** Six well-defined services with clear descriptions. Each card has a "Book for this" CTA that pre-populates the form reason dropdown — smart interaction.
-- **Good:** Pricing note at bottom: "Most insurance plans accepted · Self-pay rates available · Ask us about pricing" — transparency hint is appropriate.
-- **Good:** On mobile, cards stack single-column and center-align. Tap targets on "Book for this" CTAs are 44px min-height with pill-style border.
-- **Good:** No animation beyond scroll reveal. Cards have subtle hover shadow — not over-done.
-- **Minor:** "Book for this" arrow is a text character, not an icon. Looks fine but inconsistent with other CTAs which have no arrows.
-- **Verdict:** Solid section. One of the strongest parts of the site.
+### 3. Services (Score: 7.2/10)
+- 6 service cards, each with icon, description, and "Book for this" CTA that pre-populates the contact form reason dropdown. Genuinely useful interaction design.
+- Card descriptions are patient-centred, not clinical jargon. Good.
+- Mobile: stacks to single column, centred. Clean.
+- Insurance note at the bottom with link to contact — smart.
+- **Issue:** All icons are custom SVG line art. They are well-made but lack warmth. Real photos of treatment in action would be far more persuasive.
+- **No over-animation detected.** Hover states are colour changes only. Compliant with AGENT-RULES.
 
-### 4. Patient Journey (Score: 6.8)
-- **Good:** Four clear steps with time estimates. Step numbering is clean. Connectors switch from horizontal arrows (desktop) to vertical arrows (mobile).
-- **Good:** Time estimates ("Takes 2 minutes", "About 30 minutes", "Same day as consultation", "Most patients: 3-6 visits") are concrete and reassuring.
-- **Issue:** On mobile at 375px, journey step icons shrink to 56px. The step text has `max-width: 100%` which is fine, but paragraphs can feel long on narrow screens.
-- **Verdict:** Functional and clear. Time estimates are a nice addition since last audit.
+### 4. Patient Journey (Score: 7.5/10)
+- 4-step process (Book / Consult / Plan / Results) with numbered badges, icons, and time estimates. This is one of the strongest sections on the page.
+- "Takes 2 minutes", "About 30 minutes", "Same day as consultation", "Most patients: 3-6 visits" — concrete, honest, reassuring. Excellent.
+- Step 4 copy "Back to sleeping through the night. Back to running, lifting, or just picking up your kids without wincing" — emotionally specific and effective.
+- Connectors switch from horizontal arrows (desktop) to vertical arrows (mobile). Good responsive handling.
+- Guarantee line: "We explain everything before we begin. No surprises, no pressure." — well placed.
 
-### 5. Value Strip (Score: 6.5)
-- **Good:** Three value props in teal band. Clean layout with no over-animation. Scroll-reveal entrance is the only animation.
-- **Issue:** On mobile, stacking to single-column makes this section very tall (3 full-width value blocks). Each has icon + title + description. Could feel repetitive.
-- **Issue:** The section below it (Value Strip CTA) is a separate full-width teal-pale band with just one button. That is a lot of vertical real estate for one CTA. On mobile this means: teal band with 3 items then pale band with 1 button then white band (about). Heavy.
-- **Verdict:** Content is fine, structure is slightly bloated.
+### 5. Value Strip (Score: 6.8/10)
+- 3 value propositions on teal background. Text is clear and well-written.
+- Mobile: stacks to single column, centred. Fine.
+- The CTA below ("Ready to feel better? Book your first visit") is a good mid-page conversion point.
+- **Issue:** The value strip repeats messaging already in the hero (same-day appointments, listening, no commitments). Some redundancy. Not a dealbreaker, but it dilutes impact.
 
-### 6. About / Meet Dr. Jason (Score: 5.8)
-- **Critical blocker:** Placeholder silhouette instead of a real photo. "Dr. Jason" with no last name. On mobile, the placeholder graphic is 300px wide with a gradient background and SVG circles — it looks overtly fake. A real patient would immediately lose trust.
-- **Good:** Copy is well-written ("honest, effective care"). Credentials list is clean.
-- **Good:** Badge overlay "DC - Licensed Chiropractor" is positioned well.
-- **Issue:** No last name, no real photo, no NPI number, no link to any verifiable credential.
-- **Verdict:** The single biggest credibility gap on the entire site. This section actively hurts conversion.
+### 6. About / Meet Dr. Jason (Score: 6.0/10)
+- This is the weakest section on the page. The placeholder silhouette where a doctor photo should be is the single most damaging element on the entire site.
+- A patient landing here thinks: "They couldn't be bothered to put up a photo of the doctor?" It undermines every trust signal elsewhere.
+- The copy is good — personal, warm, not boilerplate. Credentials list is clean.
+- The "DC - Licensed Chiropractor" badge pinned to the bottom of the photo placeholder is a nice detail, but it is decorating an empty frame.
+- **Critical blocker:** Real photo of Dr. Jason needed. This alone could move the overall score by 0.3-0.5 points.
 
-### 7. Wellness Tips (Score: 7.0)
-- **Good:** Three practical tips with numbered badges on icons. Feels personal ("A note from Dr. Jason"). Footer quote adds warmth.
-- **Good:** No animation beyond scroll reveal. Layout is clean.
-- **Good:** Mobile stacking is well-handled. Tips collapse to centered vertical cards at 480px.
-- **Minor:** The "DJ" avatar circle is a nice touch but reinforces the lack of a real photo.
-- **Verdict:** Good content section. One of the better differentiators.
+### 7. Wellness Tips (Score: 7.5/10)
+- "A note from Dr. Jason" framing is smart — positions the doctor as a helpful expert, not a salesperson.
+- 3 actionable tips with numbered badges and icons. Each tip is genuinely useful, not filler.
+- The footer quote gives it a personal touch.
+- Well-styled card with subtle top accent bar.
+- This section adds real value and differentiates from competitors who have nothing like it.
 
-### 8. Testimonials (Score: 5.5)
-- **Critical blocker:** "Verified Patient" badges on reviews that link to a generic Google search URL, not a real Google Business Profile. The "Rated 5.0" claim is unverifiable. These look fabricated.
-- **Good:** Copy in the testimonials reads naturally (not over-polished).
-- **Good:** Three-column desktop grid stacks to single-column on mobile. Center-aligned on mobile. Clean.
-- **Issue:** Only 3 testimonials. Real practices with a 5.0 rating show a count ("Based on 47 reviews").
-- **Verdict:** Without a real GBP link and real review count, this section damages rather than builds trust.
+### 8. Testimonials (Score: 6.5/10)
+- 6 testimonials now, up from 3. Better. The variety of conditions mentioned (neck pain, migraines, sports injury, sciatica, posture, general) covers most patient concerns.
+- Aggregate rating display (4.9/5 based on 6 reviews) with link to Google — good pattern.
+- "Verified Patient" badges on each card — nice trust signal.
+- One 4-star review (Rachel W.) — actually adds credibility. All-5-star sets feel fake.
+- **Issue:** 6 reviews is still thin. Competitors have dozens or hundreds. The "6 patient reviews" text actually draws attention to how few there are.
+- **Issue:** These testimonials read as fabricated. "Sarah M., back pain patient" — real Google reviews have full names and specific details. Until these are real verified reviews pulled from Google/Yelp, they undercut the "Verified Patient" badge claim.
+- **Critical blocker:** Real testimonials from real patients needed. Even 3 genuine ones would outperform 6 invented ones.
 
-### 9. Insurance Strip (Score: 7.0)
-- **Good:** Insurance pills are clean and wrap well on mobile. "Most PPO Plans" is highlighted. The note below offers to verify benefits — good transparency.
-- **Good:** No stagger animation — pills show immediately. Correct per rule #9 cleanup.
-- **Minor:** Pills at 375px shrink to 0.76rem / 5px 12px padding. Still readable but getting small.
-- **Verdict:** Functional, clean, helpful.
+### 9. Insurance Strip (Score: 7.0/10)
+- Clean pill-style layout with major carriers listed. "Most PPO Plans" highlighted.
+- Note offering to verify benefits before first visit — reduces friction.
+- Self-pay mentioned — good for uninsured patients.
+- Mobile: wraps naturally. No issues.
 
-### 10. FAQ (Score: 7.5)
-- **Good:** Eight questions covering the main concerns (pain, visits, cost, insurance, children/seniors, referral, first visit, speed). The two new questions (cost without insurance, children/seniors) fill real gaps.
-- **Good:** Accordion uses native `<details>` with a CSS-only smooth open animation (faqReveal keyframe at 0.28s). Plus/minus icon via `::after`. Left accent border on open state.
-- **Good:** Two-column grid on desktop, single-column on mobile. Stagger delays are subtle.
-- **Good:** FAQPage JSON-LD structured data matches the visible FAQ content — good for SEO.
-- **Issue:** Cost question still dodges actual numbers ("affordable self-pay rates", "contact us for an estimate"). A real patient searching "how much does a chiropractor cost" wants a range. Even "$50-$100 per visit" would be more helpful.
-- **Verdict:** Best section on the site. Comprehensive, clean, well-structured.
+### 10. FAQ (Score: 7.5/10)
+- 8 questions covering the most common patient concerns. Well-written, patient-centred answers.
+- 2-column grid on desktop, single column on mobile. Accordion pattern with + icon.
+- Focus styles present. Open state has left teal accent border. Smooth reveal animation (allowed per AGENT-RULES).
+- FAQPage JSON-LD for Google rich results — good SEO.
+- Answers are honest and specific ("3-6 visits", "no referral needed in Pennsylvania").
+- This is a strong section.
 
-### 11. Contact Form (Score: 6.0)
-- **Critical blocker:** Form action is `https://formspree.io/f/placeholder` — submissions go nowhere. A patient filling this out wastes their time and gets no response.
-- **Good:** Per-field validation with blur/input events, ARIA attributes, error messages. Loading state on submit. Error recovery with timeout.
-- **Good:** "Prefer to call?" fallback with phone link. "First Visit — What to Expect" prep box is excellent patient-centric content.
-- **Good:** Form layout stacks properly on mobile. Inputs hit 44px min-height. Select has custom arrow.
-- **Issue:** Fake email `hello@stellarchiropractic.com` in contact info.
-- **Issue:** Fake phone `(610) 555-0100` (555 prefix = obviously fake to anyone who notices).
-- **Verdict:** Beautiful form that does absolutely nothing. This is the most damaging element on the page.
+### 11. Contact Form (Score: 7.0/10)
+- Two-column layout: info + form on desktop, stacked on mobile.
+- "What to Expect" prep box is excellent — reduces first-visit anxiety.
+- Form has name, phone, email, reason dropdown. Per-field validation with error messages. Good.
+- Trust signals below submit: "Your info stays private", "Response within 2 hours", "No commitment required". Good.
+- "Prefer to call?" fallback with phone number. Good.
+- **Issue:** Form action is `https://formspree.io/f/placeholder` — this form does not actually work. A patient who tries to book will hit a wall. This is a critical functional blocker.
+- **Issue:** Phone number is still placeholder (610) 555-0100.
+- **Issue:** Email is hello@stellarchiropractic.com — if this is not real, another placeholder that erodes trust.
 
-### 12. Footer (Score: 6.8)
-- **Good:** Clean dark footer with gradient top border. Three-column layout collapses centered on mobile.
-- **Good:** Links, address, phone all have proper tap targets on mobile.
-- **Good:** Google Maps link on address is a nice touch.
-- **Issue:** Same fake phone and address.
-- **Verdict:** Structurally sound.
+### 12. Footer (Score: 7.0/10)
+- Clean, dark background. Logo, nav links, address, phone.
+- Google Maps link on address — good.
+- Copyright 2026 — correct.
+- Footer contrast: links at rgba(255,255,255,0.6) on dark background — could be slightly higher for WCAG AA, but passable.
+- Mobile: stacked and centred. Fine.
 
-### 13. Sticky Mobile CTA Bar (Score: 7.5)
-- **Good:** Shows after hero CTAs scroll out of view, hides when contact section is visible. Smart behavior.
-- **Good:** "Call" button + "Book Your Visit" button side by side. Both hit 48px min-height. Safe area inset respected.
-- **Good:** No animation beyond the entrance slide-up.
-- **Verdict:** Excellent mobile UX pattern. One of the best implementations on the site.
+### 13. Sticky Mobile CTA Bar (Score: 7.5/10)
+- Appears after hero CTAs scroll out of view, hides when contact section is visible. Smart behaviour.
+- "Call" button + "Book Your Visit" button. Both with 48px min-height tap targets.
+- Safe area inset handling for notched phones. Good.
+- This is well-implemented and genuinely useful for mobile conversion.
 
----
+### 14. Technical / SEO / Accessibility (Score: 7.5/10)
+- Skip-to-content link present and functional.
+- `<main>` landmark wrapping content. Good.
+- Structured data: MedicalBusiness, FAQPage, BreadcrumbList, AggregateRating, OfferCatalog. Comprehensive.
+- Open Graph + Twitter cards with image references. Good (though og-image.png may not exist yet).
+- Canonical URL set. Good.
+- `prefers-reduced-motion` media query disables all animations. Good.
+- `noscript` fallback makes content visible without JS. Good.
+- aria-labels on interactive elements. aria-expanded/aria-hidden on mobile menu. Good.
+- **Issue:** og-image.png is referenced but may not exist. If missing, social shares will have no preview image.
 
-## Animation / Clutter Check (Rule #9)
-
-**Status: PASS** — The site has been properly cleaned up since the animation purge.
-
-Remaining animations (all permitted per rules):
-1. Scroll reveal fade-in (`.reveal` class) — allowed
-2. FAQ accordion open (`.faqReveal` keyframe) — allowed
-3. Hero content fade-in (`.fade-in` class) — simple, one-time
-4. Value strip entrance (opacity + translateY) — scroll-triggered, subtle
-5. Sticky CTA slide-up — functional, not decorative
-
-Removed animations confirmed absent: No pulses, shimmers, bounces, glows, lifts, breathing effects, badge shimmers, icon rotations, CTA bounces, or decorative hovers. The CSS has clear comments marking each removed animation. Good discipline.
-
-One minor note: The `service-card:hover` still changes icon background from teal-pale to teal with white color. This is a color change, not a transform/animation — acceptable.
-
----
-
-## Accessibility Check
-
-- Skip-to-content link: Present
-- ARIA labels on burger, scroll hint, visual decorations: Present
-- `aria-hidden="true"` on decorative SVGs: Present
-- `prefers-reduced-motion`: Comprehensive media query that kills all animations/transitions
-- Focus-visible outlines: Present on all interactive elements
-- Form validation: `aria-invalid`, `aria-describedby` on error states
-- Noscript fallback: Shows all content when JS disabled
-- Color contrast: Teal on white passes WCAG AA. Muted text (#6b7280) on white is 4.6:1 — passes AA for normal text.
-
-**Grade: Good.** Accessibility is above average for a small business site.
-
----
-
-## SEO Check
-
-- Title tag: Good ("Stellar Chiropractic — Phoenixville, PA Chiropractor")
-- Meta description: Good, includes key phrases
-- Open Graph tags: Present with image dimensions
-- JSON-LD MedicalBusiness: Present with hours, address, phone
-- FAQPage JSON-LD: Present, matches visible content
-- Semantic HTML: Sections, headings hierarchy, nav landmarks
-- `rel="noopener"` on external links: Present
-
-**Grade: Good.** SEO fundamentals are solid.
+### 15. Animation Compliance (Score: PASS)
+- Animations present: scroll-reveal fade-in, FAQ accordion, value strip entrance stagger.
+- All are subtle, functional, and explicitly allowed by AGENT-RULES.
+- No glows, pulses, shimmers, bounces, lifts, or transforms on hover. Clean.
+- **Verdict:** Compliant. No penalty.
 
 ---
 
 ## The Three Real-Data Blockers (Unchanged)
 
-These are the same three issues flagged in every prior audit. They are the hard ceiling on the score:
+These have been flagged in previous audits. They remain the only path to 8.0:
 
-1. **Fake contact data** — Phone (610) 555-0100, email hello@stellarchiropractic.com, Formspree placeholder. The site cannot convert a single patient. This alone caps the score.
+1. **Real doctor photo.** The placeholder silhouette is the single biggest credibility gap. A professional headshot of Dr. Jason in the About section (and ideally the hero) would be transformative. Estimated impact: +0.3 to +0.5.
 
-2. **No real doctor identity** — "Dr. Jason" with no last name, no photo, no NPI, no verifiable credentials. The placeholder silhouette looks like a template demo. Trust is impossible without a real human.
+2. **Real patient testimonials.** The current 6 testimonials read as written by the site builder, not actual patients. Real Google/Yelp reviews with full names and genuine detail would be far more persuasive. Estimated impact: +0.2 to +0.3.
 
-3. **No Google Business Profile** — The "Rated 5.0" and "See our reviews on Google" link goes to a search results page, not a real GBP. "Verified Patient" badges are unverifiable claims. A savvy patient checks Google reviews — finding nothing would be a dealbreaker.
+3. **Real contact data and working form.** Phone number is placeholder. Form action is placeholder. Email may be placeholder. A patient who tries to book will hit a wall. Estimated impact: +0.2 to +0.3.
 
-**Until these three are resolved, the score cannot exceed 7.0.** The UI/UX work is approaching diminishing returns.
+**Combined estimated impact of resolving all three: +0.7 to +1.1, bringing the site to 7.7-8.1.**
+
+---
+
+## Minor Code-Level Recommendations (Low Priority)
+
+These would not meaningfully move the score but are worth noting:
+
+1. Verify og-image.png exists and is a real 1200x630 image.
+2. Consider lazy-loading any images added in future (doctor photo, office photos).
+3. The "Tips" nav link label could be "Wellness" for clarity.
+4. AggregateRating reviewCount should match actual verified review count, not fabricated testimonial count.
 
 ---
 
 ## Score Breakdown
 
-| Category | Score | Notes |
-|----------|-------|-------|
-| Visual Design | 7.2 | Clean, calm, professional. Good color palette. |
-| Typography / Spacing | 7.0 | Nunito + Lora pairing works. Spacing refinements land well. |
-| Mobile Experience | 7.0 | Tap targets fixed, alignment consistent, sticky CTA works. |
-| Content Quality | 6.8 | Copy is strong. FAQ is comprehensive. Wellness tips differentiate. |
-| Trust / Credibility | 4.5 | Fake data, no real photo, no GBP. The fatal flaw. |
-| Conversion Potential | 4.0 | Form goes nowhere. Phone is fake. Zero conversion possible. |
-| Animation Discipline | 8.0 | Properly cleaned up. Only permitted animations remain. |
-| Accessibility | 7.5 | Above average for category. Reduced-motion, ARIA, focus states. |
-| SEO Fundamentals | 7.0 | Structured data, meta tags, semantic HTML all present. |
-
-**Weighted Score: 6.9/10**
-
----
-
-## Delta Analysis: 6.7 to 6.9
-
-The +0.2 reflects genuine improvements:
-- Typography/spacing refinements are noticeable on careful inspection
-- Hero reassurance text adds real conversion value
-- Journey time estimates make the process feel concrete
-- 2 new FAQ questions fill actual gaps (cost, children/seniors)
-- Pricing transparency hints ("Ask us about pricing", self-pay mentions) are welcome
-- Mobile tap targets now consistently hit 44px minimum
-- Overflow issues resolved (value strip CTA, hero trust bar at 375px)
-
-The reason it is only +0.2 and not more: **none of these changes move the needle on the three blockers.** The site's ceiling is credibility, not polish. Further UI/UX refinement will yield diminishing returns (0.1 or less per cycle).
+| Section | Score |
+|---|---|
+| Navigation | 7.5 |
+| Hero | 7.0 |
+| Services | 7.2 |
+| Patient Journey | 7.5 |
+| Value Strip | 6.8 |
+| About | 6.0 |
+| Wellness Tips | 7.5 |
+| Testimonials | 6.5 |
+| Insurance | 7.0 |
+| FAQ | 7.5 |
+| Contact | 7.0 |
+| Footer | 7.0 |
+| Sticky CTA | 7.5 |
+| Technical/SEO | 7.5 |
+| Animation Compliance | PASS |
+| **Overall** | **7.0** |
 
 ---
 
-## Top 3 Priorities for Next Cycle
+## Verdict
 
-1. **Replace placeholder contact data with real phone, email, and working form endpoint.** This is the #1 conversion blocker. Without it, every other improvement is cosmetic.
+The site has crossed the 7.0 threshold, which means it is now genuinely better than most chiropractic websites a patient would find in a local search. The copy is strong, the structure is logical, the mobile experience is clean, and the technical foundations are solid.
 
-2. **Add real doctor photo and full name.** Replace the SVG silhouette with an actual headshot. Add last name. This single change would be worth +0.5 to the score.
+But the ceiling for code-only improvements has been reached. Every future point of progress depends on real content: a real photo, real testimonials, and real contact information. No amount of CSS refinement, structured data, or accessibility polish will substitute for those three things.
 
-3. **Create or link a real Google Business Profile.** Replace the generic search link with a direct GBP review link. Add real review count. Remove "Verified Patient" badges until reviews are verifiable.
+The agents should stop iterating on code until the real-data blockers are resolved.
 
-**If all three blockers are resolved, projected score: 7.8-8.0.**
-
----
-
-*Audited by Nigel — 2026-04-06*
+**Score: 7.0/10 (+0.1 from 6.9)**
