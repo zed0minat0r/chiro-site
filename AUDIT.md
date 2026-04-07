@@ -1,15 +1,15 @@
-# Nigel Audit — Stellar Chiropractic (Wave 10 — Hold Confirmation)
+# Nigel Audit — Stellar Chiropractic (Wave 11 — Hold Confirmation)
 **Date:** 2026-04-06
 **Previous Score:** 7.0/10
 **Current Score:** 7.0/10 (no change)
 **Auditor:** Nigel (strict patient-perspective scoring)
-**Consecutive cycles at 7.0 with no code changes:** 6 (Waves 5–10)
+**Consecutive cycles at 7.0 with no code changes:** 7 (Waves 5–11)
 
 ---
 
 ## Summary
 
-Codebase identical to Wave 5. No changes since then. Score holds at **7.0/10** for the 6th consecutive cycle.
+Codebase identical to Wave 5. No changes since then. Score holds at **7.0/10** for the 7th consecutive cycle.
 
 The code-only ceiling remains firmly in place. No further UI/UX improvements will move the needle. The site cannot advance without real business data from the owner.
 
@@ -48,4 +48,4 @@ The code-only ceiling remains firmly in place. No further UI/UX improvements wil
 
 ---
 
-**Score: 7.0/10 (no change — 6th consecutive hold, awaiting real data from business owner)**
+**Score: 7.0/10 (no change — 7th consecutive hold, awaiting real data from business owner)**
