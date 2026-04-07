@@ -270,7 +270,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(234,246,241,0.65) 0%, rgba(247,243,238,0.60) 55%, rgba(240,250,245,0.65) 100%);
+  background: linear-gradient(150deg, rgba(234,246,241,0.50) 0%, rgba(247,243,238,0.45) 55%, rgba(240,250,245,0.50) 100%);
 }
 
 /* Decorative geometric accent */
@@ -1015,83 +1015,7 @@ section[id] {
   border-bottom-color: var(--teal);
 }
 
-/* ─── FORM ─── */
-.contact__form {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.form-group label {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.02em;
-}
-
-.form-group input,
-.form-group select {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text);
-  background: var(--warm);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 16px;
-  outline: none;
-  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
-  width: 100%;
-  -webkit-appearance: none;
-}
-.form-group input::placeholder { color: #b0b8b4; }
-.form-group input:focus,
-.form-group select:focus {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(45,125,98,0.12);
-  background: var(--white);
-}
-
-.form__note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-top: -6px;
-}
-.form__trust {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: -4px;
-}
-.form__trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-.form__trust-item svg {
-  color: var(--teal);
-  flex-shrink: 0;
-}
+/* ─── FORM (legacy — kept for prefer-call text) ─── */
 
 .form__prefer-call {
   font-size: 0.88rem;
@@ -1101,79 +1025,6 @@ section[id] {
 }
 .form__prefer-call strong {
   color: var(--teal);
-}
-
-/* ─── INSURANCE STRIP ─── */
-.insurance-strip {
-  background: var(--white);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 32px 0;
-}
-
-.insurance-strip .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
-}
-
-.insurance-strip__label {
-  font-size: 0.73rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.insurance-strip__logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.insurance-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 7px 18px;
-  background: var(--warm);
-  border: 1.5px solid var(--border);
-  border-radius: 100px;
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.01em;
-  transition: border-color var(--transition), color var(--transition), background var(--transition);
-}
-.insurance-pill:hover {
-  border-color: rgba(45,125,98,0.35);
-  color: var(--teal-dark);
-  background: var(--teal-pale);
-}
-
-.insurance-pill--highlight {
-  background: var(--teal-pale);
-  border-color: rgba(45,125,98,0.35);
-  color: var(--teal-dark);
-}
-
-.insurance-strip__note {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-  text-align: center;
-  max-width: 500px;
-  line-height: 1.6;
-}
-.insurance-strip__link {
-  color: var(--teal);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.insurance-strip__link:hover {
-  color: var(--teal-dark);
 }
 
 /* ─── FAQ ─── */
@@ -1202,6 +1053,11 @@ section[id] {
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   max-width: 960px;
+  margin: 0 auto;
+}
+.faq__grid .faq-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 470px;
   margin: 0 auto;
 }
 
@@ -1464,8 +1320,6 @@ section[id] {
   .about__text > .btn { width: 100%; }
 
   /* ── Contact ── */
-  .form-row { grid-template-columns: 1fr; }
-  .contact__form { padding: 28px 20px; }
   .contact__info { align-items: center; }
   .contact__info-item { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
   .contact__info-item svg { margin-top: 0; }
@@ -1504,10 +1358,6 @@ section[id] {
   /* ── Why-us label centering fix ── */
   .why-us__steps .section__label { text-align: center; }
   .why-us .section__label::before { display: none; }
-
-  /* ── Insurance strip — wrap naturally, already flex-wrap ── */
-  .insurance-strip__logos { gap: 8px; }
-  .insurance-pill { font-size: 0.8rem; padding: 6px 14px; }
 
   /* ── Why-us steps at mobile ── */
   .why-us__steps-row { gap: 12px; }
@@ -1567,12 +1417,6 @@ section[id] {
     align-items: center;
   }
 
-  /* ── Form inputs — 44px min tap target ── */
-  .form-group input,
-  .form-group select {
-    min-height: 44px;
-  }
-
   /* ── Fix #5: Center-alignment consistency ── */
   .testimonial-card { align-items: center; text-align: center; }
   .testimonial-card__header { justify-content: center; }
@@ -1626,9 +1470,6 @@ section[id] {
   .why-us__step h3 { font-size: 0.9rem; }
   .why-us__step p { font-size: 0.8rem; }
 
-  /* Insurance at 375px */
-  .insurance-pill { font-size: 0.76rem; padding: 5px 12px; }
-
   /* Why-us steps at 375px */
   .why-us__steps-row { gap: 8px; }
 }
@@ -1653,7 +1494,6 @@ section[id] {
 /* Focus-visible for non-button interactive elements */
 .service-card__cta:focus-visible,
 .contact-link:focus-visible,
-.insurance-strip__link:focus-visible,
 .testimonials__rating-link:focus-visible,
 .footer__links a:focus-visible,
 .footer__address:focus-visible,
@@ -1681,11 +1521,6 @@ section[id] {
   color: var(--teal);
 }
 
-/* Form submit button transition during loading */
-.contact__form button[type="submit"] {
-  transition: all var(--transition);
-}
-
 /* ─── ACCESSIBILITY: PREFERS-REDUCED-MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1701,13 +1536,6 @@ section[id] {
   .faq-item__a { animation: none; }
 }
 
-/* ─── FORM INPUT LABEL TRANSITION ON FOCUS ─── */
-.form-group label {
-  transition: color var(--transition);
-}
-.form-group:focus-within label {
-  color: var(--teal);
-}
 
 /* ─── FAQ ITEM OPEN LEFT ACCENT ─── */
 .faq-item[open] {
@@ -1730,14 +1558,6 @@ section[id] {
   .section__label::before { display: none; }
 }
 
-/* Slightly warmer select arrow on webkit */
-.form-group select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232d7d62' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 36px;
-  cursor: pointer;
-}
 
 /* FAQ answer fade-in micro-interaction */
 @keyframes faqReveal {
@@ -1752,22 +1572,6 @@ section[id] {
 
 
 
-/* ─── FORM VALIDATION ─── */
-.form-group--error input,
-.form-group--error select {
-  border-color: #c0392b;
-  box-shadow: 0 0 0 3px rgba(192,57,43,0.12);
-}
-.form-error {
-  font-size: 0.78rem;
-  color: #c0392b;
-  font-weight: 600;
-  margin-top: 2px;
-  display: none;
-}
-.form-group--error .form-error {
-  display: block;
-}
 
 /* ─── STICKY MOBILE CTA BAR ─── */
 .sticky-cta {
@@ -1840,9 +1644,10 @@ section[id] {
 /* ─── VISUAL CALENDAR ─── */
 .cal-visual {
   background: var(--white);
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   padding: 24px 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-md);
   max-width: 420px;
   margin: 0 auto;
 }
@@ -1899,3 +1704,12 @@ section[id] {
 .cal-dot--open { background: #e8f5ee; border: 1px solid var(--teal); }
 .cal-dot--full { background: #f0e6e6; border: 1px solid #b56666; }
 .cal-dot--closed { background: #e5e5e5; }
+
+.cal-book-btn {
+  max-width: 360px;
+  margin: 16px auto 0;
+  display: block;
+}
+.cal-prefer-call {
+  margin-top: 12px;
+}

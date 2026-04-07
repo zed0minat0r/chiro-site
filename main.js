@@ -51,132 +51,13 @@ const observer = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => observer.observe(el));
 
-/* ─── VALUE STRIP REVEAL ─── */
-const valueItems = document.querySelectorAll('.value-strip__item');
-const valueObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      valueObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
-
-valueItems.forEach(el => valueObserver.observe(el));
-
-/* ─── SERVICE CARD CTAs → PRE-POPULATE REASON DROPDOWN ─── */
+/* ─── SERVICE CARD CTAs → SCROLL TO CALENDAR ─── */
 document.querySelectorAll('.service-card__cta[data-reason]').forEach(cta => {
   cta.addEventListener('click', () => {
-    const reason = cta.dataset.reason;
-    const select = document.getElementById('reason');
-    if (select) {
-      // Match the option text to the data-reason value
-      for (const opt of select.options) {
-        if (opt.textContent.trim() === reason) {
-          select.value = opt.value || opt.textContent;
-          break;
-        }
-      }
-    }
+    const cal = document.getElementById('calVisual');
+    if (cal) cal.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 });
-
-/* ─── PER-FIELD FORM VALIDATION ─── */
-function validateField(field) {
-  const group = field.closest('.form-group');
-  if (!group) return true;
-  const errorEl = group.querySelector('.form-error');
-  let valid = true;
-
-  if (field.hasAttribute('required') && !field.value.trim()) {
-    valid = false;
-  } else if (field.type === 'email' && field.value.trim()) {
-    // Basic email format check
-    valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
-  }
-
-  if (!valid) {
-    group.classList.add('form-group--error');
-    field.setAttribute('aria-invalid', 'true');
-  } else {
-    group.classList.remove('form-group--error');
-    field.removeAttribute('aria-invalid');
-  }
-  return valid;
-}
-
-// Live validation: clear error on input, show on blur
-const formFields = document.querySelectorAll('#contact-form input[required], #contact-form input[type="email"]');
-formFields.forEach(field => {
-  field.addEventListener('blur', () => validateField(field));
-  field.addEventListener('input', () => {
-    const group = field.closest('.form-group');
-    if (group && group.classList.contains('form-group--error')) {
-      validateField(field);
-    }
-  });
-});
-
-/* ─── CONTACT FORM ─── */
-const form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // Validate all required fields before submitting
-    let allValid = true;
-    form.querySelectorAll('input[required], input[type="email"]').forEach(field => {
-      if (!validateField(field)) allValid = false;
-    });
-    if (!allValid) return;
-    const btn = form.querySelector('button[type="submit"]');
-    const note = form.querySelector('.form__note');
-    const originalBtnText = btn.textContent;
-    const originalNote = note ? note.textContent : '';
-
-    // Loading state
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    btn.style.opacity = '0.8';
-
-    try {
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        btn.textContent = 'Message Sent ✓';
-        btn.style.opacity = '1';
-        btn.style.background = 'var(--teal-dark)';
-        if (note) note.textContent = "We'll be in touch within a few hours. Thank you!";
-        form.reset();
-        setTimeout(() => {
-          btn.textContent = originalBtnText;
-          btn.style.background = '';
-          btn.disabled = false;
-          if (note) note.textContent = originalNote;
-        }, 5000);
-      } else {
-        const json = await response.json().catch(() => ({}));
-        throw new Error(json.error || 'Server error');
-      }
-    } catch (err) {
-      btn.textContent = 'Something went wrong — try again';
-      btn.style.opacity = '1';
-      btn.style.background = '#c0392b';
-      if (note) note.textContent = 'Please try again in a moment, or call us directly to book.';
-      setTimeout(() => {
-        btn.textContent = originalBtnText;
-        btn.style.background = '';
-        btn.disabled = false;
-        if (note) note.textContent = originalNote;
-      }, 5000);
-    }
-  });
-}
 
 /* ─── ACTIVE NAV LINK ON SCROLL ─── */
 const sections = document.querySelectorAll('section[id]');
