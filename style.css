@@ -639,6 +639,7 @@ section[id] {
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
+  transition: box-shadow var(--transition), border-color var(--transition);
 }
 .service-card:hover {
   box-shadow: var(--shadow-md);
@@ -821,7 +822,7 @@ section[id] {
 
 /* ─── ABOUT ─── */
 .about {
-  background: linear-gradient(180deg, var(--warm) 0%, var(--teal-pale) 40%, var(--warm) 100%);
+  background: linear-gradient(180deg, var(--warm) 0%, var(--teal-pale) 100%);
 }
 
 .about__inner {
@@ -1152,6 +1153,7 @@ section[id] {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  transition: box-shadow var(--transition), border-color var(--transition);
 }
 .testimonial-card:hover {
   box-shadow: var(--shadow-sm);
