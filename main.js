@@ -250,3 +250,57 @@ document.querySelectorAll('.faq-item').forEach(item => {
     }
   });
 });
+
+/* ─── VISUAL CALENDAR ─── */
+(function() {
+  const el = document.getElementById('calVisual');
+  if (!el) return;
+
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const today = now.getDate();
+  const monthName = now.toLocaleString('default', { month: 'long' });
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const closedDay = 0;
+  const fullDays = [today + 2, today + 5].filter(d => d <= daysInMonth);
+
+  let html = '<div class="cal-header">';
+  html += '<span class="cal-month">' + monthName + ' ' + year + '</span>';
+  html += '</div>';
+  html += '<div class="cal-days">';
+  days.forEach(d => { html += '<span class="cal-day-label">' + d + '</span>'; });
+  html += '</div>';
+  html += '<div class="cal-grid">';
+  for (let i = 0; i < firstDay; i++) html += '<span class="cal-cell cal-cell--empty"></span>';
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dow = new Date(year, month, d).getDay();
+    const isPast = d < today;
+    const isToday = d === today;
+    const isClosed = dow === closedDay;
+    const isFull = fullDays.includes(d);
+    let cls = 'cal-cell';
+    if (isPast) cls += ' cal-cell--past';
+    else if (isClosed) cls += ' cal-cell--closed';
+    else if (isFull) cls += ' cal-cell--full';
+    else if (isToday) cls += ' cal-cell--today';
+    else cls += ' cal-cell--open';
+    html += '<span class="' + cls + '">' + d + '</span>';
+  }
+  html += '</div>';
+  html += '<div class="cal-legend">';
+  html += '<span><span class="cal-dot cal-dot--open"></span> Available</span>';
+  html += '<span><span class="cal-dot cal-dot--full"></span> Full</span>';
+  html += '<span><span class="cal-dot cal-dot--closed"></span> Closed</span>';
+  html += '</div>';
+  el.innerHTML = html;
+
+  el.querySelectorAll('.cal-cell--open, .cal-cell--today').forEach(cell => {
+    cell.addEventListener('click', function() {
+      el.querySelectorAll('.cal-cell--selected').forEach(s => s.classList.remove('cal-cell--selected'));
+      this.classList.add('cal-cell--selected');
+    });
+  });
+})();
