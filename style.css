@@ -2014,11 +2014,14 @@ section[id] {
   /* Hero heading size on smallest screens */
   .hero__heading { font-size: 2rem; letter-spacing: -0.02em; }
 
+  /* Hero scroll hint — meet 44px tap target */
+  .hero__scroll-hint { width: 44px; height: 44px; }
+
   /* Value strip on 375px */
   .value-strip__item { padding: 28px 20px; }
 
-  /* Prevent service card CTA overflow */
-  .service-card__cta { font-size: 0.8rem; }
+  /* Prevent service card CTA overflow — keep at 12px minimum */
+  .service-card__cta { font-size: 0.82rem; }
 
   /* Journey at 375px */
   .journey__step h3 { font-size: 1rem; }
@@ -2238,11 +2241,11 @@ section[id] {
   position: absolute;
   top: -4px;
   right: -4px;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background: var(--teal);
   color: var(--white);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 800;
   border-radius: 50%;
   display: flex;
