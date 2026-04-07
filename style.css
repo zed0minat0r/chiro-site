@@ -1639,6 +1639,37 @@ section[id] {
   }
 }
 
+/* ─── MAP SECTION ─── */
+.contact__map-section {
+  margin-bottom: 32px;
+}
+.contact__map-label {
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.contact__map {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid var(--border, #e5e0da);
+}
+.contact__map iframe {
+  display: block;
+  width: 100%;
+}
+.contact__map-address {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
 /* ─── VISUAL CALENDAR ─── */
 .cal-visual {
   background: var(--white);
