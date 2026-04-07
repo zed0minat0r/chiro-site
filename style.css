@@ -260,7 +260,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background-image: url('https://images.unsplash.com/ZzkNkbUxFMc?w=1400&q=80');
+  background-image: url('https://images.unsplash.com/photo-1768507423533-b87b62769758?w=1400&q=80');
   background-size: cover;
   background-position: center;
   pointer-events: none;
