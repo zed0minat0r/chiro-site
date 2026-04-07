@@ -1,139 +1,178 @@
-# Nigel Audit — Stellar Chiropractic (Post-Overhaul)
+# Nigel Audit — Stellar Chiropractic
 **Date:** 2026-04-06
-**Previous Score:** 7.2/10
-**Current Score:** 7.0/10
-**Delta:** -0.2
-**Auditor:** Nigel (strict patient-perspective scoring)
+**Previous Score:** 7.0/10
+**Current Score:** 7.4/10
+**Delta:** +0.4
 
 ---
 
 ## Summary
 
-The overhaul was ambitious and directionally correct — cutting 670+ lines of bloat, trimming sections, adding chiropractic-specific photos, and introducing the teal "Why Choose Us" split section. However, execution introduced new layout issues that offset the gains. The photos now load (all four return HTTP 200 — the earlier 404 issue is confirmed fixed), the content is tighter, and the page feels shorter and more focused. But loose ends prevent this from being a clear upgrade from the patient's perspective.
+The fixes since the last audit addressed real problems: dead insurance section removed, service grid orphan card resolved, interactive calendar replacing the broken form, dead code cleanup, and JSON-LD alignment. These were necessary housekeeping items that bring the site from "has visible bugs" to "functional and clean." Credit where due — the codebase is now lean and the structure is solid.
+
+However, a 7.0 already meant "better than most." Moving from 7.0 upward requires improvements that make a prospective patient *choose this site over a competitor*, not just fixes that stop things being broken. Fixing bugs earns incremental credit, not leaps.
 
 ---
 
-## What Improved
+## Section-by-Section Breakdown
 
-1. **Photos actually load.** All four Unsplash images (hero bg, hero treatment side image, shoulder therapy in why-us, chiropractor portrait in about) return HTTP 200. The 404 issue from earlier is resolved. This was critical.
+### Hero (7.5/10)
+**Positives:**
+- Background photo with 45-50% overlay is a good balance — image is visible without competing with text
+- Trust bar (500+ patients, 10+ yrs, Same-day) is well-structured
+- Dual CTA (Book / Services) is sound
+- Reassurance line ("No commitment required") is effective copy
 
-2. **Content trimming.** Wellness tips removed, FAQ trimmed from 8 to 5, services from 6 to 4, about condensed. The page is meaningfully shorter. A patient scanning on mobile reaches the contact form faster.
+**Issues:**
+- The hero image on the right (Unsplash stock photo of generic chiro treatment) is obviously stock. A real photo would add 0.5+ points instantly
+- On mobile, the hero stacks to single-column which is correct, but the image sits below the CTA group — most users will never scroll past the fold to see it. Consider hiding the hero image on mobile or placing it above the text
+- `loading="eager"` on the hero image is correct
 
-3. **"Why Choose Us" teal section.** The split layout with check-mark points and the 4-step "How It Works" row is a strong trust-building addition. The teal background breaks up the page visually and creates clear section hierarchy. This is the best new element in the overhaul.
+### Services (7.5/10)
+**Positives:**
+- 2x2 grid, no orphan — well done
+- Each card has a specific CTA that scrolls to the calendar — good UX flow
+- Service note about self-pay rates is honest and sets expectations
+- SVG icons are clean and consistent
 
-4. **Hero side-by-side layout.** The treatment image alongside the hero copy is more engaging than a text-only block. On desktop, this gives the site genuine visual weight above the fold.
+**Issues:**
+- On mobile (768px), services collapse to 1-column. Cards center-align text which is acceptable but descriptions vary in length (2-3 lines)
+- "Book for this →" as CTA text is generic. Consider "Schedule Adjustment →" / "Fix My Posture →" etc. for specificity
 
-5. **Testimonial cards.** White cards on warm background is correct contrast. "Verified Patient" badges and star ratings add credibility. The 5th odd card auto-centering is a nice grid touch.
+### Why Choose Us / How It Works (7.0/10)
+**Positives:**
+- Green background section creates visual rhythm break — good
+- 3 "why" points are concrete and patient-focused
+- 4-step process is clear
 
-6. **Reduced hero overlay.** Background photo more visible at 80-85% overlay vs near-opaque before. Still subtle, but adds texture.
+**Issues:**
+- The image in this section (shoulder blade therapy) is another Unsplash stock photo. Two stock photos in succession weakens trust
+- Step numbers use a translucent circle background; step 4 uses inverted (white bg, teal text) which is a nice touch
+
+### About (7.5/10)
+**Positives:**
+- Clean grid layout with photo left, text right
+- Credential list with check icons is scannable
+- Badge overlay ("DC · Licensed Chiropractor") adds legitimacy
+- Label redundancy fixed — good
+
+**Issues:**
+- Third stock photo for Dr. Jason. This is the single biggest trust deficit on the entire site. A real headshot would transform this section
+
+### Testimonials (7.5/10)
+**Positives:**
+- 5 reviews displayed, one with 4 stars — the imperfection adds believability
+- 2-column grid with the 5th card centered — orphan handling is correct
+- "Verified Patient" badges are a nice touch
+- Link to Google reviews is important for credibility
+
+**Issues:**
+- Reviews read as fabricated. "Sarah M., back pain patient" — no real patient self-identifies by condition. This is a hallmark of placeholder reviews
+- Google reviews link points to a search query, not an actual GMB listing
+
+### FAQ (7.5/10)
+**Positives:**
+- 5 questions, all highly relevant to a new chiro patient
+- 5th item centered (orphan fix confirmed)
+- Accordion open/close is smooth — compliant with allowed animations per AGENT-RULES
+- Left border accent on open items is tasteful
+
+**Issues:**
+- No issues worth deducting for. One of the strongest sections
+
+### Contact (7.0/10)
+**Positives:**
+- Interactive calendar is a significant upgrade from the broken form
+- "First Visit — What to Expect" prep box is excellent patient UX
+- Contact details are complete (location, phone, email, hours)
+- Google Maps link on the address is good
+
+**Issues:**
+- Calendar is visual-only — clicking a date adds a selected outline but "Book This Time" fires a JS alert. A patient landing here expects to actually book. This is the biggest functional gap
+- Phone number (610) 555-0100 is a placeholder (555 exchange). Must be replaced before launch
+- Email hello@stellarchiropractic.com — unclear if real
+
+### Footer (7.5/10)
+**Positives:**
+- Clean three-column layout
+- Gradient top border is tasteful
+- Copyright year current (2026)
+
+**Issues:**
+- No social media or Google Business links
+
+### Technical / Code Quality (8.0/10)
+**Positives:**
+- JSON-LD structured data for MedicalBusiness, FAQPage, BreadcrumbList — all synced to actual page content
+- Open Graph and Twitter Card meta tags present
+- Skip-to-content link for accessibility
+- `prefers-reduced-motion` media query — excellent a11y
+- Focus-visible styles on all interactive elements
+- Noscript fallback
+- No unnecessary animations — compliant with AGENT-RULES rule #9
+- Dead code cleanup was thorough — no orphaned CSS classes found
+- Mobile tap targets at 44px minimum
+- Safe-area-inset on sticky CTA for notched phones
+- 305 lines of dead code removed — codebase is lean
+
+**Issues:**
+- `@supports (interpolate-size: allow-keywords)` for FAQ animation is Chrome 129+ only. Not a problem, just noted
+- `aria-label="5 stars"` adequate but `role="img"` would be more semantic
+
+### Mobile Alignment Audit (7.5/10)
+**Positives:**
+- All section labels, headings, subheadings center-aligned on mobile
+- Service cards center text and icons
+- About section centers photo, credentials, CTA
+- Contact info items stack and center correctly
+- Footer centers all content
+- Testimonial cards center on mobile
+- No horizontal overflow detected
+
+**Issues:**
+- Contact prep list items are `text-align: left` inside centered container — intentional and correct for readability
 
 ---
 
-## What Regressed or Needs Work
+## Scoring Rationale
 
-### P1 — Service Cards Grid Orphan (Layout Bug)
-The services grid uses `grid-template-columns: repeat(3, 1fr)` but there are only 4 cards. This means 3 cards on row 1, and 1 orphaned card sitting alone on the left of row 2. This looks unfinished and asymmetric. A patient sees this and thinks "did they forget something?"
-
-**Fix:** Switch to `repeat(2, 1fr)` for a clean 2x2 grid, or restore 2 services to fill the 3-column layout.
-
-**Impact:** -0.3
-
-### P2 — Hero Background Photo Still Barely Visible
-The overlay is at 80-85% opacity. The hero background image — specifically added as part of this overhaul — contributes almost nothing visually. You are loading a 1400px-wide image that most patients cannot consciously perceive. Either reduce the overlay to 60-70% so the photo contributes atmosphere, or remove it and save the bandwidth.
-
-**Impact:** -0.1
-
-### P3 — JSON-LD FAQPage Schema Lists 8 Questions, Page Shows 5
-The FAQPage structured data in `<head>` still contains 8 questions, but only 5 are visible on the page. The 3 hidden questions (same-day appointments, cost without insurance, safety for children/seniors) must either be removed from the schema or restored to the page. Google may flag this mismatch and withhold rich results.
-
-**Impact:** -0.1
-
-### P4 — JSON-LD MedicalBusiness Schema Lists 6 Services, Page Shows 4
-The `hasOfferCatalog` in structured data still lists Massage Therapy and Wellness Plans, which no longer appear on the page. Same schema/content mismatch issue.
-
-**Impact:** -0.05
-
-### P5 — About Section Label Redundancy
-The about section reads: label "Meet Your Doctor" then heading "Meet Dr. Jason" — "Meet" appears twice in adjacent lines. Minor, but on a condensed page meant to feel polished, this reads as careless.
-
-**Impact:** -0.05
-
-### P6 — Two Useful Services Were Removed
-Massage Therapy and Wellness Plans were cut from 6 to 4 services. These are common patient search terms. Someone Googling "chiropractor massage therapy Phoenixville" would have previously found a matching service card. The trimming was good in principle but the specific services cut were conversion-relevant.
-
-**Impact:** Informational (no score deduction, but worth reconsidering)
-
----
-
-## Animation Compliance
-
-Only two `@keyframes` present:
-- `fadeInUp` — hero fade-in on load (allowed per rules)
-- `faqReveal` — FAQ accordion answer reveal (allowed per rules)
-
-No pulses, shimmers, bounces, glows, lifts, or transforms beyond basic hover color changes. `prefers-reduced-motion` correctly disables everything. **PASS.**
-
----
-
-## Mobile Quick Audit
-
-- Tap targets: 44px minimums enforced across all interactive elements. **Pass.**
-- Font sizes: 12px minimum enforced at 768px breakpoint. **Pass.**
-- Centre alignment: All sections centred on mobile with consistent text-align rules. **Pass.**
-- Hero CTA buttons stack vertically at 480px. **Pass.**
-- Sticky mobile CTA bar present with proper safe-area padding. **Pass.**
-- Why-us section: steps go to 2-column on mobile, image moves above text. **Pass.**
-
----
-
-## Section Scores
-
-| Section | Previous | Current | Delta |
+| Category | Score | Weight | Weighted |
 |---|---|---|---|
-| Navigation | 7.5 | 7.5 | 0 |
-| Hero | 7.0 | 7.0 | 0 |
-| Services | 7.5 | 6.5 | -1.0 |
-| Why Choose Us (NEW) | — | 7.5 | NEW |
-| About | 6.8 | 7.0 | +0.2 |
-| Testimonials | 7.0 | 7.0 | 0 |
-| Insurance | 7.0 | 7.0 | 0 |
-| FAQ | 8.0 | 7.0 | -1.0 |
-| Contact | 7.0 | 7.0 | 0 |
-| Footer | 6.5 | 6.5 | 0 |
-| Sticky CTA | 7.0 | 7.0 | 0 |
-| Technical/SEO | 7.5 | 6.5 | -1.0 |
-| Animation Compliance | PASS | PASS | — |
-| **Overall** | **7.2** | **7.0** | **-0.2** |
+| Visual Design & Polish | 7.5 | 20% | 1.50 |
+| Content & Copy | 7.0 | 15% | 1.05 |
+| UX & Conversion Flow | 7.0 | 20% | 1.40 |
+| Mobile Experience | 7.5 | 15% | 1.13 |
+| Technical / Code Quality | 8.0 | 15% | 1.20 |
+| Trust & Credibility | 6.5 | 15% | 0.98 |
+| **TOTAL** | | | **7.25 → 7.4** |
 
-**Services dropped** because the 3-col grid with 4 cards creates an obvious orphan.
-**FAQ dropped** because cutting from 8 to 5 is fine in principle, but the schema mismatch and loss of strong SEO-rich content hurts.
-**Technical/SEO dropped** because two separate schema/content mismatches is a meaningful regression.
-**Why Choose Us is new** and scores well — the teal split layout is genuinely good.
+Rounded to 7.4 with slight upward adjustment for the significant cleanup work (305 lines removed, insurance section properly excised, calendar implementation).
+
+The trust category drags the score down: 3 stock photos, placeholder phone number, likely-fabricated reviews, and a booking calendar that doesn't actually book. A real user notices these things.
 
 ---
 
-## Top 3 Priorities for Next Sprint
+## Top 3 Priorities (Next Sprint)
 
-### 1. Fix the Service Grid Layout (P1)
-Change `.services__grid` from `repeat(3, 1fr)` to `repeat(2, 1fr)`. This gives a clean 2x2 layout for 4 cards. Or restore Massage Therapy + Wellness Plans to get back to 6 cards in a 3x2 grid. The orphaned card is the single most visible layout issue on the page.
+### 1. Make the calendar functional or replace with a real booking link
+The visual calendar sets an expectation it cannot fulfil. Either integrate Calendly/Acuity embed or replace with a prominent "Call to Book" section with the real phone number. A non-functional booking widget is worse than no widget.
 
-### 2. Sync JSON-LD Schemas with Visible Content (P3 + P4)
-Remove the 3 extra FAQ entries and 2 extra services from the structured data in `<head>`. Schema must match what the patient can actually see on the page. This is a Google rich results compliance issue.
+### 2. Replace stock photos with real ones
+Three Unsplash stock photos across the site (hero, why-us, about) undermine trust. The about section photo is the most critical — a real headshot of the doctor would add more credibility than any other single change.
 
-### 3. Make the Hero Background Photo Visible or Remove It (P2)
-Reduce `.hero__bg::before` overlay opacity from 80-85% to 60-70%, or remove the background image entirely. Currently loading 1400px of imagery for almost no visual payoff.
-
----
-
-## Remaining Blockers to 8.0
-
-These have not changed since the last audit:
-- **Real photography** of Dr. Jason and the clinic. Stock photos cap trust.
-- **Working contact form** — Formspree action is still `placeholder`.
-- **More social proof** — 5-6 reviews from "500+ patients" is thin.
+### 3. Replace placeholder contact details with real ones
+(610) 555-0100 is a fake number. hello@stellarchiropractic.com needs verification. The Google Maps link uses a search query instead of a place ID. These must be real before the site goes live.
 
 ---
 
-**Final Score: 7.0/10 | Delta: -0.2 from 7.2**
+## Minor Items (Backlog)
+- Add `role="img"` to star rating elements
+- Consider service card CTA copy specificity ("Schedule Adjustment" vs "Book for this")
+- Add Google Business Profile link in footer
+- Testimonials: use real reviews or remove section until launch
+- Hero image could be hidden on mobile to reduce paint time and keep focus on CTA
 
-The overhaul had the right instincts — shorter page, better photos, stronger visual hierarchy. But the execution left loose ends (orphaned grid, schema mismatches, near-invisible hero bg) that net out to a slight regression. Fix the top 3 priorities and this moves back above 7.2 easily.
+---
+
+*Audited by Nigel — strict British auditor, decimal scoring.*
+*5.0 = average local business site, 6.0 = generic but functional, 7.0 = better than most competitors, 8.0 = patients would choose this over alternatives.*
