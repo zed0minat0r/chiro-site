@@ -1482,7 +1482,7 @@ section[id] {
 
 /* ─── FAQ ─── */
 .faq {
-  background: var(--warm);
+  background: var(--white);
 }
 
 /* Smooth open/close: allow height transitions on details for supporting browsers */
