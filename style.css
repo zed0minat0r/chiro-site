@@ -1601,11 +1601,11 @@ section[id] {
   align-items: center;
   gap: 6px;
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.6);
   transition: color var(--transition);
 }
 .footer__address:hover {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.9);
 }
 .footer__address svg {
   flex-shrink: 0;
@@ -1616,7 +1616,7 @@ section[id] {
   padding: 20px 32px;
   text-align: center;
 }
-.footer__bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+.footer__bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
 
 /* ─── ANIMATIONS ─── */
 .fade-in {
@@ -1781,7 +1781,7 @@ section[id] {
   .hero__visual-card:last-child {
     margin-right: 0;
   }
-  .hero__scroll-hint { margin-top: 8px; }
+  .hero__scroll-hint { margin-top: 8px; width: 44px; height: 44px; }
 
   /* ── Services ── */
   .services__grid { grid-template-columns: 1fr; }
