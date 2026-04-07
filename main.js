@@ -34,8 +34,6 @@ document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta').forEach(link 
   link.addEventListener('click', closeMenu);
 });
 
-/* Hero trust pop animation removed — items show immediately */
-
 /* ─── REVEAL ON SCROLL ─── */
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -196,8 +194,6 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => sectionObserver.observe(s));
-
-/* Insurance pill stagger reveal removed — pills show immediately */
 
 /* ─── HERO SCROLL HINT FADE ON SCROLL ─── */
 const scrollHint = document.querySelector('.hero__scroll-hint');

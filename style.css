@@ -594,7 +594,7 @@ section[id] {
 
 /* ─── VALUE STRIP CTA ─── */
 .value-strip-cta {
-  background: var(--teal-pale);
+  background: linear-gradient(180deg, var(--teal-pale) 0%, var(--warm) 100%);
   padding: 40px 0;
   text-align: center;
 }
@@ -808,10 +808,6 @@ section[id] {
   width: 44px;
   height: 22px;
 }
-.journey__connector-v {
-  width: 22px !important;
-  height: 36px !important;
-}
 
 .journey__cta {
   text-align: center;
@@ -865,9 +861,6 @@ section[id] {
   top: 18%;
   left: 50%;
   transform: translateX(-50%);
-}
-.about__photo-placeholder::after {
-  display: none;
 }
 /* Person silhouette SVG inside placeholder */
 .about__photo-silhouette {
@@ -1346,8 +1339,7 @@ section[id] {
 }
 
 .form-group input,
-.form-group select,
-.form-group textarea {
+.form-group select {
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--text);
@@ -1360,16 +1352,13 @@ section[id] {
   width: 100%;
   -webkit-appearance: none;
 }
-.form-group input::placeholder,
-.form-group textarea::placeholder { color: #b0b8b4; }
+.form-group input::placeholder { color: #b0b8b4; }
 .form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form-group select:focus {
   border-color: var(--teal);
   box-shadow: 0 0 0 3px rgba(45,125,98,0.12);
   background: var(--white);
 }
-.form-group textarea { resize: vertical; min-height: 110px; }
 
 .form__note {
   font-size: 0.8rem;
@@ -1571,6 +1560,8 @@ section[id] {
   background: var(--text);
   color: rgba(255,255,255,0.7);
   padding: 48px 0 0;
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal)) 1;
 }
 
 .footer__inner {
@@ -1705,9 +1696,6 @@ section[id] {
   .value-strip__item {
     padding: 36px 24px;
   }
-  .value-strip__item:nth-child(3) {
-    border-left: none;
-  }
   .value-strip__item:nth-child(3)::after { display: none; }
 }
 
@@ -1722,7 +1710,6 @@ section[id] {
     padding: 32px 48px;
   }
   .value-strip__item:first-child { border-top: none; }
-  .value-strip__item:nth-child(3) { border-left: none; }
 }
 
 @media (max-width: 768px) {
@@ -1840,10 +1827,6 @@ section[id] {
   /* ── Section headings / labels ── */
   .section__heading { text-align: center; }
   .section__heading--left { text-align: center; }
-  /* Ensure minimum 12px text on mobile for readability */
-  .section__label { font-size: 0.75rem; }
-  .hero__trust-item span { font-size: 0.75rem; }
-  .testimonial-card__badge { font-size: 0.75rem; }
   .section__label { text-align: center; }
   .about__text .section__label { text-align: center; }
 
@@ -1997,8 +1980,7 @@ section[id] {
 
   /* ── Form inputs — 44px min tap target ── */
   .form-group input,
-  .form-group select,
-  .form-group textarea {
+  .form-group select {
     min-height: 44px;
   }
 
@@ -2018,9 +2000,6 @@ section[id] {
 
   /* Service cards — ensure icon is centered at 480px */
   .service-card__icon { margin-left: auto; margin-right: auto; }
-
-  /* Contact info — full column alignment */
-  .contact__info-item { text-align: center; }
 
   /* Wellness tips item — stack icon above text */
   .wellness-tips__item { flex-direction: column; align-items: center; gap: 12px; }
@@ -2046,7 +2025,6 @@ section[id] {
     justify-content: space-evenly;
   }
   .hero__trust-item strong { font-size: 1rem; }
-  .hero__trust-item span { font-size: 0.75rem; }  /* 12px minimum */
 
   /* Hero heading size on smallest screens */
   .hero__heading { font-size: 2rem; letter-spacing: -0.02em; }
@@ -2068,8 +2046,6 @@ section[id] {
   /* Wellness tips at 375px */
   .wellness-tips__box { padding: 28px 16px; }
   .wellness-tips__heading { font-size: 1.2rem; }
-  .wellness-tips__item { flex-direction: column; align-items: center; gap: 12px; }
-  .wellness-tips__item div { align-items: center; text-align: center; }
   .wellness-tips__footer p { font-size: 0.92rem; }
 
   /* Insurance at 375px */
@@ -2080,11 +2056,6 @@ section[id] {
     max-width: calc(100vw - 40px);
     white-space: normal;
     word-break: break-word;
-  }
-
-  /* Form select — ensure 44px min tap target */
-  .form-group select {
-    min-height: 44px;
   }
 }
 
@@ -2156,12 +2127,6 @@ section[id] {
   .faq-item__a { animation: none; }
 }
 
-/* ─── FOOTER TOP GRADIENT ACCENT ─── */
-.footer {
-  border-top: 3px solid transparent;
-  border-image: linear-gradient(90deg, var(--teal), var(--teal-light), var(--teal)) 1;
-}
-
 /* ─── FORM INPUT LABEL TRANSITION ON FOCUS ─── */
 .form-group label {
   transition: color var(--transition);
@@ -2189,12 +2154,6 @@ section[id] {
 /* On mobile, remove the dash so label text is truly centered */
 @media (max-width: 768px) {
   .section__label::before { display: none; }
-}
-
-/* ─── VALUE STRIP CTA WARM BACKGROUND ─── */
-.value-strip-cta {
-  background: linear-gradient(180deg, var(--teal-pale) 0%, var(--warm) 100%);
-  position: relative;
 }
 
 /* Slightly warmer select arrow on webkit */
@@ -2245,8 +2204,7 @@ section[id] {
 
 /* ─── FORM VALIDATION ─── */
 .form-group--error input,
-.form-group--error select,
-.form-group--error textarea {
+.form-group--error select {
   border-color: #c0392b;
   box-shadow: 0 0 0 3px rgba(192,57,43,0.12);
 }
