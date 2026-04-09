@@ -114,10 +114,19 @@ document.querySelectorAll('.service-card__cta[data-reason]').forEach(cta => {
   }
 
   function setActiveDot(index) {
+    var cards = getCards();
     dots.forEach(function(d, i) {
       d.classList.toggle('testimonials__dot--active', i === index);
       d.setAttribute('aria-selected', i === index ? 'true' : 'false');
     });
+    if (prevBtn) {
+      prevBtn.disabled = index === 0;
+      prevBtn.setAttribute('aria-disabled', index === 0 ? 'true' : 'false');
+    }
+    if (nextBtn) {
+      nextBtn.disabled = index === cards.length - 1;
+      nextBtn.setAttribute('aria-disabled', index === cards.length - 1 ? 'true' : 'false');
+    }
   }
 
   function getActiveIndex() {
@@ -171,6 +180,9 @@ document.querySelectorAll('.service-card__cta[data-reason]').forEach(cta => {
       ticking = true;
     }
   }, { passive: true });
+
+  // Initialise arrow states on load
+  setActiveDot(0);
 })();
 
 /* ─── ABOUT CREDENTIALS TOGGLE ─── */
