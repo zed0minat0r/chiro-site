@@ -406,3 +406,99 @@ document.querySelectorAll('.faq-item').forEach(item => {
     });
   });
 })();
+
+/* ─── BOOKING CARD: callback form toggle + validation ─── */
+(function() {
+  var formToggleBtn = document.getElementById('formToggleBtn');
+  var callbackForm = document.getElementById('callbackForm');
+  var formToggleIcon = formToggleBtn ? formToggleBtn.querySelector('.booking-card__cal-toggle-icon') : null;
+
+  if (formToggleBtn && callbackForm) {
+    formToggleBtn.addEventListener('click', function() {
+      var isOpen = formToggleBtn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        callbackForm.hidden = true;
+        formToggleBtn.setAttribute('aria-expanded', 'false');
+        if (formToggleIcon) formToggleIcon.textContent = '+';
+      } else {
+        callbackForm.hidden = false;
+        formToggleBtn.setAttribute('aria-expanded', 'true');
+        if (formToggleIcon) formToggleIcon.textContent = '−';
+      }
+    });
+  }
+
+  var form = document.getElementById('callbackFormEl');
+  var thanks = document.getElementById('callbackThanks');
+  if (!form) return;
+
+  function showError(inputId, errId) {
+    var input = document.getElementById(inputId);
+    var err = document.getElementById(errId);
+    if (input) input.classList.add('is-invalid');
+    if (err) err.hidden = false;
+  }
+
+  function clearError(inputId, errId) {
+    var input = document.getElementById(inputId);
+    var err = document.getElementById(errId);
+    if (input) input.classList.remove('is-invalid');
+    if (err) err.hidden = true;
+  }
+
+  // Live validation on blur
+  var nameInput = document.getElementById('cb-name');
+  var contactInput = document.getElementById('cb-contact');
+
+  if (nameInput) {
+    nameInput.addEventListener('blur', function() {
+      if (!this.value.trim()) { showError('cb-name', 'cb-name-err'); }
+      else { clearError('cb-name', 'cb-name-err'); }
+    });
+    nameInput.addEventListener('input', function() {
+      if (this.value.trim()) clearError('cb-name', 'cb-name-err');
+    });
+  }
+
+  if (contactInput) {
+    contactInput.addEventListener('blur', function() {
+      if (!this.value.trim()) { showError('cb-contact', 'cb-contact-err'); }
+      else { clearError('cb-contact', 'cb-contact-err'); }
+    });
+    contactInput.addEventListener('input', function() {
+      if (this.value.trim()) clearError('cb-contact', 'cb-contact-err');
+    });
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+
+    if (!nameInput || !nameInput.value.trim()) {
+      showError('cb-name', 'cb-name-err');
+      valid = false;
+    } else {
+      clearError('cb-name', 'cb-name-err');
+    }
+    if (!contactInput || !contactInput.value.trim()) {
+      showError('cb-contact', 'cb-contact-err');
+      valid = false;
+    } else {
+      clearError('cb-contact', 'cb-contact-err');
+    }
+
+    if (!valid) return;
+
+    // Build mailto link and open it, then show thank you
+    var name = nameInput.value.trim();
+    var contact = contactInput.value.trim();
+    var day = document.getElementById('cb-day') ? document.getElementById('cb-day').value : '';
+    var subject = encodeURIComponent('Callback Request — ' + name);
+    var body = encodeURIComponent('Name: ' + name + '\nContact: ' + contact + (day ? '\nPreferred day: ' + day : ''));
+    window.location.href = 'mailto:hello@stellarchiropractic.com?subject=' + subject + '&body=' + body;
+
+    // Show confirmation
+    form.hidden = true;
+    if (thanks) thanks.hidden = false;
+  });
+})();

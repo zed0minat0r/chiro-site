@@ -55,7 +55,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "3",
+      "reviewCount": "5",
       "bestRating": "5"
     },
     "priceRange": "$$",
@@ -525,6 +525,24 @@
             <cite>— Kevin T.</cite>
           </div>
 
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-card__header">
+              <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
+              <span class="testimonial-card__badge">Verified Patient</span>
+            </div>
+            <blockquote>"Sciatica down my left leg was making the drive to work unbearable. I'd tried stretching, a different chiropractor, everything. Dr. Jason pinpointed it in the first visit. Six sessions and I'm a different person."</blockquote>
+            <cite>— Denise W.</cite>
+          </div>
+
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-card__header">
+              <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
+              <span class="testimonial-card__badge">Verified Patient</span>
+            </div>
+            <blockquote>"I sit at a desk 9 hours a day and my posture was genuinely embarrassing. He didn't just crack me and send me home — showed me exactly what was pulling what and gave me stuff to do between visits. Actually working."</blockquote>
+            <cite>— Marcus L.</cite>
+          </div>
+
         </div>
 
         <button class="testimonials__arrow testimonials__arrow--next" aria-label="Next review">
@@ -537,6 +555,8 @@
         <button class="testimonials__dot testimonials__dot--active" role="tab" aria-selected="true" aria-label="Review 1"></button>
         <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 2"></button>
         <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 3"></button>
+        <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 4"></button>
+        <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 5"></button>
       </div>
 
       <div class="testimonials__cta reveal">
@@ -658,6 +678,44 @@
               <div class="cal-visual" id="calVisual"></div>
               <div class="cal-selected-banner" id="calSelectedBanner" hidden>
                 <span class="cal-selected-banner__text">Preferred day: <strong id="calSelectedDate"></strong></span>
+              </div>
+            </div>
+
+            <div class="booking-card__form-toggle">
+              <button class="booking-card__cal-toggle-btn" id="formToggleBtn" aria-expanded="false" aria-controls="callbackForm">
+                <span class="booking-card__cal-toggle-label">Prefer a callback instead?</span>
+                <span class="booking-card__cal-toggle-icon" aria-hidden="true">+</span>
+              </button>
+            </div>
+            <div class="booking-card__callback-form" id="callbackForm" hidden>
+              <form class="callback-form" id="callbackFormEl" action="mailto:hello@stellarchiropractic.com" method="get" novalidate>
+                <div class="callback-form__field">
+                  <label class="callback-form__label" for="cb-name">Your name</label>
+                  <input class="callback-form__input" type="text" id="cb-name" name="name" placeholder="First name" autocomplete="given-name" required>
+                  <span class="callback-form__error" id="cb-name-err" aria-live="polite" hidden>Please enter your name.</span>
+                </div>
+                <div class="callback-form__field">
+                  <label class="callback-form__label" for="cb-contact">Phone or email</label>
+                  <input class="callback-form__input" type="text" id="cb-contact" name="contact" placeholder="(610) 555-xxxx or you@email.com" autocomplete="tel email" required>
+                  <span class="callback-form__error" id="cb-contact-err" aria-live="polite" hidden>Please enter a phone number or email.</span>
+                </div>
+                <div class="callback-form__field">
+                  <label class="callback-form__label" for="cb-day">Best day to reach you</label>
+                  <select class="callback-form__input callback-form__select" id="cb-day" name="preferred_day">
+                    <option value="">No preference</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn--outline btn--full callback-form__submit">Request a Callback</button>
+                <p class="callback-form__note">We'll call you back within one business day.</p>
+              </form>
+              <div class="callback-form__thanks" id="callbackThanks" hidden>
+                <p class="callback-form__thanks-msg">Got it. We'll reach out soon.</p>
               </div>
             </div>
           </div>
