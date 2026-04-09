@@ -273,18 +273,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background: linear-gradient(150deg, rgba(234,246,241,0.88) 0%, rgba(247,243,238,0.85) 55%, rgba(240,250,245,0.88) 100%);
 }
 
-/* Decorative geometric accent */
-.hero__bg::after {
-  content: '';
-  position: absolute;
-  top: 15%;
-  right: 8%;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  border: 1px solid rgba(45,125,98,0.08);
-  pointer-events: none;
-}
+/* Decorative geometric accent — removed, felt random */
 
 .hero__layout {
   display: grid;
