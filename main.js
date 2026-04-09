@@ -313,37 +313,56 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-/* ─── VISUAL CALENDAR ─── */
+/* ─── BOOKING CARD: calendar toggle + date selection ─── */
 (function() {
-  const el = document.getElementById('calVisual');
+  var toggleBtn = document.getElementById('calToggleBtn');
+  var calSection = document.getElementById('calSection');
+  var toggleIcon = toggleBtn ? toggleBtn.querySelector('.booking-card__cal-toggle-icon') : null;
+
+  if (toggleBtn && calSection) {
+    toggleBtn.addEventListener('click', function() {
+      var isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        calSection.hidden = true;
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        if (toggleIcon) toggleIcon.textContent = '+';
+      } else {
+        calSection.hidden = false;
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        if (toggleIcon) toggleIcon.textContent = '−';
+      }
+    });
+  }
+
+  var el = document.getElementById('calVisual');
   if (!el) return;
 
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth();
-  const today = now.getDate();
-  const monthName = now.toLocaleString('default', { month: 'long' });
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const closedDay = 0;
-  const fullDays = [today + 2, today + 5].filter(d => d <= daysInMonth);
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth();
+  var today = now.getDate();
+  var monthName = now.toLocaleString('default', { month: 'long' });
+  var firstDay = new Date(year, month, 1).getDay();
+  var daysInMonth = new Date(year, month + 1, 0).getDate();
+  var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var closedDay = 0;
+  var fullDays = [today + 2, today + 5].filter(function(d) { return d <= daysInMonth; });
 
-  let html = '<div class="cal-header">';
+  var html = '<div class="cal-header">';
   html += '<span class="cal-month">' + monthName + ' ' + year + '</span>';
   html += '</div>';
   html += '<div class="cal-days">';
-  days.forEach(d => { html += '<span class="cal-day-label">' + d + '</span>'; });
+  days.forEach(function(d) { html += '<span class="cal-day-label">' + d + '</span>'; });
   html += '</div>';
   html += '<div class="cal-grid">';
-  for (let i = 0; i < firstDay; i++) html += '<span class="cal-cell cal-cell--empty"></span>';
-  for (let d = 1; d <= daysInMonth; d++) {
-    const dow = new Date(year, month, d).getDay();
-    const isPast = d < today;
-    const isToday = d === today;
-    const isClosed = dow === closedDay;
-    const isFull = fullDays.includes(d);
-    let cls = 'cal-cell';
+  for (var i = 0; i < firstDay; i++) html += '<span class="cal-cell cal-cell--empty"></span>';
+  for (var d = 1; d <= daysInMonth; d++) {
+    var dow = new Date(year, month, d).getDay();
+    var isPast = d < today;
+    var isToday = d === today;
+    var isClosed = dow === closedDay;
+    var isFull = fullDays.includes(d);
+    var cls = 'cal-cell';
     if (isPast) cls += ' cal-cell--past';
     else if (isClosed) cls += ' cal-cell--closed';
     else if (isFull) cls += ' cal-cell--full';
@@ -359,22 +378,23 @@ document.querySelectorAll('.faq-item').forEach(item => {
   html += '</div>';
   el.innerHTML = html;
 
-  const bookBtn = document.getElementById('calBookBtn');
-  const calConfirm = document.getElementById('calConfirm');
-  const calSelectedDate = document.getElementById('calSelectedDate');
+  var callBtn = document.getElementById('calCallBtn');
+  var banner = document.getElementById('calSelectedBanner');
+  var selectedDateEl = document.getElementById('calSelectedDate');
+  var baseCallText = 'Call (610) 555-0100';
 
-  el.querySelectorAll('.cal-cell--open, .cal-cell--today').forEach(cell => {
+  el.querySelectorAll('.cal-cell--open, .cal-cell--today').forEach(function(cell) {
     cell.setAttribute('tabindex', '0');
     cell.setAttribute('role', 'button');
 
     function selectCell(c) {
-      el.querySelectorAll('.cal-cell--selected').forEach(s => s.classList.remove('cal-cell--selected'));
+      el.querySelectorAll('.cal-cell--selected').forEach(function(s) { s.classList.remove('cal-cell--selected'); });
       c.classList.add('cal-cell--selected');
-      const dayNum = c.textContent.trim();
-      if (bookBtn) {
-        bookBtn.textContent = 'Call to Confirm ' + monthName + ' ' + dayNum;
-        bookBtn.disabled = false;
-      }
+      var dayNum = c.textContent.trim();
+      var dateLabel = monthName + ' ' + dayNum;
+      if (selectedDateEl) selectedDateEl.textContent = dateLabel;
+      if (banner) banner.hidden = false;
+      if (callBtn) callBtn.textContent = baseCallText + ' — ' + monthName + ' ' + dayNum;
     }
 
     cell.addEventListener('click', function() { selectCell(this); });
@@ -385,17 +405,4 @@ document.querySelectorAll('.faq-item').forEach(item => {
       }
     });
   });
-
-  if (bookBtn) {
-    bookBtn.addEventListener('click', function() {
-      const selected = el.querySelector('.cal-cell--selected');
-      if (selected && calConfirm && calSelectedDate) {
-        const dayNum = selected.textContent.trim();
-        calSelectedDate.textContent = monthName + ' ' + dayNum;
-        calConfirm.hidden = false;
-        calConfirm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        bookBtn.style.display = 'none';
-      }
-    });
-  }
 })();

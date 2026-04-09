@@ -177,6 +177,10 @@
         opacity: 1 !important;
         padding: 0 0 18px 36px !important;
       }
+      /* Show calendar section when JS is off */
+      .booking-card__cal-section {
+        display: block !important;
+      }
     </style>
   </noscript>
 </head>
@@ -638,19 +642,22 @@
           <div class="booking-card">
             <div class="booking-card__header">
               <h3 class="booking-card__title">Book Your Visit</h3>
-              <p class="booking-card__sub">Pick a day that works for you. We'll confirm your time slot by phone.</p>
+              <p class="booking-card__sub">Call us to schedule — same-day appointments often available.</p>
             </div>
-            <div class="cal-visual" id="calVisual"></div>
-            <button class="btn btn--primary btn--full cal-book-btn" id="calBookBtn" disabled>Select a Date to Continue</button>
-            <div class="cal-confirm" id="calConfirm" hidden>
-              <div class="cal-confirm__icon">✓</div>
-              <p class="cal-confirm__msg">Great choice! Call us to lock in your <strong id="calSelectedDate"></strong> appointment:</p>
-              <a href="tel:6105550100" class="btn btn--primary btn--full">Call (610) 555-0100 to Book</a>
+            <a href="tel:6105550100" class="btn btn--primary btn--full booking-card__call-cta" id="calCallBtn">Call (610) 555-0100</a>
+            <p class="booking-card__hours booking-card__hours--top">Mon–Fri 8am–6pm · Sat 9am–1pm</p>
+            <div class="booking-card__cal-toggle">
+              <button class="booking-card__cal-toggle-btn" id="calToggleBtn" aria-expanded="false" aria-controls="calSection">
+                <span class="booking-card__cal-toggle-label">Pick a preferred day (optional)</span>
+                <span class="booking-card__cal-toggle-icon" aria-hidden="true">+</span>
+              </button>
             </div>
-            <div class="booking-card__footer">
-              <p class="booking-card__or">or call anytime</p>
-              <a href="tel:6105550100" class="booking-card__phone">(610) 555-0100</a>
-              <p class="booking-card__hours">Mon–Fri 8am–6pm · Sat 9am–1pm</p>
+            <div class="booking-card__cal-section" id="calSection" hidden>
+              <p class="booking-card__cal-hint">Select a day below, then call us — we'll aim to book you on that date.</p>
+              <div class="cal-visual" id="calVisual"></div>
+              <div class="cal-selected-banner" id="calSelectedBanner" hidden>
+                <span class="cal-selected-banner__text">Preferred day: <strong id="calSelectedDate"></strong></span>
+              </div>
             </div>
           </div>
         </div>

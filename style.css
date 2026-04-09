@@ -2058,7 +2058,7 @@ section[id] {
   line-height: 1.5;
 }
 
-/* ─── VISUAL CALENDAR ─── */
+/* ─── BOOKING CARD ─── */
 .booking-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -2072,7 +2072,7 @@ section[id] {
 }
 .booking-card__header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 .booking-card__title {
   font-family: var(--font-display);
@@ -2086,34 +2086,62 @@ section[id] {
   color: var(--text-muted);
   line-height: 1.5;
 }
-.booking-card__footer {
-  text-align: center;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border);
+.booking-card__call-cta {
+  font-size: 1.05rem;
+  min-height: 52px;
 }
-.booking-card__or {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 6px;
-}
-.booking-card__phone {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--teal);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  margin-bottom: 4px;
-}
-.booking-card__phone:hover { text-decoration: underline; }
-.booking-card__hours {
+.booking-card__hours--top {
   font-size: 0.78rem;
   color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.booking-card__cal-toggle {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.booking-card__cal-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-family: inherit;
+  min-height: 44px;
+}
+.booking-card__cal-toggle-btn:hover { color: var(--teal); }
+.booking-card__cal-toggle-label { font-weight: 500; }
+.booking-card__cal-toggle-icon {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-left: 8px;
+}
+.booking-card__cal-section {
+  margin-top: 12px;
+}
+.booking-card__cal-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.cal-selected-banner {
+  margin-top: 12px;
+  background: var(--teal-pale);
+  border: 1px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--teal-dark);
 }
 .cal-visual {
   background: var(--bg);
@@ -2181,41 +2209,4 @@ section[id] {
 .cal-dot--full { background: #f0e6e6; border: 1px solid #b56666; }
 .cal-dot--closed { background: #e5e5e5; }
 
-.cal-book-btn {
-  max-width: 360px;
-  margin: 16px auto 0;
-  display: block;
-}
-.cal-book-btn:disabled {
-  background: var(--text-muted);
-  box-shadow: none;
-  cursor: default;
-  opacity: 0.6;
-}
-.cal-confirm {
-  margin: 16px auto 0;
-  background: var(--teal-pale);
-  border: 1px solid var(--teal);
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  text-align: center;
-}
-.cal-confirm__icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--teal);
-  color: var(--white);
-  font-size: 1.2rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 12px;
-}
-.cal-confirm__msg {
-  font-size: 0.92rem;
-  color: var(--text);
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
+/* cal-book-btn and cal-confirm removed — booking card redesigned */
