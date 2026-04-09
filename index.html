@@ -546,14 +546,24 @@
             <p class="contact__map-address">200 Lincoln Ave, Suite 106 · Phoenixville, PA · <a href="https://maps.google.com/?q=200+Lincoln+Ave+Suite+106+Phoenixville+PA" target="_blank" rel="noopener" class="contact-link">Get Directions →</a></p>
           </div>
 
-          <p class="contact__map-label" style="margin-top:32px;">Pick a Date</p>
-          <div class="cal-visual" id="calVisual"></div>
-          <button class="btn btn--primary btn--full cal-book-btn" id="calBookBtn" disabled>Select a Date to Continue</button>
-          <div class="cal-confirm" id="calConfirm" hidden>
-            <p class="cal-confirm__msg">Great! Call us to confirm your <strong id="calSelectedDate"></strong> appointment:</p>
-            <a href="tel:6105550100" class="btn btn--primary btn--full">Call (610) 555-0100 to Book</a>
+          <div class="booking-card">
+            <div class="booking-card__header">
+              <h3 class="booking-card__title">Book Your Visit</h3>
+              <p class="booking-card__sub">Pick a day that works for you. We'll confirm your time slot by phone.</p>
+            </div>
+            <div class="cal-visual" id="calVisual"></div>
+            <button class="btn btn--primary btn--full cal-book-btn" id="calBookBtn" disabled>Select a Date to Continue</button>
+            <div class="cal-confirm" id="calConfirm" hidden>
+              <div class="cal-confirm__icon">✓</div>
+              <p class="cal-confirm__msg">Great choice! Call us to lock in your <strong id="calSelectedDate"></strong> appointment:</p>
+              <a href="tel:6105550100" class="btn btn--primary btn--full">Call (610) 555-0100 to Book</a>
+            </div>
+            <div class="booking-card__footer">
+              <p class="booking-card__or">or call anytime</p>
+              <a href="tel:6105550100" class="booking-card__phone">(610) 555-0100</a>
+              <p class="booking-card__hours">Mon–Fri 8am–6pm · Sat 9am–1pm</p>
+            </div>
           </div>
-          <p class="form__prefer-call cal-prefer-call">Or call <a href="tel:6105550100" class="contact-link"><strong>(610) 555-0100</strong></a></p>
         </div>
       </div>
     </div>
