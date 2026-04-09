@@ -1728,6 +1728,26 @@ section[id] {
   margin: 16px auto 0;
   display: block;
 }
+.cal-book-btn:disabled {
+  background: var(--text-muted);
+  box-shadow: none;
+  cursor: default;
+  opacity: 0.6;
+}
+.cal-confirm {
+  max-width: 360px;
+  margin: 16px auto 0;
+  background: var(--teal-pale);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-align: center;
+}
+.cal-confirm__msg {
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 12px;
+}
 .cal-prefer-call {
   margin-top: 12px;
 }

@@ -267,7 +267,7 @@
           </div>
           <h3>Spinal Adjustment</h3>
           <p>Precise adjustments to restore alignment and relieve nerve pressure — often with immediate relief.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Back or neck pain">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Back or neck pain">Schedule Adjustment →</a>
         </div>
 
         <div class="service-card reveal">
@@ -280,7 +280,7 @@
           </div>
           <h3>Posture Correction</h3>
           <p>We find how your posture contributes to pain and build a plan that fits your daily life.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Posture issues">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Posture issues">Fix My Posture →</a>
         </div>
 
         <div class="service-card reveal">
@@ -293,7 +293,7 @@
           </div>
           <h3>Sports & Injury Rehab</h3>
           <p>Gym injury, weekend warrior strain, or workplace stress — we get you back to doing what you love.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Sports or workout injury">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Sports or workout injury">Start Recovery →</a>
         </div>
 
         <div class="service-card reveal">
@@ -305,7 +305,7 @@
           </div>
           <h3>Headache & Migraine</h3>
           <p>Most chronic headaches start in the neck. We address the source, not just the symptoms.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Headaches or migraines">Book for this →</a>
+          <a href="#contact" class="service-card__cta" data-reason="Headaches or migraines">Stop the Pain →</a>
         </div>
 
       </div>
@@ -409,7 +409,7 @@
       <h2 class="section__heading reveal">Real Results, Real People</h2>
 
       <div class="testimonials__rating reveal">
-        <div class="testimonials__stars" aria-label="5 stars">★★★★★</div>
+        <div class="testimonials__stars" role="img" aria-label="5 stars">★★★★★</div>
         <p class="testimonials__rating-text">Rated 4.9/5 based on patient reviews · <a href="https://www.google.com/search?q=Stellar+Chiropractic+Phoenixville+PA+reviews" class="testimonials__rating-link" target="_blank" rel="noopener">See our reviews on Google →</a></p>
       </div>
 
@@ -417,7 +417,7 @@
 
         <div class="testimonial-card reveal">
           <div class="testimonial-card__header">
-            <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
             <span class="testimonial-card__badge">Verified Patient</span>
           </div>
           <blockquote>"I came in barely able to turn my neck. After three visits I was back to normal. The care here is genuinely different — they actually listen."</blockquote>
@@ -426,7 +426,7 @@
 
         <div class="testimonial-card reveal">
           <div class="testimonial-card__header">
-            <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
             <span class="testimonial-card__badge">Verified Patient</span>
           </div>
           <blockquote>"I'd been dealing with migraines for years. Two months in, they're almost completely gone. I wish I'd come sooner."</blockquote>
@@ -435,7 +435,7 @@
 
         <div class="testimonial-card reveal">
           <div class="testimonial-card__header">
-            <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+            <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
             <span class="testimonial-card__badge">Verified Patient</span>
           </div>
           <blockquote>"Sports injury that was supposed to sideline me for months. Got me back on the field in four weeks. Incredible."</blockquote>
@@ -548,7 +548,11 @@
 
           <p class="contact__map-label" style="margin-top:32px;">Pick a Date</p>
           <div class="cal-visual" id="calVisual"></div>
-          <button class="btn btn--primary btn--full cal-book-btn">Book This Time</button>
+          <button class="btn btn--primary btn--full cal-book-btn" id="calBookBtn" disabled>Select a Date to Continue</button>
+          <div class="cal-confirm" id="calConfirm" hidden>
+            <p class="cal-confirm__msg">Great! Call us to confirm your <strong id="calSelectedDate"></strong> appointment:</p>
+            <a href="tel:6105550100" class="btn btn--primary btn--full">Call (610) 555-0100 to Book</a>
+          </div>
           <p class="form__prefer-call cal-prefer-call">Or call <a href="tel:6105550100" class="contact-link"><strong>(610) 555-0100</strong></a></p>
         </div>
       </div>

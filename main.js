@@ -178,10 +178,32 @@ document.querySelectorAll('.faq-item').forEach(item => {
   html += '</div>';
   el.innerHTML = html;
 
+  const bookBtn = document.getElementById('calBookBtn');
+  const calConfirm = document.getElementById('calConfirm');
+  const calSelectedDate = document.getElementById('calSelectedDate');
+
   el.querySelectorAll('.cal-cell--open, .cal-cell--today').forEach(cell => {
     cell.addEventListener('click', function() {
       el.querySelectorAll('.cal-cell--selected').forEach(s => s.classList.remove('cal-cell--selected'));
       this.classList.add('cal-cell--selected');
+      const dayNum = this.textContent.trim();
+      if (bookBtn) {
+        bookBtn.textContent = 'Call to Confirm ' + monthName + ' ' + dayNum;
+        bookBtn.disabled = false;
+      }
     });
   });
+
+  if (bookBtn) {
+    bookBtn.addEventListener('click', function() {
+      const selected = el.querySelector('.cal-cell--selected');
+      if (selected && calConfirm && calSelectedDate) {
+        const dayNum = selected.textContent.trim();
+        calSelectedDate.textContent = monthName + ' ' + dayNum;
+        calConfirm.hidden = false;
+        calConfirm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        bookBtn.style.display = 'none';
+      }
+    });
+  }
 })();
