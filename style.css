@@ -490,14 +490,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  /* Left-to-right split: text area stays solid, photo bleeds through on right */
+  /* Lightened overlay: photo visible through left text area, fully exposed on right */
   background: linear-gradient(
     to right,
-    rgba(234,246,241,0.97) 0%,
-    rgba(234,246,241,0.94) 30%,
-    rgba(240,250,245,0.72) 58%,
-    rgba(240,250,245,0.38) 80%,
-    rgba(240,250,245,0.20) 100%
+    rgba(234,246,241,0.78) 0%,
+    rgba(234,246,241,0.72) 30%,
+    rgba(240,250,245,0.50) 55%,
+    rgba(240,250,245,0.22) 78%,
+    rgba(240,250,245,0.15) 100%
   );
 }
 /* Additional vertical vignette for depth */
@@ -528,17 +528,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 .hero__content {
   position: relative;
-}
-
-/* ─── HERO EYEBROW ─── */
-.hero__eyebrow {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.08rem;
-  color: var(--teal);
-  margin-bottom: 12px;
-  opacity: 0.9;
-  letter-spacing: 0.005em;
 }
 
 /* ─── HERO IMAGE ─── */
@@ -599,6 +588,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   line-height: 1.12;
   letter-spacing: -0.025em;
   color: var(--text);
+  margin-top: 4px;
   margin-bottom: 22px;
 }
 .hero__heading em {
@@ -1656,7 +1646,6 @@ section[id] {
     text-align: center;
   }
   .hero__badge { text-align: center; }
-  .hero__eyebrow { text-align: center; }
   .hero__heading { font-size: clamp(2.1rem, 8vw, 2.6rem); text-align: center; }
   .hero__sub { font-size: 1.05rem; text-align: center; max-width: 100%; }
   .hero__reassurance { text-align: center; }
