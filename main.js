@@ -361,13 +361,24 @@ document.querySelectorAll('.faq-item').forEach(item => {
   const calSelectedDate = document.getElementById('calSelectedDate');
 
   el.querySelectorAll('.cal-cell--open, .cal-cell--today').forEach(cell => {
-    cell.addEventListener('click', function() {
+    cell.setAttribute('tabindex', '0');
+    cell.setAttribute('role', 'button');
+
+    function selectCell(c) {
       el.querySelectorAll('.cal-cell--selected').forEach(s => s.classList.remove('cal-cell--selected'));
-      this.classList.add('cal-cell--selected');
-      const dayNum = this.textContent.trim();
+      c.classList.add('cal-cell--selected');
+      const dayNum = c.textContent.trim();
       if (bookBtn) {
         bookBtn.textContent = 'Call to Confirm ' + monthName + ' ' + dayNum;
         bookBtn.disabled = false;
+      }
+    }
+
+    cell.addEventListener('click', function() { selectCell(this); });
+    cell.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectCell(this);
       }
     });
   });

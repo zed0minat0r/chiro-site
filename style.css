@@ -150,6 +150,14 @@
   padding: 0;
   cursor: pointer;
   transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
+  /* Expand invisible tap area to 44px minimum without affecting visual size */
+  position: relative;
+}
+.testimonials__dot::before {
+  content: '';
+  position: absolute;
+  inset: -18px;
+  border-radius: 50%;
 }
 .testimonials__dot:hover {
   background: var(--teal-light);
@@ -1689,7 +1697,7 @@ section[id] {
   .why-item[data-expanded="true"] .why-item__body { padding: 0 0 16px 36px; }
 
   /* ── Process strip on mobile ── */
-  .process-strip__desc { white-space: normal; font-size: 0.7rem; }
+  .process-strip__desc { white-space: normal; font-size: 0.75rem; }
   .process-strip__step { padding: 10px 8px; }
 
   /* ── Fix #3: Bump small text to 12px minimum ── */
@@ -1747,9 +1755,11 @@ section[id] {
   }
 
   /* ── Fix #5: Center-alignment consistency ── */
-  .testimonial-card { align-items: center; text-align: center; }
-  .testimonial-card__header { justify-content: center; }
-  .testimonial-card cite { text-align: center; display: block; }
+  /* Keep cards left-aligned for readability — only center the header and cite */
+  .testimonial-card { align-items: stretch; text-align: left; }
+  .testimonial-card__header { justify-content: space-between; }
+  .testimonial-card blockquote { text-align: left; }
+  .testimonial-card cite { text-align: right; display: block; }
   .testimonials__rating { text-align: center; }
 
 }
@@ -1761,9 +1771,37 @@ section[id] {
   /* Service cards — ensure icon is centered at 480px */
   .service-card__icon { margin-left: auto; margin-right: auto; }
 
-  /* Process strip at 480px */
+  /* Process strip at 480px — 2x2 grid with connector line */
   .process-strip__arrow { display: none; }
-  .process-strip__row { flex-wrap: wrap; gap: 0; }
+  .process-strip__row {
+    flex-wrap: wrap;
+    gap: 0;
+    position: relative;
+  }
+  /* Horizontal connector line across top two steps */
+  .process-strip__row::before {
+    content: '';
+    position: absolute;
+    top: 22px; /* vertically centered on the 28px step number circles */
+    left: 28%;
+    right: 28%;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Vertical connector line between right column steps */
+  .process-strip__row::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: calc(75% - 0.5px);
+    height: calc(50% - 2px);
+    width: 1px;
+    background: rgba(255,255,255,0.3);
+    pointer-events: none;
+    z-index: 0;
+  }
   .process-strip__step { flex: 0 0 50%; }
   .why-item__title { font-size: 0.97rem; }
 }
@@ -1975,7 +2013,7 @@ section[id] {
   margin-bottom: 32px;
 }
 .contact__map-label {
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -2047,7 +2085,10 @@ section[id] {
   font-weight: 700;
   color: var(--teal);
   text-decoration: none;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   margin-bottom: 4px;
 }
 .booking-card__phone:hover { text-decoration: underline; }
@@ -2076,7 +2117,7 @@ section[id] {
 }
 .cal-days { margin-bottom: 8px; }
 .cal-day-label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -2099,6 +2140,12 @@ section[id] {
 .cal-cell--full { background: #f0e6e6; color: #b56666; }
 .cal-cell--open { background: #e8f5ee; color: var(--teal-dark); cursor: pointer; }
 .cal-cell--open:hover { background: #d4edde; }
+.cal-cell--open:focus-visible,
+.cal-cell--today:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
 .cal-cell--today { background: var(--teal); color: var(--white); font-weight: 700; cursor: pointer; }
 .cal-cell--selected { outline: 2px solid var(--teal); outline-offset: 1px; }
 .cal-legend {
