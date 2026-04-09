@@ -274,8 +274,11 @@ if (stickyCta) {
   }
 
   items.forEach(function(item) {
-    // Init closed state
-    item.setAttribute('data-expanded', 'false');
+    // Respect open state set in HTML; close everything else
+    var startsOpen = item.getAttribute('data-expanded') === 'true';
+    if (!startsOpen) {
+      item.setAttribute('data-expanded', 'false');
+    }
 
     var btn = item.querySelector('.why-item__btn');
     if (!btn) return;

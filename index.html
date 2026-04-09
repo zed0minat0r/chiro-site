@@ -259,6 +259,10 @@
         <img src="https://plus.unsplash.com/premium_photo-1664475686438-8871c1ceea31?w=700&q=80" alt="Chiropractor treating a patient with back pain" loading="eager" />
       </div>
     </div>
+    <!-- Mobile-only hero image strip — visible below content on smaller screens -->
+    <div class="hero__image-strip" aria-hidden="true">
+      <img src="https://plus.unsplash.com/premium_photo-1664475686438-8871c1ceea31?w=800&q=80" alt="" loading="eager" />
+    </div>
     <a href="#services" class="hero__scroll-hint" aria-label="Scroll to services">
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -357,13 +361,13 @@
 
       <div class="why-list" role="list">
 
-        <div class="why-item" role="listitem">
-          <button class="why-item__btn" aria-expanded="false" aria-controls="why-body-0">
+        <div class="why-item" role="listitem" data-expanded="true">
+          <button class="why-item__btn" aria-expanded="true" aria-controls="why-body-0">
             <span class="why-item__check" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <span class="why-item__title">We Listen Before We Treat</span>
-            <span class="why-item__toggle" aria-hidden="true">+</span>
+            <span class="why-item__toggle" aria-hidden="true">−</span>
           </button>
           <div class="why-item__body" id="why-body-0" role="region">
             <p>Full consultation, not a rushed exam. We explain what we find in plain language.</p>
