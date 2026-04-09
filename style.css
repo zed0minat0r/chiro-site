@@ -459,7 +459,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero {
   min-height: 100vh;
   padding: calc(var(--nav-h) + 64px) 0 88px;
-  background: linear-gradient(150deg, #eaf6f1 0%, #f7f3ee 55%, #f0faf5 100%);
+  background: #eaf6f1; /* solid fallback — photo + overlay handle the gradient */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -482,7 +482,29 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(150deg, rgba(234,246,241,0.88) 0%, rgba(247,243,238,0.85) 55%, rgba(240,250,245,0.88) 100%);
+  /* Left-to-right split: text area stays solid, photo bleeds through on right */
+  background: linear-gradient(
+    to right,
+    rgba(234,246,241,0.97) 0%,
+    rgba(234,246,241,0.94) 30%,
+    rgba(240,250,245,0.72) 58%,
+    rgba(240,250,245,0.38) 80%,
+    rgba(240,250,245,0.20) 100%
+  );
+}
+/* Additional vertical vignette for depth */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.08) 0%,
+    transparent 25%,
+    transparent 75%,
+    rgba(0,0,0,0.12) 100%
+  );
+  pointer-events: none;
 }
 
 /* Decorative geometric accent — removed, felt random */
@@ -574,6 +596,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero__heading em {
   font-style: italic;
   color: var(--teal);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: rgba(45,125,98,0.38);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 .hero__sub {
@@ -845,6 +872,18 @@ section[id] {
 .about__photo-wrap {
   position: relative;
 }
+/* Decorative offset accent — premium editorial frame treatment */
+.about__photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--teal);
+  border-radius: var(--radius-lg);
+  transform: translate(10px, 10px);
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
+}
 .about__photo-placeholder {
   width: 100%;
   aspect-ratio: 3/4;
@@ -859,6 +898,7 @@ section[id] {
   color: var(--teal-dark);
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 /* Clean subtle background pattern */
 .about__photo-placeholder::before {
