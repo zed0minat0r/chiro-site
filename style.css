@@ -1759,16 +1759,25 @@ section[id] {
 
   /* Process strip at 480px — 2x2 grid with connector line */
   .process-strip__arrow { display: none; }
+  .process-strip__inner { padding-top: 32px; }
   .process-strip__row {
     flex-wrap: wrap;
-    gap: 0;
+    gap: 12px;
     position: relative;
+  }
+  .process-strip__step {
+    flex: 0 0 calc(50% - 6px);
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 20px 14px;
   }
   /* Horizontal connector line across top two steps */
   .process-strip__row::before {
+    display: none;
     content: '';
     position: absolute;
-    top: 22px; /* vertically centered on the 28px step number circles */
+    top: 22px;
     left: 28%;
     right: 28%;
     height: 1px;
@@ -1778,6 +1787,7 @@ section[id] {
   }
   /* Vertical connector line between right column steps */
   .process-strip__row::after {
+    display: none;
     content: '';
     position: absolute;
     top: 22px;
@@ -1788,7 +1798,6 @@ section[id] {
     pointer-events: none;
     z-index: 0;
   }
-  .process-strip__step { flex: 0 0 50%; }
   .why-item__title { font-size: 0.97rem; }
 }
 
