@@ -2073,10 +2073,6 @@ section[id] {
   margin-top: 8px;
   margin-bottom: 20px;
 }
-.booking-card__cal-toggle {
-  border-top: 1px solid var(--border);
-  padding-top: 16px;
-}
 .booking-card__cal-toggle-btn {
   display: flex;
   align-items: center;
@@ -2105,14 +2101,7 @@ section[id] {
   margin-left: 8px;
 }
 .booking-card__cal-section {
-  margin-top: 12px;
-}
-.booking-card__cal-hint {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  text-align: center;
-  margin-bottom: 14px;
-  line-height: 1.5;
+  margin-bottom: 20px;
 }
 .cal-selected-banner {
   margin-top: 12px;

@@ -325,27 +325,8 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-/* ─── BOOKING CARD: calendar toggle + date selection ─── */
+/* ─── BOOKING CARD: calendar date selection ─── */
 (function() {
-  var toggleBtn = document.getElementById('calToggleBtn');
-  var calSection = document.getElementById('calSection');
-  var toggleIcon = toggleBtn ? toggleBtn.querySelector('.booking-card__cal-toggle-icon') : null;
-
-  if (toggleBtn && calSection) {
-    toggleBtn.addEventListener('click', function() {
-      var isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
-      if (isOpen) {
-        calSection.hidden = true;
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        if (toggleIcon) toggleIcon.textContent = '+';
-      } else {
-        calSection.hidden = false;
-        toggleBtn.setAttribute('aria-expanded', 'true');
-        if (toggleIcon) toggleIcon.textContent = '−';
-      }
-    });
-  }
-
   var el = document.getElementById('calVisual');
   if (!el) return;
 
