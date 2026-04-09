@@ -160,6 +160,17 @@
         animation: none !important;
         transition: none !important;
       }
+      /* Show all service card bodies when JS is off */
+      .service-card__body {
+        max-height: none !important;
+        opacity: 1 !important;
+        padding: 0 28px 24px !important;
+      }
+      /* Show credentials list when JS is off */
+      .about__credentials-wrap {
+        max-height: none !important;
+        opacity: 1 !important;
+      }
     </style>
   </noscript>
 </head>
@@ -258,54 +269,74 @@
 
       <div class="services__grid">
 
-        <div class="service-card reveal">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 8v32M18 14l6-6 6 6M18 34l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <ellipse cx="24" cy="24" rx="8" ry="4" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
+        <div class="service-card service-card--expandable reveal" data-expanded="true">
+          <button class="service-card__header" aria-expanded="true" aria-controls="svc-body-0">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 8v32M18 14l6-6 6 6M18 34l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <ellipse cx="24" cy="24" rx="8" ry="4" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Spinal Adjustment</h3>
+            <span class="service-card__toggle" aria-hidden="true">−</span>
+          </button>
+          <div class="service-card__body" id="svc-body-0">
+            <p>Precise adjustments to restore alignment and relieve nerve pressure — often with immediate relief.</p>
+            <a href="#contact" class="service-card__cta" data-reason="Back or neck pain">Schedule Adjustment →</a>
           </div>
-          <h3>Spinal Adjustment</h3>
-          <p>Precise adjustments to restore alignment and relieve nerve pressure — often with immediate relief.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Back or neck pain">Schedule Adjustment →</a>
         </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 36c0-8 6-14 12-14s12 6 12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="24" cy="16" r="6" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 30c2-2 4-3 8-3s6 1 8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+        <div class="service-card service-card--expandable reveal" data-expanded="false">
+          <button class="service-card__header" aria-expanded="false" aria-controls="svc-body-1">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 36c0-8 6-14 12-14s12 6 12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="16" r="6" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 30c2-2 4-3 8-3s6 1 8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Posture Correction</h3>
+            <span class="service-card__toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="service-card__body" id="svc-body-1">
+            <p>We find how your posture contributes to pain and build a plan that fits your daily life.</p>
+            <a href="#contact" class="service-card__cta" data-reason="Posture issues">Fix My Posture →</a>
           </div>
-          <h3>Posture Correction</h3>
-          <p>We find how your posture contributes to pain and build a plan that fits your daily life.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Posture issues">Fix My Posture →</a>
         </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 24c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 24h6M24 8v6M40 24h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="24" cy="24" r="3" fill="currentColor"/>
-            </svg>
+        <div class="service-card service-card--expandable reveal" data-expanded="false">
+          <button class="service-card__header" aria-expanded="false" aria-controls="svc-body-2">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 24c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 24h6M24 8v6M40 24h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="3" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Sports &amp; Injury Rehab</h3>
+            <span class="service-card__toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="service-card__body" id="svc-body-2">
+            <p>Gym injury, weekend warrior strain, or workplace stress — we get you back to doing what you love.</p>
+            <a href="#contact" class="service-card__cta" data-reason="Sports or workout injury">Start Recovery →</a>
           </div>
-          <h3>Sports & Injury Rehab</h3>
-          <p>Gym injury, weekend warrior strain, or workplace stress — we get you back to doing what you love.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Sports or workout injury">Start Recovery →</a>
         </div>
 
-        <div class="service-card reveal">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 12c-6.6 0-12 5.4-12 12 0 4 2 7.5 5 9.7V38h14v-4.3c3-2.2 5-5.7 5-9.7 0-6.6-5.4-12-12-12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M20 38h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+        <div class="service-card service-card--expandable reveal" data-expanded="false">
+          <button class="service-card__header" aria-expanded="false" aria-controls="svc-body-3">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12c-6.6 0-12 5.4-12 12 0 4 2 7.5 5 9.7V38h14v-4.3c3-2.2 5-5.7 5-9.7 0-6.6-5.4-12-12-12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M20 38h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Headache &amp; Migraine</h3>
+            <span class="service-card__toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="service-card__body" id="svc-body-3">
+            <p>Most chronic headaches start in the neck. We address the source, not just the symptoms.</p>
+            <a href="#contact" class="service-card__cta" data-reason="Headaches or migraines">Stop the Pain →</a>
           </div>
-          <h3>Headache & Migraine</h3>
-          <p>Most chronic headaches start in the neck. We address the source, not just the symptoms.</p>
-          <a href="#contact" class="service-card__cta" data-reason="Headaches or migraines">Stop the Pain →</a>
         </div>
 
       </div>
@@ -357,24 +388,29 @@
         <p class="section__label">Your Doctor</p>
         <h2 class="section__heading section__heading--left">Meet Dr. Jason</h2>
         <p class="about__intro">Over a decade of experience helping 500+ patients move past pain and get back to living fully. No pressure, no upsells — just honest, effective care.</p>
-        <ul class="about__credentials">
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Doctor of Chiropractic (DC)
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Sports & Rehabilitation Certified
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            10+ Years Clinical Experience
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Active Member, Pennsylvania Chiropractic Association
-          </li>
-        </ul>
+        <button class="about__creds-toggle" id="credsToggle" aria-expanded="false" aria-controls="credsList">
+          View credentials +
+        </button>
+        <div class="about__credentials-wrap" id="credsList" aria-hidden="true">
+          <ul class="about__credentials">
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Doctor of Chiropractic (DC)
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Sports &amp; Rehabilitation Certified
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              10+ Years Clinical Experience
+            </li>
+            <li>
+              <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Active Member, Pennsylvania Chiropractic Association
+            </li>
+          </ul>
+        </div>
         <ul class="about__why-list">
           <li>
             <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -405,35 +441,51 @@
         <p class="testimonials__rating-text">Rated 4.9/5 based on patient reviews · <a href="https://www.google.com/search?q=Stellar+Chiropractic+Phoenixville+PA+reviews" class="testimonials__rating-link" target="_blank" rel="noopener">See our reviews on Google →</a></p>
       </div>
 
-      <div class="testimonials__scroll" role="list">
+      <div class="testimonials__carousel">
+        <button class="testimonials__arrow testimonials__arrow--prev" aria-label="Previous review">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
 
-        <div class="testimonial-card" role="listitem">
-          <div class="testimonial-card__header">
-            <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
-            <span class="testimonial-card__badge">Verified Patient</span>
+        <div class="testimonials__scroll" role="list" id="testimonials-scroll">
+
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-card__header">
+              <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
+              <span class="testimonial-card__badge">Verified Patient</span>
+            </div>
+            <blockquote>"Couldn't turn my neck for a week before I came in. Three visits later I forgot I even had a problem. Dr. Jason actually explains what he's doing instead of just cracking and sending you out."</blockquote>
+            <cite>— Sarah M.</cite>
           </div>
-          <blockquote>"Couldn't turn my neck for a week before I came in. Three visits later I forgot I even had a problem. Dr. Jason actually explains what he's doing instead of just cracking and sending you out."</blockquote>
-          <cite>— Sarah M.</cite>
+
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-card__header">
+              <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
+              <span class="testimonial-card__badge">Verified Patient</span>
+            </div>
+            <blockquote>"My wife dragged me here after I complained about headaches for the 500th time. Two months later they're basically gone. Should've listened to her sooner lol."</blockquote>
+            <cite>— James R.</cite>
+          </div>
+
+          <div class="testimonial-card" role="listitem">
+            <div class="testimonial-card__header">
+              <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
+              <span class="testimonial-card__badge">Verified Patient</span>
+            </div>
+            <blockquote>"Tweaked my back at the gym and figured I'd be out for months. Was back squatting in four weeks. No pressure to keep coming back forever either — he gave me a real timeline and stuck to it."</blockquote>
+            <cite>— Kevin T.</cite>
+          </div>
+
         </div>
 
-        <div class="testimonial-card" role="listitem">
-          <div class="testimonial-card__header">
-            <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
-            <span class="testimonial-card__badge">Verified Patient</span>
-          </div>
-          <blockquote>"My wife dragged me here after I complained about headaches for the 500th time. Two months later they're basically gone. Should've listened to her sooner lol."</blockquote>
-          <cite>— James R.</cite>
-        </div>
+        <button class="testimonials__arrow testimonials__arrow--next" aria-label="Next review">
+          <svg viewBox="0 0 24 24" fill="none" width="20" height="20"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
 
-        <div class="testimonial-card" role="listitem">
-          <div class="testimonial-card__header">
-            <div class="testimonial-card__stars" role="img" aria-label="5 stars">★★★★★</div>
-            <span class="testimonial-card__badge">Verified Patient</span>
-          </div>
-          <blockquote>"Tweaked my back at the gym and figured I'd be out for months. Was back squatting in four weeks. No pressure to keep coming back forever either — he gave me a real timeline and stuck to it."</blockquote>
-          <cite>— Kevin T.</cite>
-        </div>
-
+      <div class="testimonials__dots" role="tablist" aria-label="Testimonial navigation">
+        <button class="testimonials__dot testimonials__dot--active" role="tab" aria-selected="true" aria-label="Review 1"></button>
+        <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 2"></button>
+        <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 3"></button>
       </div>
 
       <div class="testimonials__cta reveal">

@@ -53,11 +53,147 @@ reveals.forEach(el => observer.observe(el));
 
 /* ─── SERVICE CARD CTAs → SCROLL TO CALENDAR ─── */
 document.querySelectorAll('.service-card__cta[data-reason]').forEach(cta => {
-  cta.addEventListener('click', () => {
+  cta.addEventListener('click', (e) => {
+    // Prevent propagation so card header click doesn't fire too
+    e.stopPropagation();
     const cal = document.getElementById('calVisual');
     if (cal) cal.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 });
+
+/* ─── EXPANDABLE SERVICE CARDS ─── */
+(function() {
+  const cards = document.querySelectorAll('.service-card--expandable');
+
+  function openCard(card) {
+    card.setAttribute('data-expanded', 'true');
+    const btn = card.querySelector('.service-card__header');
+    const toggle = card.querySelector('.service-card__toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    if (toggle) toggle.textContent = '−';
+  }
+
+  function closeCard(card) {
+    card.setAttribute('data-expanded', 'false');
+    const btn = card.querySelector('.service-card__header');
+    const toggle = card.querySelector('.service-card__toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (toggle) toggle.textContent = '+';
+  }
+
+  cards.forEach(function(card) {
+    const btn = card.querySelector('.service-card__header');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      const isOpen = card.getAttribute('data-expanded') === 'true';
+      if (isOpen) {
+        // Allow toggling the open one closed too
+        closeCard(card);
+      } else {
+        // Close all others first
+        cards.forEach(function(other) {
+          if (other !== card) closeCard(other);
+        });
+        openCard(card);
+      }
+    });
+  });
+})();
+
+/* ─── TESTIMONIAL CAROUSEL DOTS + ARROWS ─── */
+(function() {
+  var scroll = document.getElementById('testimonials-scroll');
+  var dots = document.querySelectorAll('.testimonials__dot');
+  var prevBtn = document.querySelector('.testimonials__arrow--prev');
+  var nextBtn = document.querySelector('.testimonials__arrow--next');
+
+  if (!scroll || !dots.length) return;
+
+  function getCards() {
+    return scroll.querySelectorAll('.testimonial-card');
+  }
+
+  function setActiveDot(index) {
+    dots.forEach(function(d, i) {
+      d.classList.toggle('testimonials__dot--active', i === index);
+      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
+  }
+
+  function getActiveIndex() {
+    var cards = getCards();
+    var scrollLeft = scroll.scrollLeft;
+    var best = 0;
+    var bestDist = Infinity;
+    cards.forEach(function(card, i) {
+      var dist = Math.abs(card.offsetLeft - scrollLeft);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    return best;
+  }
+
+  function scrollToCard(index) {
+    var cards = getCards();
+    if (!cards[index]) return;
+    scroll.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' });
+    setActiveDot(index);
+  }
+
+  // Dot clicks
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { scrollToCard(i); });
+  });
+
+  // Arrow clicks
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      var idx = getActiveIndex();
+      var cards = getCards();
+      scrollToCard(Math.max(0, idx - 1));
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      var idx = getActiveIndex();
+      var cards = getCards();
+      scrollToCard(Math.min(cards.length - 1, idx + 1));
+    });
+  }
+
+  // Snap scroll updates active dot
+  var ticking = false;
+  scroll.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        setActiveDot(getActiveIndex());
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+/* ─── ABOUT CREDENTIALS TOGGLE ─── */
+(function() {
+  var toggle = document.getElementById('credsToggle');
+  var list = document.getElementById('credsList');
+  if (!toggle || !list) return;
+
+  toggle.addEventListener('click', function() {
+    var isOpen = list.classList.contains('open');
+    if (isOpen) {
+      list.classList.remove('open');
+      list.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'View credentials +';
+    } else {
+      list.classList.add('open');
+      list.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Hide credentials −';
+    }
+  });
+})();
 
 /* ─── ACTIVE NAV LINK ON SCROLL ─── */
 const sections = document.querySelectorAll('section[id]');
