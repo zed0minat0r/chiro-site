@@ -1621,10 +1621,9 @@ section[id] {
   .hero__trust-divider { display: none; }
   .hero__trust-item { min-width: 80px; }
 
-  /* Hero image hidden in side-by-side layout — strip replaces it */
+  /* Hero images hidden on mobile */
   .hero__image { display: none; }
-  .hero__image-strip { display: block; }
-  /* Scroll hint hidden on mobile — strip fills the bottom of the hero */
+  .hero__bg { background-image: none; }
   .hero__scroll-hint { display: none; }
 
   /* ── Services ── */
