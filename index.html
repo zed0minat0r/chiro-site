@@ -280,11 +280,12 @@
       <p class="section__label reveal">What We Offer</p>
       <h2 class="section__heading reveal">Treatments Tailored to You</h2>
       <p class="section__sub reveal">Every treatment plan is built around your body, your pain, and your goals.</p>
+      <p class="services__tap-hint" aria-hidden="true">Tap any card to learn more</p>
 
       <div class="services__grid">
 
         <div class="service-card service-card--expandable reveal" data-expanded="true">
-          <button class="service-card__header" aria-expanded="true" aria-controls="svc-body-0">
+          <button class="service-card__header" id="svc-hdr-0" aria-expanded="true" aria-controls="svc-body-0">
             <div class="service-card__icon">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24 8v32M18 14l6-6 6 6M18 34l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -294,14 +295,14 @@
             <h3>Spinal Adjustment</h3>
             <span class="service-card__toggle" aria-hidden="true">−</span>
           </button>
-          <div class="service-card__body" id="svc-body-0">
+          <div class="service-card__body" id="svc-body-0" role="region" aria-labelledby="svc-hdr-0">
             <p>Precise adjustments to restore alignment and relieve nerve pressure — often with immediate relief.</p>
             <a href="#contact" class="service-card__cta" data-reason="Back or neck pain">Schedule Adjustment →</a>
           </div>
         </div>
 
         <div class="service-card service-card--expandable reveal" data-expanded="false">
-          <button class="service-card__header" aria-expanded="false" aria-controls="svc-body-1">
+          <button class="service-card__header" id="svc-hdr-1" aria-expanded="false" aria-controls="svc-body-1">
             <div class="service-card__icon">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 36c0-8 6-14 12-14s12 6 12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -312,14 +313,14 @@
             <h3>Posture Correction</h3>
             <span class="service-card__toggle" aria-hidden="true">+</span>
           </button>
-          <div class="service-card__body" id="svc-body-1">
+          <div class="service-card__body" id="svc-body-1" role="region" aria-labelledby="svc-hdr-1">
             <p>We find how your posture contributes to pain and build a plan that fits your daily life.</p>
             <a href="#contact" class="service-card__cta" data-reason="Posture issues">Fix My Posture →</a>
           </div>
         </div>
 
         <div class="service-card service-card--expandable reveal" data-expanded="false">
-          <button class="service-card__header" aria-expanded="false" aria-controls="svc-body-2">
+          <button class="service-card__header" id="svc-hdr-2" aria-expanded="false" aria-controls="svc-body-2">
             <div class="service-card__icon">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 24c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -330,14 +331,14 @@
             <h3>Sports &amp; Injury Rehab</h3>
             <span class="service-card__toggle" aria-hidden="true">+</span>
           </button>
-          <div class="service-card__body" id="svc-body-2">
+          <div class="service-card__body" id="svc-body-2" role="region" aria-labelledby="svc-hdr-2">
             <p>Gym injury, weekend warrior strain, or workplace stress — we get you back to doing what you love.</p>
             <a href="#contact" class="service-card__cta" data-reason="Sports or workout injury">Start Recovery →</a>
           </div>
         </div>
 
         <div class="service-card service-card--expandable reveal" data-expanded="false">
-          <button class="service-card__header" aria-expanded="false" aria-controls="svc-body-3">
+          <button class="service-card__header" id="svc-hdr-3" aria-expanded="false" aria-controls="svc-body-3">
             <div class="service-card__icon">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24 12c-6.6 0-12 5.4-12 12 0 4 2 7.5 5 9.7V38h14v-4.3c3-2.2 5-5.7 5-9.7 0-6.6-5.4-12-12-12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -347,7 +348,7 @@
             <h3>Headache &amp; Migraine</h3>
             <span class="service-card__toggle" aria-hidden="true">+</span>
           </button>
-          <div class="service-card__body" id="svc-body-3">
+          <div class="service-card__body" id="svc-body-3" role="region" aria-labelledby="svc-hdr-3">
             <p>Most chronic headaches start in the neck. We address the source, not just the symptoms.</p>
             <a href="#contact" class="service-card__cta" data-reason="Headaches or migraines">Stop the Pain →</a>
           </div>
@@ -366,40 +367,40 @@
       <div class="why-list" role="list">
 
         <div class="why-item" role="listitem" data-expanded="true">
-          <button class="why-item__btn" aria-expanded="true" aria-controls="why-body-0">
+          <button class="why-item__btn" id="why-btn-0" aria-expanded="true" aria-controls="why-body-0">
             <span class="why-item__check" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <span class="why-item__title">We Listen Before We Treat</span>
             <span class="why-item__toggle" aria-hidden="true">−</span>
           </button>
-          <div class="why-item__body" id="why-body-0" role="region">
+          <div class="why-item__body" id="why-body-0" role="region" aria-labelledby="why-btn-0">
             <p>Full consultation, not a rushed exam. We explain what we find in plain language.</p>
           </div>
         </div>
 
         <div class="why-item" role="listitem">
-          <button class="why-item__btn" aria-expanded="false" aria-controls="why-body-1">
+          <button class="why-item__btn" id="why-btn-1" aria-expanded="false" aria-controls="why-body-1">
             <span class="why-item__check" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <span class="why-item__title">No Open-Ended Commitments</span>
             <span class="why-item__toggle" aria-hidden="true">+</span>
           </button>
-          <div class="why-item__body" id="why-body-1" role="region">
+          <div class="why-item__body" id="why-body-1" role="region" aria-labelledby="why-btn-1">
             <p>Real timeline after your first visit. Most patients improve in 3–6 visits.</p>
           </div>
         </div>
 
         <div class="why-item" role="listitem">
-          <button class="why-item__btn" aria-expanded="false" aria-controls="why-body-2">
+          <button class="why-item__btn" id="why-btn-2" aria-expanded="false" aria-controls="why-body-2">
             <span class="why-item__check" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             <span class="why-item__title">Same-Day Appointments</span>
             <span class="why-item__toggle" aria-hidden="true">+</span>
           </button>
-          <div class="why-item__body" id="why-body-2" role="region">
+          <div class="why-item__body" id="why-body-2" role="region" aria-labelledby="why-btn-2">
             <p>Pain doesn't wait. Call in the morning and we'll fit you in.</p>
           </div>
         </div>
@@ -455,7 +456,7 @@
         <button class="about__creds-toggle" id="credsToggle" aria-expanded="false" aria-controls="credsList">
           View credentials +
         </button>
-        <div class="about__credentials-wrap" id="credsList" aria-hidden="true">
+        <div class="about__credentials-wrap" id="credsList" aria-hidden="true" role="region" aria-labelledby="credsToggle">
           <ul class="about__credentials">
             <li>
               <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -532,6 +533,7 @@
         </button>
       </div>
 
+      <p class="testimonials__swipe-hint" aria-hidden="true">Swipe to read more →</p>
       <div class="testimonials__dots" role="tablist" aria-label="Testimonial navigation">
         <button class="testimonials__dot testimonials__dot--active" role="tab" aria-selected="true" aria-label="Review 1"></button>
         <button class="testimonials__dot" role="tab" aria-selected="false" aria-label="Review 2"></button>
