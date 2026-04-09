@@ -1,113 +1,95 @@
 # Nigel Audit — Stellar Chiropractic
 **Date:** 2026-04-09
-**Previous Score:** 7.4/10
-**Current Score:** 7.6/10
-**Delta:** +0.2
+**Previous Score:** 7.6/10
+**Current Score:** 7.9/10
+**Delta:** +0.3
 
 ---
 
 ## Summary
 
-This audit reflects the most substantial round of UX improvements the site has received. The green Why/How section, accordion service cards, testimonial carousel, credentials toggle, offset photo frame, and booking card redesign collectively push the site noticeably past the generic local-business template. The interactive patterns are well-executed and feel proportionate — not over-engineered. Animation remains restrained, which earns credit under the AGENT-RULES rules.
+Three substantive improvements have been delivered since the 7.6 audit, and all three are confirmed present in the code: the mobile hero image strip is implemented and renders on screens below 1024px; the first Why Choose Us item opens by default (data-expanded="true" in HTML, JS respects it); and the booking flow now surfaces the call CTA immediately with the calendar as an optional toggle behind a "Pick a preferred day (optional)" disclosure. Eleven additional Refiner fixes are visible in the CSS — tap targets at 44px minimum, text floors at 12px, mobile alignment consistency, accessibility improvements, and swipe hints. This is a meaningful round of work and the score reflects that.
 
-The reason the score does not cross 7.7 is structural: the booking widget still leads to a phone call rather than a real booking, three testimonials is a thin pool even for a local practice, the Why section accordion items are all collapsed by default on a green background that real users may simply scroll past, and the hero photo is entirely hidden on mobile (the single most important visual impression for a new patient). These are solvable problems that would push the site to 8.0 territory.
-
-Placeholder contact data is noted separately — per audit rules it is not a score ceiling.
+The site now sits in the upper band of what a local chiropractic practice website typically delivers. Reaching 8.0 requires closing three remaining gaps: the booking flow still terminates in a phone call rather than a real booking mechanism; the testimonial pool is thin at three reviews; and the hero background photo is almost entirely obscured by its gradient overlay on desktop, making the image investment largely invisible.
 
 ---
 
 ## Section Scores
 
 ### 1. Navigation — 8.2 / 10
-Clean, restrained. Fixed nav with frosted glass. Phone icon in mobile nav is excellent for a healthcare audience. Burger animates correctly. Active link highlighting via IntersectionObserver works well. Skip-to-content link present and functional. No complaints.
+Fixed frosted-glass nav, phone icon visible in mobile nav, escape-key close, skip-to-content link, active link highlighting via IntersectionObserver. No regressions from previous audit. Remains the strongest section.
 
-### 2. Hero — 7.2 / 10
-The split-gradient overlay is a genuine design decision — it differentiates the hero from the stock full-bleed approach. The Lora serif heading paired with teal italic em tag is the strongest typographic moment on the page. Trust bar (500+, 10yr, Same-Day) is compact and credible. The scroll hint is tasteful.
+### 2. Hero — 7.5 / 10
+The mobile image strip is now present and implemented correctly. It sits below the hero content, is full-width, uses `object-position: center 28%` to frame the subject, and has gradient fades at top and bottom blending into the section backgrounds. This is a real fix — a mobile patient now sees a human image, not just text on a gradient. The desktop hero retains the split-gradient background with the photo element in the grid layout.
 
-**Issues:**
-- Hero photo is hidden at both 768px and 1024px breakpoints. This means every mobile user — likely 60%+ of traffic — lands on a background-only hero with no human face. Healthcare conversion is heavily driven by seeing a real practitioner. This is the single highest-priority fix on the site.
-- The hero background image (Unsplash generic medical) is almost entirely masked by the gradient overlay on desktop. The photo investment is wasted.
-- "You Deserve to Feel Good Again" is solid. But the eyebrow italic ("Chiropractic care that actually listens.") duplicates the h1 theme and loses impact by appearing before the heading rather than after.
+**Remaining issues:**
+- On desktop, the `hero__bg` background image is nearly invisible. The overlay gradient runs from 97% opacity teal-green on the left to 20% on the right. The photo bleeds through only on the far right edge. At 1160px the `hero__image` element (420px wide, rounded, shadowed) renders correctly in the grid, but the background image serves mostly as a subtle texture. This is a design choice — it keeps text readable — but the background photo investment is largely wasted.
+- The hero eyebrow ("Chiropractic care that actually listens.") duplicates the h1 theme and loses impact by appearing before the heading. It works in Lora italic but competes with the heading rather than supporting it.
+- Scroll hint is hidden on mobile (correct, given the strip replaces the space), but the scroll hint is also the only affordance pointing users to continue below the trust bar. On desktop it is visible; on mobile there is nothing.
 
-### 3. Services (Accordion) — 7.8 / 10
-The accordion approach is genuinely better than a static 4-card grid — it creates engagement and implies there is more to discover. First card open by default (Spinal Adjustment) is the right UX decision. Per-card CTAs with specific reasons ("Schedule Adjustment", "Fix My Posture") are a meaningful conversion improvement. Icon hover state (teal fill) is polished. The accordion toggle uses + / − correctly and respects ARIA expanded state.
+### 3. Services (Accordion) — 8.0 / 10
+The accordion pattern remains the best feature on the site. First card open by default. Per-card CTAs with specific reasons. Icon hover state. The "Tap any card to learn more" hint is now present below the section heading on mobile — this was identified as a gap last audit and is now addressed. Tap targets are 44px minimum as confirmed in the CSS fix block. No regressions.
 
-**Issues:**
-- On mobile, only one card is visible at a time in the single-column layout. A user who doesn't notice the + toggle may leave thinking the practice only does spinal adjustments. Consider a brief hint text below the heading: "Tap any card to learn more."
-- The service-card__body max-height is hardcoded at 200px, which would clip longer descriptions if copy is ever expanded.
+**Remaining issues:**
+- `service-card__body` max-height is 260px (up from 200px, presumably expanded in a prior pass). Adequate for current copy. If descriptions lengthen materially, this will clip. Minor.
 
-### 4. Why Choose Us + How It Works (Green Section) — 7.0 / 10
-Visually bold and distinguishes the page from competitors. The frosted-glass card approach on the green teal background is tasteful. How It Works process strip inside the same section is an efficient layout decision.
+### 4. Why Choose Us + How It Works — 7.6 / 10
+First item now opens by default. This was Priority 2 from the previous audit. On load, "We Listen Before We Treat" with its body text "Full consultation, not a rushed exam. We explain what we find in plain language." is immediately visible. This substantially improves the section — a scanner now reads actual trust content rather than three blank accordion rows.
 
-**Issues:**
-- All three Why items are collapsed by default. A user scanning quickly sees three clickable rows with labels but no content. The most important trust messages ("We Listen Before We Treat", "No Open-Ended Commitments") are hidden at first glance. At minimum, the first item should open by default, mirroring what was done with the service cards.
-- The toggle icon rotates 45 degrees (+ → ×) when expanded, which is slightly confusing — × typically signals "close" or "remove", not "collapse". The service cards use − for expanded, which is clearer.
-- "How It Works" heading is uppercase tracked in small-caps style on a green section — sits slightly disconnected from the Why list above it. A subtle divider is present but the visual hierarchy of the two sub-sections (Why list vs. Process steps) could be sharper.
-- Process step descriptions use `white-space: nowrap` on desktop, which is fine at 1160px but wraps awkwardly at 900–1024px range.
+**Remaining issues:**
+- The expanded toggle symbol is still + / − (minus character). In the previous audit I noted the toggle rotated a + by 45 degrees to form an ×, which was semantically confusing. That has been corrected: the JS sets textContent to '−' on expand and '+' on collapse. This matches the service cards. Resolved.
+- Only three Why items. The section would benefit from a fourth: something around pricing transparency or insurance, which is a top patient anxiety not covered in this section (it appears later in FAQ).
+- Process strip arrows become `display: none` at 480px, replaced by a connector line approach using pseudo-elements. The left-column pseudo-element runs from 28% to 72% horizontally at top: 22px; the right-column vertical line runs from top: 22px for half the strip height. This is clever but relies on percentage positioning that could misalign at intermediate widths. Low priority cosmetic risk.
 
 ### 5. About — 7.5 / 10
-The offset photo frame (::before pseudo-element shifted 10px/10px) is a genuinely distinctive design touch — it reads professional without being fussy. The teal badge ("DC · Licensed Chiropractor") anchored below the photo is well-executed. Credentials toggle is a clean pattern: it de-clutters the section for scanners while rewarding curious users.
+No changes from previous audit. Offset photo frame (::before translate 10px/10px) remains distinctive. Credentials toggle works. Stock photo is a Unsplash premium image of a doctor — adequate stand-in. Score held.
 
-**Issues:**
-- "Meet Dr. Jason" — still no last name. For a real patient considering care, a first-name-only doctor raises questions. Noted as placeholder data, limited weight per audit rules.
-- The about intro text ("Over a decade of experience helping 500+...") is strong. But there is no personal voice — no philosophy sentence, no origin story, nothing that makes Dr. Jason feel like a specific human rather than a role. This is copy-level, not design-level, but it caps the section's trust ceiling.
-- On mobile the photo is constrained to 300px max-width and centered, which works. However the offset frame accent disappears visually at small sizes because the pseudo-element extends 10px outside the natural boundary — at 300px the overhang is proportionally large and may clip at viewport edges.
+**Remaining issues (unchanged):**
+- No doctor last name. Noted as placeholder — limited weight per rules.
+- About intro text is functional but impersonal. No philosophy, no origin story. The section could connect more emotionally.
+- On mobile at 300px max-width, the offset frame pseudo-element (translate 10px, 10px) extends outside the parent boundary. `overflow: hidden` is not set on the wrap, so the border accent may clip at viewport edges on very small screens. `padding-right: 12px` is set on `.about__photo-wrap` at mobile, which partially mitigates this but does not fully contain the 10px transform.
 
 ### 6. Testimonials (Carousel) — 7.3 / 10
-The horizontal carousel with arrows + dots is a meaningful improvement over a static grid. Snap scrolling works correctly. Active dot uses a pill shape (width expands to 22px) — a nice micro-detail. Three reviews are credible in content and voice: Sarah M., James R., Kevin T. read like actual patients.
+No changes from previous audit. Carousel, arrows, dots, swipe hint all functional. The swipe hint ("Swipe to read more →") is present and shows on mobile via the media query. Score held.
 
-**Issues:**
-- Three reviews is genuinely sparse for a practice claiming 500+ patients. Even a fourth and fifth review would strengthen the pool substantially.
-- "Rated 4.9/5 based on patient reviews" is unlinked aggregate data. There is a Google Reviews link present, which is good. But the aggregate rating carries little weight when it's not sourced to an external platform most users trust.
-- The carousel arrows are hidden on mobile (display:none below 769px). Swipe is the intended interaction, which is fine, but there is no affordance text or swipe indicator for users who don't know to swipe. The dots alone are easy to miss.
-- The "Verified Patient" badge (green pill) is a design detail without substance — there is no verification mechanism. Sophisticated patients may notice.
+**Remaining issues (unchanged):**
+- Three reviews. Thin for a practice claiming 500+ patients helped.
+- "Rated 4.9/5 based on patient reviews" is not linked to an external source. The Google Reviews link is present in the section but the aggregate number lacks an anchor.
+- "Verified Patient" badge has no external verification mechanism. Noted.
 
 ### 7. FAQ — 8.0 / 10
-One of the strongest sections on the page. Five questions cover genuine patient anxieties. The 2-column grid (with last-item full-width centering) is clean. Open state gets a left teal border accent — a tasteful detail. FAQ answer fade-in animation is subtle and purposeful. Structured data (FAQPage JSON-LD) is present and correctly formatted.
+Unchanged from previous audit. Five genuine patient questions, 2-column grid, open-state teal left border accent, FAQPage JSON-LD. This remains the strongest content section. Score held.
 
-**Issues:**
-- Minor: the FAQ section has no nav anchor in the header ("FAQ" links to #faq). It is present. No issue.
-- "How much does a visit cost?" answer is intentionally vague ("Contact us before your visit"). This is likely intentional for pricing flexibility, but from a patient trust perspective, even a range ("$60–$120 for a first visit") would reduce friction. Copy-level issue, noted.
+### 8. Contact + Booking — 7.4 / 10
+The booking flow simplification is confirmed. The card now presents: title, subtitle ("Call us to schedule"), a large full-width green call button, hours, then a disclosure toggle ("Pick a preferred day (optional)") that reveals the calendar. The call CTA is immediately visible without any prerequisite interaction. This is the correct hierarchy — phone call first, calendar as supplementary. Compared to the previous three-step flow, this is a genuine improvement.
 
-### 8. Contact + Booking — 7.0 / 10
-The two-column layout (info left, booking right) is well structured. The map embed is a strong conversion signal — seeing a real street map builds credibility more than an address alone. The "Your First Visit — What to Expect" prep box is an excellent trust element. The booking card with the visual calendar is visually polished.
-
-**Issues:**
-- The booking calendar does not actually book anything. Selecting a date enables a button that says "Call to Confirm [date]" which then shows a "Call (610) 555-0100 to Book" button. This is a three-step flow to arrive back at a phone call. A patient who has already pulled out their phone to look up a chiropractor expects to either call with one tap or book online in two steps. This funnel is over-engineered for what it delivers. Consider removing the calendar entirely in favour of a bold call CTA + a simple contact form (name, phone, preferred day/time as a dropdown).
-- The map iframe uses coordinates that likely don't pin to the real address (placeholder lat/long). A patient who taps "Get Directions" may be sent somewhere incorrect.
-- Placeholder phone (610) 555-0100 is noted. Limited weight per rules — a real user wouldn't know it's fake.
+**Remaining issues:**
+- The calendar, when expanded, still terminates in a phone call. Selecting a date updates the call button text to "Call (610) 555-0100 — April [date]". This is good — the date context helps the staff. The flow is now: see call button → optionally pick date → call with date in hand. Acceptable.
+- No contact form. A subset of patients prefer not to call (anxiety, working hours). A simple name + phone/email form with preferred-time dropdown would capture leads that the call CTA loses. This is the single highest-value addition remaining.
+- Map iframe uses generic placeholder coordinates. "Get Directions" link may not route correctly for a real patient.
 
 ### 9. Footer — 7.8 / 10
-Dark footer with gradient top border (teal → teal-light → teal) is polished. Logo, links, and contact info are well grouped. Google Reviews link in footer is a good addition. Mobile footer stacks and centers correctly.
+No changes from previous audit. Dark footer with gradient top border. Score held.
 
-**Issues:**
-- Footer padding-bottom: 80px on mobile to clear the sticky CTA bar is correct. No issue.
-- "Stellar care. Real results." tagline is fine but generic.
+### 10. Mobile Experience — 7.8 / 10
+Meaningful improvement. Hero image strip renders on mobile and tablet. Tap targets confirmed at 44px minimum. Text floors at 12px confirmed. Center-alignment consistency confirmed across all sections. Sticky CTA bar functions correctly and hides when contact section is in view. Reduced-motion preference is thoroughly respected.
 
-### 10. Mobile Experience — 7.4 / 10
-Good: sticky CTA bar is well implemented. Tap targets at 44px minimum. Font sizes meet 12px floor on mobile. Center alignment is consistent across sections. Mobile menu operates correctly with overlay and escape-key close. Reduced-motion preference is respected.
+**Remaining issues:**
+- About photo offset frame may cause minor overflow on narrow viewports as noted above.
+- Process strip connector pseudo-elements are fragile at intermediate breakpoints.
+- No scroll affordance below the trust bar on mobile.
 
-**Issues:**
-- No hero image on mobile is the dominant issue (see Hero section).
-- Process strip at 480px breaks into 2x2 grid — this is functional but the connector lines (pseudo-elements) are fragile and may not align correctly at intermediate widths between 375px and 480px.
-- About photo offset frame (::before pseudo-element) may cause horizontal overflow on very small viewports. The transform: translate(10px, 10px) shifts the border outside the parent boundary.
+### 11. Code Quality + Performance — 7.6 / 10
+CSS is well-organised. Design tokens used consistently. noscript fallbacks cover all collapsed sections. JS is vanilla and lightweight. The CSS is now approximately 2240 lines — it has grown with each refiner pass. The comment at line 2239 ("cal-book-btn and cal-confirm removed — booking card redesigned") confirms dead code was cleaned up. The `.form__prefer-call` block (lines 1431–1438) references a class that no longer appears in the HTML — minor dead code. The `about__photo-placeholder::before` and `.about__photo-silhouette` and `.about__photo-name` and `.about__photo-title` blocks style elements that are no longer rendered (the `has-photo` state hides the silhouette via `::before { display: none }`). These are dead code blocks that could be removed by Razor.
 
-### 11. Code Quality + Performance — 7.5 / 10
-CSS is well-organised with clear section comments. Design tokens (CSS variables) are used consistently. The CSS file is ~2000 lines but there is minimal dead code visible — the about__why-list styles appear to be legacy from a previous layout that no longer renders on the page (no about__why-list in the current HTML). JS is vanilla, no dependencies, appropriately lightweight. noscript fallback shows all collapsed content. Reduced-motion support is thorough.
+### 12. Trust + Conversion Signals — 7.4 / 10
+Improved. Immediate call CTA in booking card removes friction. Tap-to-call in nav. Sticky mobile CTA bar. "No commitment. No surprise bills." in hero. Prep box in contact. FAQ addressing real anxieties. Structured data for Google rich results.
 
-**Issues:**
-- `.about__why-list` CSS block (lines 1142–1171 in style.css) appears to be dead code — no corresponding HTML element found in current index.html. Razor pass recommended.
-- The CSS file has duplicate transition-delay rules for `.testimonials__grid` which don't apply (testimonials uses a carousel, not a grid). Minor.
-- `@keyframes faqReveal` is defined but the `.faq-item__a` animation can be overridden to `none` in the reduced-motion block. Correct pattern — no issue.
-
-### 12. Trust + Conversion Signals — 7.2 / 10
-Strong: specific service CTAs, "No commitment required. No surprise bills." in hero, prep box, FAQ addressing real anxieties, structured data for Google rich results. The overall tone is honest and non-pushy, which is appropriate for healthcare.
-
-**Gaps:**
-- No real online booking.
-- No insurance information (even "we can help with" language).
-- No before/after story or specific patient outcome data beyond testimonials.
-- "Verified Patient" badge has no external validator.
+**Remaining gaps:**
+- No online booking. The call CTA is appropriate for many healthcare contexts but excludes patients who prefer digital scheduling.
+- No contact form as fallback.
+- No insurance information.
+- "Verified Patient" badge lacks external credibility.
 
 ---
 
@@ -115,39 +97,43 @@ Strong: specific service CTAs, "No commitment required. No surprise bills." in h
 - Phone: (610) 555-0100 — fake
 - Email: hello@stellarchiropractic.com — likely fake
 - Doctor last name absent
-- Stock photos (Unsplash) in hero bg, hero image, and about section
+- Stock photos (Unsplash) throughout
 - Map iframe uses generic coordinates
 
 These are noted for the record. Per audit scoring rules, they are not a ceiling on the design score.
 
 ---
 
-## Priorities (Ranked)
+## Top 3 Priorities
 
-### Priority 1 — Restore a hero image on mobile
-The hero shows no image at 375px–768px, which is almost certainly the majority of traffic. A mobile patient sees only text and a gradient background. Add a full-width image below the hero content on mobile — below the trust bar — or restore the hero image in a stacked layout. This is the highest-impact single change available.
+### Priority 1 — Add a contact form as a booking fallback
+The call CTA is correctly positioned, but a meaningful percentage of patients will not call cold. A simple form (name, phone or email, preferred day/time dropdown, optional note) would capture the leads the phone number loses. This is the single highest-conversion addition remaining. It does not need to integrate with a real backend — a mailto action is sufficient at this stage.
 
-### Priority 2 — Open the first Why item by default + swap toggle symbol
-The three Why items start collapsed. The most important trust messages are invisible to scanners. Open the first item ("We Listen Before We Treat") by default, matching the service card pattern. Also change the expanded toggle from × (rotate 45° of +) to − for consistency with service cards and cleaner UX semantics.
+### Priority 2 — Expand the testimonial pool to at least 5 reviews
+Three reviews is thin for a practice claiming 500+ patients. Adding two or three additional reviews with specific conditions treated (sciatica, neck stiffness, posture issues) would address the spread of services and strengthen the credibility of the 4.9 aggregate rating. The carousel handles any number gracefully.
 
-### Priority 3 — Simplify the booking flow
-The current flow: pick date → click "Call to Confirm" → see confirm panel → click "Call (610)..." is three interactions to reach a phone number. Replace the calendar with a simple two-field form (name + phone/email) and a preferred-day dropdown. Or, if the calendar is retained, make the book button a direct tel: link on first tap — skip the confirm panel entirely.
+### Priority 3 — Restore the desktop hero background photo
+The hero background image (clinical interior, Unsplash) is nearly invisible behind the gradient overlay which hits 97% opacity at 0% and only drops to 20% at the far right edge. Either lighten the overlay (allow more photo to show through across the full width) or replace the background image with a more intentional accent. The current state wastes a loaded image resource for minimal visual return on desktop.
 
 ---
 
 ## What's Working Well
-- Accordion service cards — best feature addition in this round
+- Mobile hero image strip — confirmed fix, real improvement
+- First Why item open by default — confirmed fix, real improvement
+- Simplified booking flow — confirmed fix, call CTA immediately visible
+- Accordion service cards — best interactive feature on the site
+- "Tap any card" hint on mobile — correctly added
 - Offset photo frame on About — genuine design distinction
-- Hero typography (Lora heading + teal italic em) — strong
 - FAQ section — copy, structure, and structured data all excellent
-- Credentials toggle — tasteful de-clutter
-- Sticky mobile CTA bar — correct implementation
-- Animation restraint throughout — compliant with AGENT-RULES, feels healthcare-appropriate
+- Sticky mobile CTA bar — correct implementation, hides correctly at contact
+- Animation restraint throughout — healthcare-appropriate, compliant with rules
+- Tap targets at 44px minimum — confirmed in CSS
+- Text floors at 12px — confirmed in CSS
+- Reduced-motion support — thorough, covers all interactive elements
 - noscript fallbacks — good accessibility baseline
-- Reduced-motion support — thorough
 
 ---
 
 ## Score Justification
 
-7.6 sits between "generic but functional" (6.0) and "better than most competitors" (7.0) and approaching "patients would choose this over alternatives" (8.0). The site is clearly above average for a local chiropractic practice — the accordion, carousel, structured data, and overall typographic taste separate it from most competitors. It does not yet reach 8.0 because the mobile hero gap and the booking-to-phone-call friction are trust-killers that a real patient would notice and feel, even if they cannot articulate why.
+7.9 sits near the boundary of "better than most competitors" (7.0) and approaching "patients would choose this over alternatives" (8.0). All three priorities from the previous audit are verifiably addressed. The improvements are real, not cosmetic — a mobile user now sees a human face, the trust section shows content without requiring interaction, and the booking card leads with a direct call CTA. The site is now clearly in the top tier of local chiropractic websites from a design and UX standpoint. It does not yet reach 8.0 because a real patient wanting to book online has no option other than a phone call, and the testimonial pool is still sparse relative to the claimed patient volume. These are solvable in one more round.
