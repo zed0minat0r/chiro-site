@@ -253,6 +253,48 @@ if (stickyCta) {
   }
 }
 
+/* ─── WHY CHOOSE US: collapsible items ─── */
+(function() {
+  var items = document.querySelectorAll('.why-item');
+
+  function openItem(item) {
+    item.setAttribute('data-expanded', 'true');
+    var btn = item.querySelector('.why-item__btn');
+    var toggle = item.querySelector('.why-item__toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+    if (toggle) toggle.textContent = '−';
+  }
+
+  function closeItem(item) {
+    item.setAttribute('data-expanded', 'false');
+    var btn = item.querySelector('.why-item__btn');
+    var toggle = item.querySelector('.why-item__toggle');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (toggle) toggle.textContent = '+';
+  }
+
+  items.forEach(function(item) {
+    // Init closed state
+    item.setAttribute('data-expanded', 'false');
+
+    var btn = item.querySelector('.why-item__btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function() {
+      var isOpen = item.getAttribute('data-expanded') === 'true';
+      if (isOpen) {
+        closeItem(item);
+      } else {
+        // Close all others first
+        items.forEach(function(other) {
+          if (other !== item) closeItem(other);
+        });
+        openItem(item);
+      }
+    });
+  });
+})();
+
 /* ─── FAQ: smooth open/close micro-interaction ─── */
 document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('toggle', () => {

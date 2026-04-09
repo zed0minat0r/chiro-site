@@ -171,6 +171,12 @@
         max-height: none !important;
         opacity: 1 !important;
       }
+      /* Show why items when JS is off */
+      .why-item__body {
+        max-height: none !important;
+        opacity: 1 !important;
+        padding: 0 0 18px 36px !important;
+      }
     </style>
   </noscript>
 </head>
@@ -344,37 +350,86 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS — compact process strip -->
-  <div class="process-strip" id="how-it-works" aria-label="How it works">
+  <!-- WHY CHOOSE US + HOW IT WORKS — full green trust section -->
+  <section class="why-section" id="why-us" aria-label="Why patients choose us">
     <div class="container">
-      <p class="process-strip__heading">How It Works</p>
-      <div class="process-strip__row">
-        <div class="process-strip__step">
-          <span class="process-strip__num">1</span>
-          <span class="process-strip__label">Book</span>
-          <span class="process-strip__desc">Same-day slots available</span>
+      <p class="why-section__label">Why Patients Choose Us</p>
+
+      <div class="why-list" role="list">
+
+        <div class="why-item" role="listitem">
+          <button class="why-item__btn" aria-expanded="false" aria-controls="why-body-0">
+            <span class="why-item__check" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="why-item__title">We Listen Before We Treat</span>
+            <span class="why-item__toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="why-item__body" id="why-body-0" role="region">
+            <p>Full consultation, not a rushed exam. We explain what we find in plain language.</p>
+          </div>
         </div>
-        <div class="process-strip__arrow" aria-hidden="true">→</div>
-        <div class="process-strip__step">
-          <span class="process-strip__num">2</span>
-          <span class="process-strip__label">Consult</span>
-          <span class="process-strip__desc">Dr. Jason listens &amp; examines</span>
+
+        <div class="why-item" role="listitem">
+          <button class="why-item__btn" aria-expanded="false" aria-controls="why-body-1">
+            <span class="why-item__check" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="why-item__title">No Open-Ended Commitments</span>
+            <span class="why-item__toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="why-item__body" id="why-body-1" role="region">
+            <p>Real timeline after your first visit. Most patients improve in 3–6 visits.</p>
+          </div>
         </div>
-        <div class="process-strip__arrow" aria-hidden="true">→</div>
-        <div class="process-strip__step">
-          <span class="process-strip__num">3</span>
-          <span class="process-strip__label">Treat</span>
-          <span class="process-strip__desc">Plan built around your life</span>
+
+        <div class="why-item" role="listitem">
+          <button class="why-item__btn" aria-expanded="false" aria-controls="why-body-2">
+            <span class="why-item__check" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="why-item__title">Same-Day Appointments</span>
+            <span class="why-item__toggle" aria-hidden="true">+</span>
+          </button>
+          <div class="why-item__body" id="why-body-2" role="region">
+            <p>Pain doesn't wait. Call in the morning and we'll fit you in.</p>
+          </div>
         </div>
-        <div class="process-strip__arrow" aria-hidden="true">→</div>
-        <div class="process-strip__step">
-          <span class="process-strip__num process-strip__num--last">4</span>
-          <span class="process-strip__label">Recover</span>
-          <span class="process-strip__desc">Most feel better in 3–6 visits</span>
+
+      </div>
+
+      <!-- HOW IT WORKS — inside same green section -->
+      <div id="how-it-works" class="process-strip__inner">
+        <p class="process-strip__heading">How It Works</p>
+        <div class="process-strip__row">
+          <div class="process-strip__step">
+            <span class="process-strip__num">1</span>
+            <span class="process-strip__label">Book</span>
+            <span class="process-strip__desc">Same-day slots available</span>
+          </div>
+          <div class="process-strip__arrow" aria-hidden="true">→</div>
+          <div class="process-strip__step">
+            <span class="process-strip__num">2</span>
+            <span class="process-strip__label">Consult</span>
+            <span class="process-strip__desc">Dr. Jason listens &amp; examines</span>
+          </div>
+          <div class="process-strip__arrow" aria-hidden="true">→</div>
+          <div class="process-strip__step">
+            <span class="process-strip__num">3</span>
+            <span class="process-strip__label">Treat</span>
+            <span class="process-strip__desc">Plan built around your life</span>
+          </div>
+          <div class="process-strip__arrow" aria-hidden="true">→</div>
+          <div class="process-strip__step">
+            <span class="process-strip__num process-strip__num--last">4</span>
+            <span class="process-strip__label">Recover</span>
+            <span class="process-strip__desc">Most feel better in 3–6 visits</span>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
+  </section>
 
   <!-- ABOUT -->
   <section class="section about" id="about">
@@ -412,20 +467,6 @@
             </li>
           </ul>
         </div>
-        <ul class="about__why-list">
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>We Listen Before We Treat</strong> — full consult, plain-language findings</div>
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>No Open-Ended Commitments</strong> — honest timeline after visit one</div>
-          </li>
-          <li>
-            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Same-Day Appointments</strong> — call in the morning, get seen</div>
-          </li>
-        </ul>
         <a href="#contact" class="btn btn--primary">Book a Consultation</a>
       </div>
     </div>
