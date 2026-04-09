@@ -596,11 +596,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero__heading em {
   font-style: italic;
   color: var(--teal);
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: rgba(45,125,98,0.38);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
 }
 
 .hero__sub {
@@ -707,7 +702,18 @@ section[id] {
 /* ─── PROCESS STRIP (How It Works) ─── */
 .process-strip {
   background: var(--teal);
-  padding: 20px 0;
+  padding: 48px 0;
+}
+.process-strip__heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  opacity: 0.9;
 }
 .process-strip__row {
   display: flex;
