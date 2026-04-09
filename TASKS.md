@@ -17,3 +17,13 @@
 ## Wave 2 (Refiner + Nigel) — after Wave 1 completes
 - [ ] Refiner: QA all Wave 1 changes, fix any mobile center-alignment issues, polish
 - [ ] Nigel: Full re-audit, update AUDIT.md with new score
+
+## Wave 3 (Builder)
+- [x] Rewrite testimonials to sound authentic — removed "condition patient" labels, added casual voice
+- [x] Add Google Reviews link to footer
+- [x] Redesign calendar section into booking card with header/footer
+- [x] Fix service card CTAs to specific copy
+- [x] Add role="img" to star ratings
+- [ ] Replace stock photos with real ones (needs client photos)
+- [ ] Replace placeholder phone (555) with real number (needs client)
+- [ ] Replace placeholder email with real one (needs client)
